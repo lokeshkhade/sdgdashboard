@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-upload" aria-hidden="true"></i> Template
+            Upload -
+            {{this.deptname}}
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-2">
+            <div class="card mb-2">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-upload" aria-hidden="true"></i> Upload Data File Template
+                </div>
+                <form [formGroup]="districttemplateupload" (ngSubmit)="save()">
+                    <div class="card-body">
+                        <div class="row">
+                            <mat-label class="col-md-12 col-sm-12 col-lg-12"
+                                style="padding-top: 15px; color: blue; font-size: 18px;">District
+                                : {{this.districtname}}
+                            </mat-label>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-12 col-sm-12 col-lg-12"
+                                style="padding-top: 15px; color: blue; font-size: 18px;">
+                                Select files from your computer/Network (Allowed File Type : CSV, XLSX, XLS)
+                            </mat-label>                           
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12"> 
+                                <input id="filepath" type="file" #inputFile1 class="form-control" (change)="onFileChange($event)">
+                                <div *ngIf="f['filepath'].touched && f['filepath'].invalid" class="alert alert-danger">
+                                    <div *ngIf="f['filepath'].errors && f['filepath'].errors['required']">
+                                       Please Upload Template.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-12"> 
+                                    <button type="submit" mat-raised-button color="primary">Upload</button> &nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="card">
+                            <div class="row">
+                                <mat-label class="col-md-12 col-sm-12 col-lg-12"
+                                    style="padding-top: 15px; color: rgb(84, 3, 3); font-size: 18px;">
+                                    Note: &nbsp; &nbsp; &nbsp; <p>Before uploading file, please make sure the same data point value for the same period is already
+                                        present or not.
+                                        The application will override the existing data with the new data. </p>
+                                </mat-label>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>

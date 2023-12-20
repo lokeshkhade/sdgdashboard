@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Add User
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <form [formGroup]="adduser">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>  Create New User
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                                <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Select Role <span class="required-field"></span> :
+                                </mat-label>
+                                <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                    <mat-label>Select Role<span class="required"></span>
+                                    </mat-label>
+                                    <mat-select formControlName="roleid">
+                                        <mat-option *ngFor="let r of roles" [value]="r.roleid">
+                                            {{r.name}} </mat-option>
+                                    </mat-select>
+                                </mat-form-field>                          
+                        </div>
+                        <div class="row">     
+                                <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">First Name <span
+                                        class="required-field"></span> :
+                                </mat-label>
+                                <mat-form-field class="col-md-10 col-sm-10 col-lg-10"  appearance="outline">
+                                    <mat-label> First Name <span class="required"></span> </mat-label>
+                                    <input autocomplete="off" maxlength="100" matInput formControlName="firstname" #firstname>
+                                    <mat-hint align="end">{{firstname.value.length}} / 100</mat-hint>
+                                    <mat-error *ngIf="isValidInput('firstname')">
+                                        <mat-error *ngIf="schemeForm.controls['firstname'].errors.required">
+                                            First Name is <strong>required</strong>.
+                                        </mat-error>
+                                    </mat-error>
+                                </mat-form-field> 
+                        </div>
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Last Name 
+                                :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Last Name</mat-label>
+                                <input autocomplete="off" maxlength="100" matInput formControlName="lastname" #lastname>
+                                <mat-hint align="end">{{lastname.value.length}} / 100</mat-hint>
+                                <mat-error *ngIf="isValidInput('lastname')">
+                                    <mat-error *ngIf="schemeForm.controls['lastname'].errors.required">
+                                        Last Name is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Password <span class="required-field"></span>
+                                :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Password <span class="required"></span> </mat-label>
+                                <input autocomplete="off" maxlength="100" matInput formControlName="password" #password type="password">
+                                <mat-hint align="end">{{password.value.length}} / 100</mat-hint>
+                                <mat-error *ngIf="isValidInput('password')">
+                                    <mat-error *ngIf="schemeForm.controls['password'].errors.required">
+                                        Password is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Confirm Password <span class="required-field"></span>
+                                :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Confirm Password <span class="required"></span> </mat-label>
+                                <input autocomplete="off" maxlength="100" matInput formControlName="password" #password type="password">
+                                <mat-hint align="end">{{password.value.length}} / 100</mat-hint>
+                                <mat-error *ngIf="isValidInput('password')">
+                                    <mat-error *ngIf="schemeForm.controls['password'].errors.required">
+                                        Password is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Email-ID <span class="required-field"></span>
+                                :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Email-Id <span class="required"></span> </mat-label>
+                                <input autocomplete="off" maxlength="100" matInput formControlName="emailid" #emailid>
+                                <mat-hint align="end">{{emailid.value.length}} / 100</mat-hint>
+                                <mat-error *ngIf="isValidInput('emailid')">
+                                    <mat-error *ngIf="schemeForm.controls['emailid'].errors.required">
+                                        Emailid is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Mobile No. <span class="required-field"></span>
+                                :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Mobile No. <span class="required"></span> </mat-label>
+                                <input autocomplete="off" maxlength="10" matInput formControlName="mobilenumber" #mobilenumber>
+                                <mat-hint align="end">{{mobilenumber.value.length}} / 10</mat-hint>
+                                <mat-error *ngIf="isValidInput('mobilenumber')">
+                                    <mat-error *ngIf="schemeForm.controls['mobilenumber'].errors.required">
+                                        Mobile number is <strong>required</strong>.
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <button type="button" class="btn btn-success">Add User</button> &nbsp;
+                                    <button type="button" class="btn btn-warning">Reset</button>
+                            </div>
+
+                        </div>
+                    </div>                    
+                </div>
+            </form>            
+        </div>
+    </main>
+</div>

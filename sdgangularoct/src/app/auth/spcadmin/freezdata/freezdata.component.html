@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+           Freez/Unfreez Data
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <form [formGroup]="freezunfreezform">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Freez Unfreez Time Line
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Select Department <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Select Department<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="dept_id">
+                                    <mat-option [value]="0">
+                                        --Select-All-- </mat-option>
+                                    <mat-option *ngFor="let d of departments" [value]="d.dept_id">
+                                        {{d.department_name}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Select District <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Select District<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="district_code">
+                                    <mat-option [value]="0">
+                                        --Select-All-- </mat-option>
+                                    <mat-option *ngFor="let s of districts" [value]="s.district_code">
+                                        {{s.district_name}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                       
+
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Select Year <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
+                                <mat-label>Select Year<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="valueyear">
+                                    <mat-option *ngFor="let y of years" [value]="y.valueyear">
+                                        {{y.valueyear}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-3 col-sm-3 col-lg-3" style="padding-top: 15px;">Choose a Freez From Date <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-3 col-sm-3 col-lg-3" appearance="outline">
+                                    <mat-label>Choose a Freez From Date</mat-label>
+                                    <input matInput [max]="today" [matDatepicker]="picker" formControlName="freezefrom">
+                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">                        
+                            <mat-label class="col-md-3 col-sm-3 col-lg-3" style="padding-top: 15px;">Choose a Freez Upto Date <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                        
+                            <mat-form-field class="col-md-3 col-sm-3 col-lg-3" appearance="outline">
+                                <mat-label>Choose a Freez Upto Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" [min]="this.freezunfreezform.get('freezefrom').value"
+                                    formControlName="freezeto">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <button type="button" class="btn btn-success">Unfreez Timeline</button> &nbsp;
+                                <button type="button" (click)="reset()" class="btn btn-warning">Reset</button>
+                            </div>
+
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,203 @@
+<div id="main-wrapper">
+    <app-cgheader></app-cgheader>
+    <section class="spacer bg-light">
+        <div class="content-wrapper">
+            <section class="spacer bg-light">
+                <div class="container">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="card p-2 mr-0">
+                                <div class="card-body p-2">
+                                    <ul class="list-unstyled listing">
+                                        <li>
+                                            <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">HOME</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']"
+                                                class="btn btn-custom btn-outline-info btn-md" target="_blank">SIF
+                                                Baseline and
+                                                Progress Report</a>&nbsp;
+                                            <a href="#" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">SDG GIS Based
+                                                Maps</a>&nbsp;
+                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
+                                                Aayog SDG
+                                                India Index 3.0</a>&nbsp;
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">DIF
+                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
+                                                target="_blank">ADMIN LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form [formGroup]="districtgoalcompare">
+                        <div class="row py-1">
+                            <div class="col-md-12">
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-4">
+                                        <h3 class="text-primary text-center"><span
+                                                style="color:primary">{{this.selecteddistrictname}}</span> --
+                                            Indicators Analysis for <span style="color:primary"> {{this.selectedgoal}}
+                                            </span> </h3>
+                                        <hr>
+                                        <div class="row">
+                                            <!-- <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-label>Select Year<span class="required"></span>
+                                                    </mat-label>
+                                                    <mat-select formControlName="valueyear"
+                                                        (selectionChange)="onYearSelected($event)">
+                                                        <mat-option *ngFor="let f of year" [value]="f.valueyear">
+                                                            {{f.valueyear}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div> -->
+                                            <div class="col-md-12">
+                                                <mat-form-field>
+                                                    <mat-label>Select Indicator<span class="required"></span> </mat-label>
+                                                    <mat-select formControlName="indicators" (selectionChange)="onIndicatorSelected($event)">
+                                                        <mat-option *ngFor="let i of indicators" [value]="i.indicator_master_id">
+                                                            {{i.district_indicator_desc}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">                                           
+                                            <div class="col-md-6">
+                                                <h3 class="text-primary text-center"> {{this.indicatormetadata[0]?.district_indicator_desc}} <br> <span
+                                                        style="color: #056213;">Unit : {{this.indicatormetadata[0]?.uom}} </span></h3>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div id="chart">
+                                                                <apx-chart #chart1 [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                                                                    [stroke]="chartOptions.stroke" [colors]="chartOptions.colors" [dataLabels]="chartOptions.dataLabels"
+                                                                    [legend]="chartOptions.legend" [markers]="chartOptions.markers" [grid]="chartOptions.grid"
+                                                                    [yaxis]="chartOptions.yaxis" [title]="chartOptions.title"></apx-chart>
+                                                        </div>                                                      
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div id="chart">
+                                                            <apx-chart #chart2 [series]="chartOptions2.series" [chart]="chartOptions2.chart" [dataLabels]="chartOptions2.dataLabels"
+                                                                [plotOptions]="chartOptions2.plotOptions" [yaxis]="chartOptions2.yaxis" [legend]="chartOptions2.legend"
+                                                                [fill]="chartOptions2.fill" [stroke]="chartOptions2.stroke" [tooltip]="chartOptions2.tooltip"
+                                                                [xaxis]="chartOptions2.xaxis"></apx-chart>
+                                                        </div>
+                                                        <br>
+                                                        (CG:Chhattisgarh)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <table class="table-responsive">
+                                                    <tr>
+                                                        <th>
+                                                            Content
+                                                        </th>
+                                                        <th>
+                                                            Description
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Goal
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.sdg_goal_master_id}} - {{this.indicatormetadata[0]?.goal_name}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Target
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.dif_target_desc}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Description of Indicator
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.district_indicator_desc}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Computation of Indicator
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.computation_description_of_indicator}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Unit of Measurement
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.uom}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Data Source
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.progress_year_data_source}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Data Provider
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.data_provider_at_district}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Periodicity
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.periodicity}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Data Source Link
+                                                        </th>
+                                                        <td>
+                                                            {{this.indicatormetadata[0]?.data_link}}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            Indicator Type
+                                                        </th>
+                                                        <ng-container *ngIf="this.indicatormetadata[0]?.kpi_negation == 1">
+                                                            <td> Negative </td>
+                                                        </ng-container>
+                                                
+                                                        <ng-container *ngIf="this.indicatormetadata[0]?.kpi_negation != 1">
+                                                            <td> Positive </td>
+                                                        </ng-container>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+    <app-mainfooter></app-mainfooter>
+</div>

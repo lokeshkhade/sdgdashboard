@@ -1,0 +1,20 @@
+@import 'variable';
+@import 'spinner';
+@import 'app';
+@import 'header';
+@import 'pages';
+@import 'sidebar';
+@import 'responsive';
+@import "../styles/icons/material-design-iconic-font/css/materialdesignicons.min.css";
+.required:after {
+    color: red;
+    content: "*";
+}
+
+.error {
+    background: #fc4b6c;
+}
+
+.success {
+    background: #26c6da;
+}

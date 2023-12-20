@@ -1,0 +1,302 @@
+<div id="main-wrapper">
+    <app-cgheader></app-cgheader>
+    <section class="spacer bg-light">
+        <div class="content-wrapper">
+            <section class="spacer bg-light">
+                <div class="container">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="card p-2 mr-0">
+                                <div class="card-body p-2">
+                                    <ul class="list-unstyled listing">
+                                        <li>
+                                            <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md"
+                                                 style="color: #010b78;">HOME</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']"
+                                                class="btn btn-custom btn-outline-info btn-md"  style="color: #010b78;">SIF
+                                                Baseline and
+                                                Progress Report</a>&nbsp;
+                                            <a href="#" class="btn btn-custom btn-outline-info btn-md"  style="color: #010b78;"
+                                                target="_blank">SDG GIS Based
+                                                Maps</a>&nbsp;
+                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                class="btn btn-custom btn-outline-info btn-md"  style="color: #010b78;" target="_blank">NITI
+                                                Aayog SDG
+                                                India Index 3.0</a>&nbsp;
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md"  style="color: #010b78;"
+                                                >DIF
+                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"  style="color: #010b78;"
+                                                >ADMIN LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form [formGroup]="districtcompare">
+                        <div class="card p-1 mr-1">
+                            <div class="card-body p-4">
+                                <div class="row py-1">
+                                    <div class="col-md-12">
+                                        <h3 class="text-success font-weight-bold"> District Wise Analysis</h3>
+                                    </div>
+                                </div>
+                                <div class="row py-1">
+                                    <div class="col-md-3">
+                                        <mat-form-field>
+                                            <mat-label>Select Year<span class="required"></span> </mat-label>
+                                            <mat-select formControlName="valueyear" (selectionChange)="onYearSelected($event)">
+                                                <mat-option *ngFor="let f of year" [value]="f.valueyear">
+                                                    {{f.valueyear}} </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field>
+                                            <mat-label>District <span class="required"></span> </mat-label>
+                                            <mat-select formControlName="district_name" (selectionChange)="onDistrictSelected($event)">
+                                                <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                    {{d.district_name}} </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">  
+                                        <div class='my-legend'>
+                                            <div class='legend-title'>Legend</div>
+                                            <div class='legend-scale'>
+                                                <ul class='legend-labels'>
+                                                    <li><span style='background:#dd1e47; print-color-adjust: exact;'></span>
+                                                        Aspirant(0-49) &nbsp;&nbsp;
+                                                    </li>
+                                                </ul>
+                                                <ul class='legend-labels'>
+                                                    <li>
+                                                        <span style='background:#ffc40c; print-color-adjust: exact;'></span>
+                                                        Performer(50-64) &nbsp;&nbsp;
+                                                    </li>
+                                                </ul>
+                                                <ul class='legend-labels'>
+                                                    <li>
+                                                        <span style='background:#00a084; print-color-adjust: exact;'></span>
+                                                        Front Runner(65-99) &nbsp;&nbsp;
+                                                    </li>
+                                                </ul>
+                                                <ul class='legend-labels'>
+                                                    <li>
+                                                        <span style='background:#00aeef; print-color-adjust: exact;'></span>
+                                                        Achiever(100)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="chart">
+                                            <apx-chart  #chart1 [series]="chartOptions.series" [chart]="chartOptions.chart" [dataLabels]="chartOptions.dataLabels"
+                                                [plotOptions]="chartOptions.plotOptions" [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis"
+                                                [legend]="chartOptions.legend" [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>                                           
+
+                                            <div class="row">
+                                                <!-- <div class="col-md-1">
+                                                    <span style="color: black;">Score</span><br>
+                                                    <span style="color: black;">{{this.selectedyear}}</span>
+                                                </div> -->
+                                                <div class="col-md-12">
+                                                    <table class="table-responsive" style="padding-left:-10px;">
+                                                        <tr>
+                                                            <td>
+                                                                <span style="color: black;">Score</span><br>
+                                                                <span style="color: black;">{{this.selectedyear}}</span>
+                                                            </td>
+                                                            <ng-container *ngFor="let c of goalvalues;let i=index;">
+                                                                <ng-container *ngIf="c.GOALSCORE >= 0 && c.GOALSCORE &lt;= 49; then t1"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE >= 50 && c.GOALSCORE &lt;= 64; then t2"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE >= 65 && c.GOALSCORE &lt;= 99; then t3"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE == 100; then t4"></ng-container>
+                                                                <ng-template #t1>
+                                                                    <td [ngStyle]="{'background-color': '#dd1e47', 'color':'#ffffff'}">
+                                                                        <ng-container *ngIf="c.GOALSCORE > this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/improve.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE &lt; this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/dropped.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE == this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/no-change.svg" style="height:21px;"> <br>
+                                                                        </ng-container> <br>
+                                                                        <a href="#" (click)="setdata(c.goal_id)" class="targetlink" data-toggle="modal" data-target="#currentyear" >{{c.GOALSCORE}}</a> 
+                                                                    </td>
+                                                                </ng-template>
+                                                                <ng-template #t2>
+                                                                    <td [ngStyle]="{'background-color': '#ffc40c', 'color':'#ffffff'}">
+                                                                        <ng-container *ngIf="c.GOALSCORE > this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/improve.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE &lt; this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/dropped.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE == this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/no-change.svg" style="height:21px;"> <br>
+                                                                        </ng-container> <br>
+                                                                        <a href="#" class="targetlink" data-toggle="modal" data-target="#currentyear" (click)="setdata(c.goal_id)">{{c.GOALSCORE}}</a>
+                                                                    </td>
+                                                                </ng-template>
+                                                                <ng-template #t3>
+                                                                    <td [ngStyle]="{'background-color': '#00a084', 'color':'#ffffff'}">
+                                                                        <ng-container *ngIf="c.GOALSCORE > this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/improve.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE &lt; this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/dropped.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE == this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/no-change.svg" style="height:21px;"> <br>
+                                                                        </ng-container> <br>
+                                                                        <a href="#" class="targetlink" data-toggle="modal" data-target="#currentyear" (click)="setdata(c.goal_id)">{{c.GOALSCORE}}</a>
+                                                                    </td>
+                                                                </ng-template>
+                                                                <ng-template #t4>
+                                                                    <td [ngStyle]="{'background-color': '#00aeef', 'color':'#ffffff'}">
+                                                                        <ng-container *ngIf="c.GOALSCORE > this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/improve.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE &lt; this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/dropped.svg" style="height:21px;"> <br>
+                                                                        </ng-container>
+                                                                        <ng-container *ngIf="c.GOALSCORE == this.goalvaluesbaseyear[i]?.GOALSCORE">
+                                                                            <img src="assets/images/no-change.svg" style="height:21px;"> <br>
+                                                                        </ng-container> <br>
+                                                                        <a href="#" class="targetlink" data-toggle="modal" data-target="#currentyear" (click)="setdata(c.goal_id)">{{c.GOALSCORE}}</a>
+                                                                    </td>
+                                                                </ng-template>
+                                            
+                                                            </ng-container>
+                                                        </tr>                                                       
+                                                        <tr>
+                                                            <td>
+                                                                <span style="color: black;">Score</span><br>
+                                                                <span style="color: black;">{{this.previousyear}}</span>
+                                                            </td>
+                                                            <ng-container *ngFor="let c of goalvaluesbaseyear;">
+                                                                <ng-container *ngIf="c.GOALSCORE >= 0 && c.GOALSCORE &lt;= 49; then t1"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE >= 50 && c.GOALSCORE &lt;= 64; then t2"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE >= 65 && c.GOALSCORE &lt;= 99; then t3"></ng-container>
+                                                                <ng-container *ngIf="c.GOALSCORE == 100; then t4"></ng-container>
+                                                                <ng-template #t1>
+                                                                    <td [ngStyle]="{'background-color': '#dd1e47', 'color':'#ffffff'}">
+                                                                        <a href="#" (click)="setdatapreviousyear(c.goal_id)" class="targetlink" data-toggle="modal" data-target="#previousyear">{{c.GOALSCORE}}</a> 
+                                                                    </td>
+                                                                </ng-template>
+                                                                <ng-template #t2>
+                                                                    <td [ngStyle]="{'background-color': '#ffc40c', 'color':'#ffffff', 'padding':'23px'}">
+                                                                        <a href="#" (click)="setdatapreviousyear(c.goal_id)" class="targetlink" data-toggle="modal" data-target="#previousyear">{{c.GOALSCORE}}</a>  </td>
+                                                                </ng-template>
+                                                                <ng-template #t3>
+                                                                    <td [ngStyle]="{'background-color': '#00a084', 'color':'#ffffff'}">
+                                                                        <a href="#" (click)="setdatapreviousyear(c.goal_id)" class="targetlink" data-toggle="modal" data-target="#previousyear">{{c.GOALSCORE}}</a>  </td>
+                                                                </ng-template>
+                                                                <ng-template #t4>
+                                                                    <td [ngStyle]="{'background-color': '#00aeef', 'color':'#ffffff'}">
+                                                                        <a href="#" (click)="setdatapreviousyear(c.goal_id)" class="targetlink" data-toggle="modal" data-target="#previousyear">{{c.GOALSCORE}}</a>  </td>
+                                                                </ng-template>
+                                                            </ng-container>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>                                      
+                                    </div>
+                                </div>                                
+                            </div>                           
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+    <app-mainfooter></app-mainfooter>
+</div>
+
+<div class="modal fade" id="currentyear" tabindex="-1" role="dialog" aria-labelledby="currentyear" aria-hidden="true">
+    <div class="modal-dialog text-center" role="document" style="max-width: 60%;">
+        <div class="modal-content text-center" >
+            <div class="modal-header" style="background-color:#7e8ee8 ; color: aliceblue;">
+                <h3 class="modal-title1" id="goalinfomodal1">{{this.selectedyear}}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <th class="th1">#</th>
+                            <th class="th1">DIF Indicator</th>
+                            <th class="th1">Target 2030</th>
+                            <th class="th1">State Average Value</th>
+                            <th class="th1">Indicator Value</th>
+                            <th class="th1">Normalized Score</th>
+                        </tr>
+                        <tr *ngFor="let d of datacurrentyear ;let i=index;">
+                            <td class="td1">{{i+1}}</td>
+                            <td class="td1"> {{d.district_indicator_desc}}</td>
+                            <td class="td1"> {{d.kpi_target2030}}</td>
+                            <td class="td1"> {{d.cg_average_value}}</td>
+                            <td class="td1"> {{d.indicators_value}}</td>
+                            <td class="td1"> {{d.normalize_value}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="previousyear" tabindex="-1" role="dialog" aria-labelledby="previousyear" aria-hidden="true">
+    <div class="modal-dialog text-center" role="document" style="max-width: 60%;">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="background-color:#7e8ee8 ; color: aliceblue;">
+                <h3 class="modal-title1" id="goalinfomodal1">{{this.previousyear}}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <th class="th1">#</th>
+                            <th class="th1">DIF Indicator</th>
+                            <th class="th1">Target 2030</th>
+                            <th class="th1">State Average Value</th>
+                            <th class="th1">Indicator Value</th>
+                            <th class="th1">Normalized Score</th>
+                        </tr>
+                        <tr *ngFor="let d of datapreviousyear ;let i=index;">
+                            <td class="td1">{{i+1}}</td>
+                            <td class="td1"> {{d.district_indicator_desc}}</td>
+                            <td class="td1"> {{d.kpi_target2030}}</td>
+                            <td class="td1"> {{d.cg_average_value}}</td>
+                            <td class="td1"> {{d.indicators_value}}</td>
+                            <td class="td1"> {{d.normalize_value}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

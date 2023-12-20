@@ -1,0 +1,17 @@
+.goalsimage {
+    height: 4.3rem;
+    width: 4.3rem;
+    overflow: hidden;
+}
+
+.inner-img {
+    transition: 0.3s;
+}
+
+.inner-img:hover {
+    transform: scale(1.1);
+}
+
+.goalslink {
+    float: left;
+}

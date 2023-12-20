@@ -1,0 +1,338 @@
+<div id="main-wrapper">
+    <app-sifbaselineheader></app-sifbaselineheader>
+    <form [formGroup]="sifbaseline">
+        <section class="spacer bg-light">
+            <div class="content-wrapper">
+                <section class="spacer bg-light">
+                <div class="container">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="card p-2 mr-0">
+                                <div class="card-body p-2">
+                                    <ul class="list-unstyled listing">
+                                        <li>
+                                            <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md">Home</a>&nbsp;
+                                            <a [routerLink]="['/cghome']" class="btn btn-custom btn-outline-info btn-md"
+                                                >Chhattisgarh SDG
+                                                District Index</a>&nbsp;                                        
+                                            <a [routerLink]="['/sdggismap']" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">SDG GIS Based
+                                                Maps</a>&nbsp;
+                                            <a href="https://sdgindiaindex.niti.gov.in/#/" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">NITI
+                                                Aayog SDG
+                                                India Index 3.0</a>&nbsp;
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md" target="_blank">DIF
+                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md" target="_blank">ADMIN
+                                                LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-md-4">
+                            <div class="card p-2 mr-1">
+                                <div class="card-body p-4">
+                                    <div class="row py-1">
+                                        <div class="col-md-4">
+                                            <div class="text-center">
+                                                <img [src]=goaldata[0]?.goal_img
+                                                    class="img img-responsive center-block zoom goalsimage inner-img">
+                                                <h3 class="text-dark font-weight-bold">{{goaldata[0]?.goal_id}} -
+                                                    {{goaldata[0]?.goal_name}}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="text-center">
+                                                <ul>
+                                                    <li>
+                                                        <h4 class="text-primary line-h9 font-12 text-justify font-weight-normal">
+                                                            TOTAL TARGET : {{goaldata[0]?.goal_targets}} </h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4 class="text-primary line-h9 font-12 text-justify font-weight-normal">
+                                                            TOTAL INDICATOR : {{goaldata[0]?.goal_indicators}} </h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4 class="text-primary line-h9 font-12 text-justify font-weight-normal">
+                                                            OUTCOME : {{goaldata[0]?.goal_outcome_indicator}}</h4>
+                                                    </li>                                               
+                                                </ul>
+                                            </div>
+                                            <div class="text-center">
+                                                <ul>
+                                            
+                                                    <li>
+                                                        <h4 class="text-primary mt-1 line-h11 font-12 text-justify font-weight-normal">
+                                                            OUTPUT : {{goaldata[0]?.goal_output_indicator}}</h4>
+                                                    </li>
+                                                    <li>
+                                                        <h4 class="text-primary mt-1 line-h11 font-12 text-justify font-weight-normal">
+                                                            PROCESS : {{goaldata[0]?.goal_process_indicator}}</h4>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                    <div class="row py-1">                                   
+                                        <div class="col-md-12">
+                                            <p class="text-dark mt-1 line-h11 font-12 text-justify font-weight-normal"
+                                                [innerHtml]=goaldata[0]?.goal_info></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-md-8">
+                            <ng-container *ngIf="goaldata[0]?.goal_id != 'Goal 14'">
+                                <section class="spacer bg-light">
+                                    <div class="container">
+                                        <div class="row py-1">
+                                            <div class="col-md-12">
+                                                <div class="card p-1 mr-1">
+                                                    <div class="card-body p-4">
+                                                        <div class="row py-1">
+                                                            <div class="col-md-12">
+                                                                <h3 class="text-dark font-weight-bold text-center">SDGs: State Baseline and Progress
+                                                                    Report -2022, Chhattisgarh</h3>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row py-1">
+                                                            <div class="col-md-12">
+                                                                <mat-form-field>
+                                                                    <mat-label>Select Target<span class="required"></span> </mat-label>
+                                                                    <mat-select formControlName="targets"
+                                                                        (selectionChange)="onTargetSelected($event)">
+                                                                        <mat-option *ngFor="let i of siftargetdata" [value]="i.sif_target_id">
+                                                                            {{i.sif_target_desc}} </mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-md-8">
+                            
+                                                            </div>
+                                                        </div>
+                                                        <div class="row py-1" *ngIf="this.isSectionVisible">
+                                                            <div class="col-md-12" class="table-responsive" id="scrollableDiv">
+                                                                <table class="table-bordered table-hover align-items-center " #table>
+                                                                    <tr>
+                                                                        <td colspan="5" style="background-color: rgb(6, 6, 68); color: rgb(253, 250, 250);">
+                                                                            {{this.siftargetdatadesc[0]?.sif_target_desc}}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>
+                                                                            STATE INDICATORS
+                                                                        </th>
+                                                                        <th>
+                                                                            TARGET
+                                                                            2030
+                                                                        </th>
+                                                                        <th>
+                                                                            BASE LINE
+                                                                            2015
+                                                                        </th>
+                                                                        <th>
+                                                                            PROGRESS
+                                                                            2021
+                                                                        </th>
+                                                                        <th>
+                                                                            PROGRESS
+                                                                            2022
+                                                                        </th>
+                                                                    </tr>
+                                                                    <tr *ngFor="let t of siftargetdatabyid; let i=index;">
+                                                                        <td style="color: rgb(5, 21, 2);">
+                                                                            <a href="#" data-toggle="modal" data-target="#metadata"
+                                                                                (click)="goal1(t.indicator_id,goaldata[0]?.goal_id)">
+                                                                                {{t.indicator_desc}}
+                                                                            </a>
+                                                                        </td>
+                                                                        <td style="color: rgb(17, 75, 4);"> {{t.kpi_target2030}}</td>
+                                                                        <td style="color: rgb(123, 7, 7);"> {{t.baseline_value}}</td>
+                                                                        <ng-container *ngFor="let v of sifindicatorvalues;">
+                                                                            <ng-container *ngIf="v.Year == 2021">
+                                                                                <ng-container *ngIf="t.indicator_id == v.indicator_id">
+                                                                                    <td style="color: rgb(42, 7, 123);"> {{v.IndicatorValue}} </td>
+                                                                                </ng-container>
+                                                                            </ng-container>
+                                                                            <ng-container *ngIf="v.Year == 2022">
+                                                                                <ng-container *ngIf="t.indicator_id == v.indicator_id">
+                                                                                    <td> {{v.IndicatorValue}} </td>
+                                                                                </ng-container>
+                                                                            </ng-container>
+                                                                        </ng-container>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>                            
+                            </ng-container>
+                        </div>           
+                    </div>
+                </div>
+                </section>            
+                <ng-container *ngIf="goaldata[0]?.goal_id != 'Goal 14'">                  
+
+                    <section class="spacer bg-light">
+                        <div class="container">
+                            <div class="row py-1">
+                                <div class="col-md-12">
+                                    <div class="card p-1 mr-1">
+                                        <div class="card-body p-4">
+                                            <div class="row py-1">
+                                                <div class="col-md-12">
+                                                    <h3 class="text-dark font-weight-bold text-center">List of Major Schemes Mapped to {{goaldata[0]?.goal_id}} -
+                                                    {{goaldata[0]?.goal_name}}</h3>
+                                                </div>
+                                            </div>
+                                            <div class="row py-1">
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive" id="scrollableDiv">
+                                                        <table table id="state">
+                                                            <tr>
+                                                                <th colspan="2">
+                                                                    State Sponsored Schemes
+                                                                </th>
+                                                            </tr>
+                                                            <tr *ngFor="let ss of stateschemes; let i=index;">
+                                                                <td>{{i+1}}</td>
+                                                                <td>{{ss.schemename}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>  
+                                                <div class="col-md-6">
+                                                    <div class="table-responsive" id="scrollableDiv">
+                                                        <table table id="central">
+                                                            <tr>
+                                                                <th colspan="2">
+                                                                    Central Sponsored Schemes
+                                                                </th>
+                                                            </tr>
+                                                            <tr *ngFor="let cs of centralschemes; let i=index;">
+                                                                <td>{{i+1}}</td>
+                                                                <td>{{cs.schemename}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-container>
+            </div>
+        </section>
+    </form>
+    <app-mainfooter></app-mainfooter>
+</div>
+
+<!-- POPUP -->
+
+<div class="modal fade" id="metadata" tabindex="-1" role="dialog" aria-labelledby="metadata"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #bbb6eb">
+                <h5 class="modal-title1" id="metadata">Meta Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span style="color: rgb(6, 0, 0);">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="table-responsive" id="scrollableDiv">
+                                <table table id="state">
+                                    <tr>
+                                        <th>
+                                           Target 2030
+                                        </th>
+                                        <th>
+                                            Baseline 2015
+                                        </th>
+                                        <th> Progress {{sifindicatorprogressyear[0]?.Year}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        {{sifindicatorprogressyear[0]?.kpi_target2030}}
+                                        </td>
+                                        <td>
+                                        {{sifindicatorprogressyear[0]?.baseline_value}}
+                                        </td>
+                                        <td>
+                                        {{sifindicatorprogressyear[0]?.IndicatorValue}}
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <br>
+                            <div class="table-responsive" id="scrollableDiv">
+                                <table table id="central">  
+                                    <tr>
+                                        <th>
+                                            Content
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                    </tr>  
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Goal</td>
+                                        <td>{{goaldata[0]?.goal_description}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">TARGET</td>
+                                        <td>{{sifmetadata[0]?.sif_target_desc }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Description of Indicator</td>
+                                        <td>{{sifmetadata[0]?.indicator_desc }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Computation of Indicator</td>
+                                        <td>{{sifmetadata[0]?.computation_description_of_indicator }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Unit of Measurement</td>
+                                        <td>{{sifmetadata[0]?.uom }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Periodicity</td>
+                                        <td>{{sifmetadata[0]?.frequency }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Data Source</td>
+                                        <td>{{sifmetadata[0]?.progress_year_data_source }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: rgb(17, 75, 4);">Data Source Link</td>
+                                        <td>{{sifmetadata[0]?.data_source }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>                       
+                    </div>
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>

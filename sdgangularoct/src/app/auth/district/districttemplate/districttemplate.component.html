@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-download" aria-hidden="true"></i> Template Download -
+            {{this.deptname}}
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-2">
+            <div class="card mb-2">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-download" aria-hidden="true"></i> Download Data File Template
+                </div>
+                <form [formGroup]="districttemplate">
+                    <div class="card-body">
+                        <div class="row">
+                            <mat-label class="col-md-12 col-sm-12 col-lg-12"
+                                style="padding-top: 15px; color: blue; font-size: 18px;">District
+                                : {{this.districtname}}
+                            </mat-label>
+                        </div>
+
+                        <div class="row">
+                            <mat-label class="col-md-12 col-sm-12 col-lg-12" style="padding-top: 15px; color: blue; font-size: 18px;">
+                                <a style="cursor: pointer;" target="_blank" href="assets/download/FW_YEARLY.xlsx">
+                                    Click on the link to download: <img src="assets/images/download.png"
+                                    class="img img-responsive"  style="height: 50px; width: 50px;" alt="template fa-download">
+                                </a>                                
+                            </mat-label>
+                        </div>
+
+                        <div class="card">
+                            <div class="row">
+                                <mat-label class="col-md-12 col-sm-12 col-lg-12" style="padding-top: 15px; color: rgb(84, 3, 3); font-size: 18px;">
+                                    Guidelines to be followed while using the Data Template :
+                                </mat-label>
+                                <br> <br>
+                                <mat-label>
+                                    &nbsp; &nbsp; &nbsp;    1. File name should not be changed. <br>
+                                    &nbsp; &nbsp; &nbsp;    2. File type should only be CSV, XLSX, XLS.<br>
+                                    &nbsp; &nbsp; &nbsp;    3. The column name in the template should not be changed.<br>
+                                    &nbsp; &nbsp; &nbsp;    4. Please read the User Manual before filling in the data in the template.
+                                </mat-label>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,74 @@
+button {
+    display: block;
+    width: 10em;
+    line-height: 2em;
+    padding: 0.2em;
+    margin: 0.3em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    -webkit-appearance: normal;
+    font-size: 1em;
+    word-wrap: break-word;
+}
+
+.goalslink {
+    float: left;
+}
+
+//////////////////////////////////////////////////////
+/// 
+.my-legend .legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.my-legend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.my-legend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+
+.my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+}
+
+.my-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.my-legend a {
+    color: #777;
+}
+
+a {
+    color: white;
+}
+
+.td1,
+.th1 {
+    border: 0.5px solid #00000f;
+    padding: 23px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

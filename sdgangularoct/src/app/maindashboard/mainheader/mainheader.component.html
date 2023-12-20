@@ -1,0 +1,155 @@
+<header class="py-2 bg-white header">   
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12 text-right">                
+                <button title="हिन्दी पर स्विच करें" class="langSwitch" type="button" (click)="useLanguage('Hindi')">हिंदी</button>&nbsp;
+                <button title="Switch to English" class="langSwitch" type="button" (click)="useLanguage('English')">Eng</button>
+            </div>
+        </div>
+        <div class="row justify-content-md-center pt-2">
+            <img src="assets/images/cglogo_2.png" style="height:70px;width:auto;margin-left: 1rem;" alt="Logo"
+                class="img-responsive">
+            <div class="col-md-9 text-center">
+                <h2 class="text-dark">
+                    <span class="font-weight-bold">{{'HOME.Title' | translate}}</span><br>
+                    <h3 class="font-weight-bold">{{'HOME.SubTitle' | translate}}</h3>
+                </h2>                
+            </div>
+            <img src="assets/images/sdg_logo_new.PNG" style="height:60px;width:auto;margin-left: 1rem;" alt="Logo"
+                class="img-responsive">
+        </div>
+        <div class="header">
+            <nav class="navbar navbar-expand-md navbar-light px-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal1">
+                                <img src="assets/images/sdg/sdg1.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="End poverty in all its forms everywhere"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal2">
+                                <img src="assets/images/sdg/sdg2.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="End hunger, achieve food security and improved nutrition and promote sustainable agriculture">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal3">
+                                <img src="assets/images/sdg/sdg3.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Ensure healthy lives and promote well being for all at all ages">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal4">
+                                <img src="assets/images/sdg/sdg4.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal5">
+                                <img src="assets/images/sdg/sdg5.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Achieve gender equality and empower all women and girls">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal6">
+                                <img src="assets/images/sdg/sdg6.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Ensure availability and sustainable management of water and sanitation for all">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal7">
+                                <img src="assets/images/sdg/sdg7.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Ensure access to affordable reliable, sustainable and modern energy for all">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal8">
+                                <img src="assets/images/sdg/sdg8.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal9">
+                                <img src="assets/images/sdg/sdg9.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal10">
+                                <img src="assets/images/sdg/sdg10.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Reduce inequality within and among countries">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal11">
+                                <img src="assets/images/sdg/sdg11.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Make cities and human settlements inclusive, safe, resilient and sustainable">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal12">
+                                <img src="assets/images/sdg/sdg12.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Ensure sustainable consumption and production patterns">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal13">
+                                <img src="assets/images/sdg/sdg13.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Take urgent action to combat climate change and its impacts">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal14">
+                                <img src="assets/images/sdg/sdg14.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Conserve and sustainably use the oceans, seas and marine resources for sustainable development">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal15">
+                                <img src="assets/images/sdg/sdg15.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forecast, combat desertification, and halt and reverse land degradation and halt biodiversity loss">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal16">
+                                <img src="assets/images/sdg/sdg16.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="goalslink" data-toggle="modal" data-target="#goalinfomodal17">
+                                <img src="assets/images/sdg/sdg17.png"
+                                    class="img img-responsive center-block zoom goalsimage inner-img"
+                                    alt="Strengthen the means of implementation and revitalize the global partnership for sustainable development">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End Header -->
+    </div>
+</header>

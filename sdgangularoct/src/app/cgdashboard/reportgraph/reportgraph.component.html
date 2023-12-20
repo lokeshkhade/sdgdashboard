@@ -1,0 +1,115 @@
+<div id="main-wrapper">
+    <form [formGroup]="goalanalysis">
+        <header class="py-1 bg-white">
+            <div class="container">
+                <div class="row justify-content-md-center pt-2">
+                    <img src="assets/images/cglogo_2.png" style="height:70px;width:auto;margin-left: 1rem;" alt="Logo"
+                        class="img-responsive">
+                    <div class="col-md-9 text-center">
+                        <h2 class="text-dark">
+                            <span class="font-weight-bold">Chhattisgarh State Planning Commission</span>
+                        </h2>
+                        <h3 class="text-dark">
+                            <span class="font-weight-bold">SDG Monitoring Dashboard</span>
+                        </h3>
+                    </div>
+                    <img src="assets/images/sdg_logo_new.PNG" style="height:60px;width:auto;margin-left: 1rem;"
+                        alt="Logo" class="img-responsive">
+
+                </div>
+               
+                <!-- End Header -->
+            </div>
+        </header>
+        <section class="spacer bg-light">
+            <div class="content-wrapper">
+                <section class="spacer bg-light">
+                    <div class="container">
+                        <div class="row py-1">
+                            <div class="col-md-12">
+                                <div class="card p-2 mr-0">
+                                    <div class="card-body p-2">
+                                        <ul class="list-unstyled listing">
+                                            <li>
+                                                <a [routerLink]="['/home']"
+                                                    class="btn btn-custom btn-outline-info btn-md"
+                                                    target="_blank">HOME</a>&nbsp;
+                                                <a [routerLink]="['/sifbaseline']"
+                                                    class="btn btn-custom btn-outline-info btn-md" target="_blank">SIF
+                                                    Baseline and
+                                                    Progress Report</a>&nbsp;
+                                                <a href="#" class="btn btn-custom btn-outline-info btn-md"
+                                                    target="_blank">SDG
+                                                    GIS Based
+                                                    Maps</a>&nbsp;
+                                                <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                    class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
+                                                    Aayog SDG
+                                                    India Index 3.0</a>&nbsp;
+                                                <a href="" class="btn btn-custom btn-outline-info btn-md"
+                                                    target="_blank">DIF
+                                                    Reports</a>&nbsp;
+                                                <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
+                                                    target="_blank">ADMIN LOGIN</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row py-1">
+                            <div class="col-md-12">
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-4">
+                                        <h3 class="text-primary text-center"><span style="color: #056213;">
+                                               REPORT </span> --
+                                            Analysis </h3>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <mat-form-field>
+                                                    <mat-label>Select District<span class="required"></span>
+                                                    </mat-label>
+                                                    <mat-select formControlName="district_name" (selectionChange)="onDistrictSelected($event)">
+                                                        <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                            {{d.district_name}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field>
+                                                    <mat-label>Select Year<span class="required"></span>
+                                                    </mat-label>
+                                                    <mat-select formControlName="valueyear"
+                                                        (selectionChange)="onYearSelected($event)">
+                                                        <mat-option *ngFor="let f of year" [value]="f.valueyear">
+                                                            {{f.valueyear}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="chart">
+                                                    <apx-chart #chart2 [series]="chartOptions2.series"
+                                                        [chart]="chartOptions2.chart" [labels]="chartOptions2.labels"
+                                                        [fill]="chartOptions2.fill" [stroke]="chartOptions2.stroke"
+                                                        [responsive]="chartOptions2.responsive"
+                                                        [dataLabels]="chartOptions2.dataLabels"></apx-chart>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </form>
+    <app-mainfooter></app-mainfooter>
+</div>

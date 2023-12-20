@@ -1,0 +1,192 @@
+<div id="main-wrapper">
+    <app-cgheader></app-cgheader>
+    <section class="spacer bg-light">
+        <div class="content-wrapper">
+            <section class="spacer bg-light">
+                <div class="container">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="card p-2 mr-0">
+                                <div class="card-body p-2">
+                                    <ul class="list-unstyled listing">
+                                        <li>
+                                            <a [routerLink]="['/home']"
+                                                class="btn btn-custom btn-outline-info btn-md">HOME</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']"
+                                                class="btn btn-custom btn-outline-info btn-md">SIF
+                                                Baseline and
+                                                Progress Report</a>&nbsp;
+                                            <a href="#" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">SDG GIS Based
+                                                Maps</a>&nbsp;
+                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
+                                                Aayog SDG
+                                                India Index 3.0</a>&nbsp;
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md">DIF
+                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md">ADMIN
+                                                LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form [formGroup]="districtcompare">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-success font-weight-bold"> District Comparison</h3>
+                                    </div>
+                                </div>     
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <mat-form-field>
+                                            <mat-label>Select Goal<span class="required"></span> </mat-label>
+                                            <mat-select formControlName="goal_id" (selectionChange)="onGoalSelected($event)">
+                                                <mat-option *ngFor="let g of goals" [value]="g.goal_id">
+                                                    {{g.goal_id}} </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <mat-form-field>
+                                            <mat-label>Select Indicator<span class="required"></span> </mat-label>
+                                            <mat-select formControlName="indicators" (selectionChange)="onIndicatorSelected($event)">
+                                                <mat-option *ngFor="let i of indicators" [value]="i.indicator_master_id">
+                                                    {{i.district_indicator_desc}} </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>  
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">                                
+                                        <div class="row">
+                                            <!-- <div class="col-md-6">
+                                                <mat-form-field>
+                                                    <mat-label>Select Year<span class="required"></span> </mat-label>
+                                                    <mat-select formControlName="valueyear" (selectionChange)="onYearSelected($event)">
+                                                        <mat-option *ngFor="let y of year" [value]="y.valueyear">
+                                                            {{y.valueyear}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div> -->
+                                            <div class="col-md-12">
+                                                <mat-form-field>
+                                                    <mat-label >Select District<span class="required"></span> </mat-label>
+                                                    <mat-select formControlName="district_name" (selectionChange)="onDistrictSelected($event)">
+                                                        <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                            {{d.district_name}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- <div class="col-md-6">
+                                                <mat-form-field>
+                                                    <mat-label>Select Year<span class="required"></span> </mat-label>
+                                                    <mat-select formControlName="valueyear1" (selectionChange)="onYearSelected1($event)">
+                                                        <mat-option *ngFor="let y of year" [value]="y.valueyear">
+                                                            {{y.valueyear}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div> -->
+                                            <div class="col-md-12">
+                                                <mat-form-field>
+                                                    <mat-label>Select District<span class="required"></span> </mat-label>
+                                                    <mat-select formControlName="district_name1" (selectionChange)="onDistrictSelected1($event)">
+                                                        <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                            {{d.district_name}} </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                           
+                        <br>                                            
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">     
+                                        <h3 class="text-primary text-center"><span style="color:primary">{{this.selecteddistrictname1}}</span> :
+                                            <span style="color:primary"> {{this.selectedgoal}} -
+                                            </span> <span style="color:primary"> {{this.selectedindicatordesc}}
+                                            </span> </h3>
+                                        <hr>
+                                        <div id="chart">
+                                            <apx-chart #chart1 [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                                                [stroke]="chartOptions.stroke" [colors]="chartOptions.colors" [dataLabels]="chartOptions.dataLabels"
+                                                [legend]="chartOptions.legend" [markers]="chartOptions.markers" [grid]="chartOptions.grid"
+                                                [yaxis]="chartOptions.yaxis" [title]="chartOptions.title"></apx-chart>
+                                        </div>                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="text-primary text-center"><span style="color:primary">{{this.selecteddistrictname2}}</span> :
+                                            <span style="color:primary"> {{this.selectedgoal}} -
+                                            </span> <span style="color:primary"> {{this.selectedindicatordesc}}
+                                            </span>
+                                        </h3>
+                                        <hr>
+                                        <div id="chart">
+                                            <apx-chart #chart2 [series]="chartOptions2.series" [chart]="chartOptions2.chart" [xaxis]="chartOptions2.xaxis"
+                                                [stroke]="chartOptions2.stroke" [colors]="chartOptions2.colors" [dataLabels]="chartOptions2.dataLabels"
+                                                [legend]="chartOptions2.legend" [markers]="chartOptions2.markers" [grid]="chartOptions2.grid"
+                                                [yaxis]="chartOptions2.yaxis" [title]="chartOptions2.title"></apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="chart">
+                                            <apx-chart #chart3 [series]="chartOptions3.series" [chart]="chartOptions3.chart" [dataLabels]="chartOptions3.dataLabels"
+                                                [plotOptions]="chartOptions3.plotOptions" [yaxis]="chartOptions3.yaxis" [legend]="chartOptions3.legend"
+                                                [fill]="chartOptions3.fill" [stroke]="chartOptions3.stroke" [tooltip]="chartOptions3.tooltip"
+                                                [xaxis]="chartOptions3.xaxis"></apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="chart">
+                                            <apx-chart #chart4 [series]="chartOptions4.series" [chart]="chartOptions4.chart" [dataLabels]="chartOptions4.dataLabels"
+                                                [plotOptions]="chartOptions4.plotOptions" [yaxis]="chartOptions4.yaxis" [legend]="chartOptions4.legend"
+                                                [fill]="chartOptions4.fill" [stroke]="chartOptions4.stroke" [tooltip]="chartOptions4.tooltip"
+                                                [xaxis]="chartOptions4.xaxis"></apx-chart>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+    <app-mainfooter></app-mainfooter>
+</div>

@@ -1,0 +1,33 @@
+th {
+    background: #2B3499;
+    font-size: 14px;
+    color: rgb(252, 252, 253);
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+
+td {
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;    
+    font-weight: normal;
+}
+
+
+
+table,
+thead,
+tbody,
+tr {
+    width: 100%;
+}
+
+//table { table-layout: fixed }
+table>thead>tr>th {
+    width: auto;
+}
+
+.show-scrolltop {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}

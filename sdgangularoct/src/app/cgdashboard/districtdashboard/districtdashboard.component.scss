@@ -1,0 +1,35 @@
+td,
+th {
+    border: 1px solid #437de8;
+    padding: 8px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #446581;
+    color: rgb(252, 250, 250);
+}
+
+tr:nth-child(odd) {
+    color: black;
+}
+
+tr:hover {
+    background-color: #dce1a5;
+    outline: 3px solid rgb(51, 4, 224);
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #eaedec;
+    color: rgb(7, 0, 0);
+}
+
+#chart {
+    max-width: 650px;
+    margin: 35px auto;
+}

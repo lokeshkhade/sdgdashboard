@@ -1,0 +1,18 @@
+      path {
+          //fill: #1da1f2;
+      }
+
+      path:hover {
+          fill: rgb(236, 253, 231);
+          stroke: red;
+          stroke-width: 5px;
+          transition: fill 1.4s;
+      }
+
+
+          .flex-container {
+              display: flex;
+              justify-content: center;
+              /* Add this */
+              flex-wrap: wrap;
+          }

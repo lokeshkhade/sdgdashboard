@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">        
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Indicator
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <form [formGroup]="manageindicator">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Indicators List
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <tbody>
+                                <tr  *ngFor="let i of allindicators">
+                                    <td>
+                                        <input type="checkbox" id="i.indicator_master_i" name="i.indicator_master_i" value="i.indicator_master_i">
+                                    </td>
+                                    <td>
+                                        {{i.district_indicator_desc}}
+                                    </td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-success">Update</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-primary">Check All</button>
+                            </div>
+                            <div class="col-md-8">
+                                <button type="button" class="btn btn-warning">UnCheck All</button>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+</div>

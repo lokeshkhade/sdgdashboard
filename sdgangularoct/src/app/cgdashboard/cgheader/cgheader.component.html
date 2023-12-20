@@ -1,0 +1,139 @@
+<header class="py-1 bg-white">
+    <div class="container">
+        <div class="row justify-content-md-center pt-2">
+            <img src="assets/images/cglogo_2.png" style="height:70px;width:auto;margin-left: 1rem;" alt="Logo"
+                class="img-responsive">
+            <div class="col-md-9 text-center">
+                <h2 class="text-dark">
+                    <span class="font-weight-bold">Chhattisgarh State Planning Commission</span>
+                </h2>
+                <h3 class="text-dark">
+                    <span class="font-weight-bold">SDG Monitoring Dashboard</span>
+                </h3>
+            </div>
+            <img src="assets/images/sdg_logo_new.PNG" style="height:60px;width:auto;margin-left: 1rem;" alt="Logo"
+                class="img-responsive">
+
+        </div>
+        <form [formGroup]="cgmainheader">
+            <div class="header">
+                <nav class="navbar navbar-expand-md navbar-light px-0">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 1' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g1.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="End poverty in all its forms everywhere" [style.background-color]="G1"></a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 2' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g2.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
+                                        [style.background-color]="G2"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 3' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g3.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Ensure healthy lives and promote well being for all at all ages"
+                                        [style.background-color]="G3"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 4' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g4.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all"
+                                        [style.background-color]="G4"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 5' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g5.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Achieve gender equality and empower all women and girls"
+                                        [style.background-color]="G5"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 6' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g6.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Ensure availability and sustainable management of water and sanitation for all"
+                                        [style.background-color]="G6"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 7' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g7.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Ensure access to affordable reliable, sustainable and modern energy for all"
+                                        [style.background-color]="G7"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 8' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g8.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all"
+                                        [style.background-color]="G8"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 9' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g9.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation"
+                                        [style.background-color]="G9"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 10' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g10.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Reduce inequality within and among countries"
+                                        [style.background-color]="G10"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 11' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g11.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Make cities and human settlements inclusive, safe, resilient and sustainable"
+                                        [style.background-color]="G11"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 12' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g12.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Ensure sustainable consumption and production patterns"
+                                        [style.background-color]="G12"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 13' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g13.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Take urgent action to combat climate change and its impacts"
+                                        [style.background-color]="G13"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 15' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g15.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forecast, combat desertification, and halt and reverse land degradation and halt biodiversity loss"
+                                        [style.background-color]="G15"> </a>
+                            </li>&nbsp;
+                            <li class="nav-item">
+                                <a [routerLink]="'/cghome/goalanalysis/' + 'Goal 16' + '/' + this.cgyear">
+                                    <img src="assets/images/sdg/g16.png"
+                                        class="img img-responsive center-block zoom goalsimage inner-img"
+                                        alt="Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels"
+                                        [style.background-color]="G16"> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </form>
+        <!-- End Header -->
+    </div>
+</header>

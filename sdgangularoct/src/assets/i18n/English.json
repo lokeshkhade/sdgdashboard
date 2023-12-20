@@ -1,0 +1,457 @@
+{
+
+    "TOPNAV":{
+        "Language":"Language",
+        "SkipMainCont":"Skip to Main Content",
+        "SkipNav":"Skip to Navigation",
+        "TopNavA":"A"       
+    },
+
+   "HOME":{
+        "ViewMore": "View More",
+        "Important": "Important",
+        "Title":"Chhattisgarh State Planning Commission",
+        "SubTitle": "SDG Monitoring Dashboard",
+        "OldPortal2":"Click here for old website",
+        "link1":"Mukhyamantri Mitaan Yojana",
+        "link2":"e-District",
+        "link3":"e-Gazette",
+        "link4":"NIC Chhattisgarh",
+        "link5":" Chhattisgarh Tourism ",
+        "link6":"Digital India",
+        "link7":"National Portal",
+        "link8":"DPR Chhattisgarh",
+        "link9":"CHiPS Raipur",
+        "link10":"National e-Governance",
+        "link11":"IAS Establishment",
+        "CgTet":"TET 2022 Admit Card",
+        "Gallery":"Gallery",
+        
+        "slider1":"Chitrakoot Waterfalls",
+        "slider2":"Gangrel Dam",
+        "slider3":"Budha Talab",
+        "slider4":"Bastar Art",
+        "slider5":"Jungle Safari"
+   },
+
+   "DEPT":{
+        "DeptHigerCy":"Department Hierarchy",
+        "DeptHigrcy1":"Bhupesh Baghel",
+        "DeptDesi":"Hon'ble Chief Minister",
+        "CGgov":"Government of Chhattisgarh",
+
+        "DeptEduc":"Education Department",
+        "AbDeptEduc":"About Education Department",
+        "VMDeptEduLink1":"Right to Education",
+        "VMDeptEduLink2":"Technical Education",
+        "VMDeptEduLink3":"Education Portal",
+        "VMDeptEduLink4":"Post Matric Scholarship Portal",
+        "VMDeptEduLink5":"Pre Matric Scholarship Portal ",
+        "EduDeptHigrcy2":"Umesh Patel",
+        "EduDeptDesi":"Higher Education Minister",
+        "EduDeptHigrcy3":"Dr. Alok Shukla",
+        "EduDeptDesi1":"Principal Secretary",
+        
+        "DeptPwd":"Public Work Department(PWD)",
+        "AbDeptPwd":"About Public Work Department",
+        "PwdDeptHigrcy2":"Shri Tamradhwaj Sahu",
+        "PwdDeptDesi":"Minister of PWD",
+        "PwdDeptHigrcy3":"Shri Siddharth Komal Singh Pardeshi",
+        "PwdDeptDesi1":"Secretary",
+        "VMDeptPwdLink1":"PWD official website",
+
+
+        "DeptEmpl":"Employment Department",
+        "AbDeptEmpl":"About Employment Department",
+
+
+        "DeptAgri":"Agriculture Department",
+        "AbDeptAgri":"About Agriculture Department",
+        "VMDeptAgriLink1":"Krishi Portal",
+        "VMDeptAgriLink2":"Rajiv Gandhi Kisan Nyay Yojana",
+        "VMDeptAgriLink3":"Narva, Garuva, Ghurva, Bari",
+        "VMDeptAgriLink4":"Godhan Nyay Yojana",
+        "VMDeptAgriLink5":" Horticulture",
+        "VMDeptAgriLink6":" Animal Husbandry",        
+        "AgriDeptHigrcy2":"Shri Ravindra Choubey",
+        "AgriDeptDesi":"Minister of Krishi",
+        "AgriDeptHigrcy3":"Dr Kamal Preet Singh",
+        "AgriDeptDesi1":"Secretary",
+
+
+        "DeptElect":"Electronics and Information Technology Department(CHiPS)",
+        "AbDeptElect":"About Electronics and Information Technology Department(CHiPS)"
+    
+   },
+   
+    "NOTICEBOARD": {
+        "NoticeBoard": "Notice Board",
+        "Department":"Department",
+        "Apply": "Apply",
+        
+        "All":"All",
+        "Type":"Type",
+        "NBSNo":"S.No.",
+        "NBTitle":"Title",
+        "NBVDownloads":"View/Downloads",
+        "NBStDate":"Start Date",
+        "NBEnDate":"End Date",
+        "ClickHere":"Click here",
+        "NoRecord":"No data is matching the filter.",
+
+        "WhatsNew":"What's  New"
+
+    },
+    "CG": {
+        "CGMahatari": "Chhattisgarh Mahatari"
+    },
+    "NEWS": {
+        "News": "Publications"
+    },
+    "INFORMATION": {
+        "ImportantInformation": "Important Information"
+    },
+    "PROFILE": {
+        "ChhattisgarhProfile": "Research and Innovation",
+        "Established": "Established",
+        "Capital": "Capital",
+        "Raipur": "Raipur",
+        "Districts": "Districts",
+        "Area": "Area",
+        "Stateanimal": "State Animal",
+        "VanBhainsa": "Van Bhainsa",
+        "Statebird": "State Bird",
+        "PahariMyna": "Pahari Myna",
+        "Statetree": "State Tree",
+        "SalorSarai": "Sal or Sarai",
+        "Population": "Population",
+        "Male": "Male",
+        "Female": "Female",
+        "SexRatio": "Sex Ratio",
+        "ChildSexRatio": "Child Sex Ratio",
+        "Literacy": "Literacy",
+        "MaleLiteracy": "Male Literacy",
+        "FemaleLiteracy": "Female Literacy"
+    },
+    "MAP": {
+        "ChhattisgarhMap": "Chhattisgarh Map"
+    },
+    "SETUP": {
+        "AdministrativeSetup": "Administrative Setup",
+        "VidhanSabha": "Vidhan Sabha",
+        "Loksabhaconstitutions": "Lok sabha constitutions",
+        "Rajyasabhaconstitutions": "Rajya sabha constitutions",
+        "Revenuedivisions": "Revenue divisions",
+        "Revenuedistricts": "Revenue districts",
+        "DevelopmentBlocks": "Development Blocks",
+        "TribalDevBlocks": " Tribal Dev Blocks",
+        "TotalVillages": "Total Villages",
+        "TotalTowns": " Total Towns",
+        "MunicipalCorporation": "Municipal Corporation",
+        "NagarPanchyat": "Nagar Panchyat",
+        "DistrictPanchyat": "District Panchyat",
+        "JanpadPanchyat": "Janpad Panchyat",
+        "GramPanchyat": "Gram Panchyat"
+    },
+    "PRIDE": {
+        "ChhattisgarhPride": "Chhattisgarh's Pride",
+        "Mineral": "Mineral Resources of Chhattisgarh",
+        "Tribes": "Tribes of Chhattisgarh",
+        "Tourism": "Tourism in Chhattisgarh",
+        "Cultural": "Cultural life of Chhattisgarh",
+        "MineralData": "Chhattisgarh is one of the foremost mineral rich States in the country Chhattisgarh is one of the foremost mineral rich States in the country.Twenty-Eight known varieties of minerals are found in the State including precious stones & diamonds, iron ore, coal, limestone, dolomite, tin ore, bauxite and gold.",
+        "TribesData": "Chhattisgarh is home to several tribal castes with Gonds of Bastar being the Chhattisgarh is home to several tribal castes with Gonds of Bastar being the BisonHorn Maria, Muria, Halbaa, Bhatra Oraon, Kanwar, Korwa, Dhanwar, Agaria and Dhurvaa are other major tribes of the region.",
+        "TourismData": "Chhattisgarh is a heavily forested state in central India known for its temples and waterfalls. Near the capital Raipur, the town of Sirpur on the Mahanadi River is home to the red-brick Lakshmana (Laxman) Temple, decorated with carvings from Indian mythology.",
+        "CulturalData": "The cultural life of Chhattisgarh is a mixtureof various forms of tribal dances, folk songs, traditional art and crafts, regional festivals, and fairs. The tribal people preserve their rich culture modestly and religiously."
+    },
+    "CMO": {
+        "UsefulLinks": "Useful Links",
+        "CMOFacebook": "CMO Facebook",
+        "CMOTwitter": "CMO Twitter",
+        "CMO": "CMO"
+    },
+    "FOOTER": {
+        "AboutPortal":"About Portal",
+        "Faq":"FAQs",
+        "Feedback":"Feedback",
+        "Policy":"Disclaimer & Policies",
+        "ScreanRA":"Screen Reader Access",
+        "AccStat":"Accessibility Statement ",
+        "SiteMap":"Site Map",
+        "ContactUs":"Contact Us",
+        
+        "Today":"Today's Date",
+        "Visitors":"Total Visitors",
+        "LastModiDate":"This page last modified on",
+        "Print":"Print",
+
+        "UsefulLinks": "Useful Links",
+
+        "HelplineNo": "Emergency Helpline Number",
+        "Helpline1":"Dial 112: 112",
+        "Helpline2":"Police Controll Room: 100",
+        "Helpline3":"Fire Brigade: 101",
+        "Helpline4":"Mahtari Express: 102",
+        "Helpline5":"Ambulance/Medical Emergency: 108",
+        "Helpline6":"Muktanjali Vahan: 1099",
+        "Helpline7":"Women Helpline: 1091",
+        "Helpline8":"Railway Helpline: 139",
+        "Helpline9":"Child Care Helpline: 1098",
+        "Helpline10":"Illegal Liquor Complaint: 9479190441",
+        
+
+
+        "FollowUs": "Follow Us",
+        "FooterData": "------- ",
+        "FooterData1":"This is the web portal of Chhattisgarh State. For any query regarding this Portal, Contact Web Information Manager",
+        "Copyright": "© Copyright 2022 - The contents are owned by Government of Chhattisgarh."
+    },
+    "REPORTS": {
+        "Title": "DOCUMENTS/REPORTS/REGULATION",
+        "button": "Apply",
+
+        "All":"All",
+        "Type":"Type",
+        
+        "TSNo":"S.No.",
+        "TTitle":"Title",
+        "TVDownloads":"View/Downloads",
+        "TStDate":"Start Date",
+        "TEnDate":"End Date",
+        "ClickHere":"Click here",
+        "NoRecord":"No data is matching the filter."
+    },
+    "DIRECTORY": {
+        "Title": "GOVERNMENT DIRECTORY",
+        "button": "Apply",
+        "SNo":"S.No.",
+        "Name":"Name",
+        "Designation":"Designation",
+        "CNumber":"Contact Number",
+        "Address":"Address",
+        "NoRecord":"No data is matching the filter."
+    },
+    "DEPARTMENTS": {
+        "Title": "GOVERNMENT DEPARTMENTS",
+        "button": "Filter Department",
+        "MoreDepartment": "View More Departments",
+
+        "DeparNmEng":"Department Name in English",
+        "DeparNmHi":"Department Name in Hindi",
+        "DeparWL":"Website Link",
+        "DeptLogo":"Department Logo",
+        "Sno":"S.No.",
+        "ClickHere":"Click here",
+        "NoRecord":"No data is matching the filter."
+        
+    },
+    "SCHEMES": {
+        "Title": "GOVERNMENT SCHEMES",
+        "button": "Filter Schemes ",
+        "MoreSchemes": "Schemes in Details",
+        "SchemeNmEng":"Scheme Name in English",
+        "SchemeNmHi":"Scheme Name in Hindi",
+        "AbScheme":"About Scheme",
+        "Sno":"S.No.",
+        "ClickHere":"Click here",
+        "NoRecord":"No data is matching the filter."
+    },
+    "ABOUTCG": {
+        "Title": "ABOUT CHHATTISGARH",
+        "Para1": "Chhattisgarh is the 10th largest state in India with an area of 135,190 sq-km. Chhattisgarh is the 16th largest state in terms of population which is approximately equal to 2,08,00,000. The native language of people of Chhattisgarh is Chhattisgarhi. Chhattisgarh was carved out of Madhya Pradesh in 01 November, 2000 with its 16 Chhattisgarhi speaking districts. It is an important hub for the production of steel and electrical power in India, producing about 15% of the total steel produced in India. It is surrounded by seven states : Madhya Pradesh, Maharashtra, Andhra Pradesh, Telangana, Orissa, Jharkhand and Uttar Pradesh.",
+        "Para2": "Capital of Chhattisgarh is Raipur which is the center of all the trade, economy and administration. The native language is Chhattisgarhi but Hindi is more prominent here. Chhattisgarh is mainly famous for its agriculture accounting for about 80% of the work force. It is also known as Dhan Ka Katora (meaning Bowl Of Rice) for the production of Rice.",
+        "Para3": "Chhattisgarh borders the states of Madhya Pradesh in the northwest, Maharashtra in the west, Andhra Pradesh in the south, Orissa in the east, Jharkhand in the northeast, Telangana in the south and Uttar Pradesh in the north.",
+        "Title1": "GEOGRAPHY",
+        "Title2": "CULTURE",
+        "Title3": "ECONOMY",
+        "Para4": "Most part of Chhattisgarh is covered with hills in northern and southern parts, but the central part of Chhattisgarh is fertile plain. About 44% of the state is covered by moist and deciduous forests of the Eastern Highlands Forests.",
+        "Para5": "The northern part of the state touches the great Indo-Gangetic plain. Rihand River, which is one of the tributaries of the River Ganga, flows through this area. The east end of the Satpura Extent and the hesperian bounds of the Chota Nagpur Upland contour an east-west course of hills that line the Mahanadi River basin from the Indo-Gangetic plains.",
+        "Para6": "Chhattisgarh's culture is famous for its performing arts. As Chhattisgarh is in the heart of India, it has been influenced by the folk and performing arts of various forms of other states. Chhattisgarh has many tribal groups among which some are very primitive. All these tribal communities have various dance as well as art forms of their own.",
+        "Para7": "The state also hosts religious sects including Satnami Panth, Kabirpanth, Ramnami Samaj, and others. Ratanpur is significant for the Mahamaya Temple. Champaran is a small town with religious significance as it is the place of birth of the Saint Vallabhacharya, significant as a pilgrimage site for the community of Gujarati people. Oriya culture is also prominent in the eastern parts of Chhattisgarh as it borders the state Orissa.",
+        "Para8": "This mainly comprises of agriculture, electrical power and steel production. Chhattisgarh's gross domestic product for the year 2010 is estimated to be Rs 60,079 Crores. The economy of Chhattisgarh has boomed rapidly in the recent years with a growth rate of about 11.49% in Gross Domestic Product for the period 2009–2010.The factors affecting such a high growth rate are due to the growth in agricultural and industrial production.",
+        "Para9": "Export of goods is also one of the important spheres of economy in Chhattisgarh which accounts to Rs. 1,766 Crore (2009-2010). The main hub for export is Bhilai (for export of steel) which adds up to 75% of total exports and remaining comes from Bhanpuri, Urla and Sirgitti"
+    },
+    "HISTORYOFCG":{
+        "Title": "HISTORY OF CHHATTISGARH",
+        "Title1": "CHHATTISGARH MAP",
+        "Para1": "The history of the Chhattisgarh region dates back to about the 4th century CE, when it was known as Southern (or South) Kosala. The name Chhattisgarh, meaning “thirty-six forts,” was formerly applied to the territory of the Haihaya dynasty of Ratanpur, founded about 750. Under British rule the present region of Chhattisgarh consisted of a division comprising 14 feudatory princely kingdoms under the Eastern States Agency. Raipur was the headquarters of that division.",
+        "Para2": "Within the Republic of India, Chhattisgarh was part of Madhya Pradesh until November 1, 2000. Although the campaign for Chhattisgarh statehood began in earnest only in the 1970s, its roots go back to the early 20th century, when local leaders began to claim a distinct cultural identity for the region. In the early 1990s the push for statehood was manifested in the election platforms of various political parties, and promises of a separate state were again prominent during the elections of 1996 and 1998. In August 2000 the Indian legislature passed the Madhya Pradesh Reorganization Bill to create Chhattisgarh. The formation of Chhattisgarh was especially noteworthy in that it was peaceful; it was not associated with any of the agitation and violence that marred the establishment of two other new states—Uttaranchal (now Uttarakhand) and Jharkhand—about the same time."
+        
+        
+    },
+    "STATESYMBOL":{
+        "Title": "STATE SYMBOL",
+        "RajkiyGeet":"Rajya Geet- 'Arpa pairi ke dhaar'",
+        "Header1": "State Emblem",
+        "Header2": "State Bird",
+        "Header3": "State Tree",
+        "Header4": "State Animal",
+
+        "SubHeader1": "State Emblem",
+        "SubHeader2": "Hill Myna",
+        "SubHeader3": "Sal Tree",
+        "SubHeader4": "Wild Forest Buffalo",
+
+        "Para1": "The symbol was adopted by the Chhattisgarh Government on 4th September 2001 ",
+        "Para11":"The Green Circle: The Green circle outlined the symbol shows the 36 Fort earstwhile present in the state.",
+        "Para12":"The Ashoka Pillar: The Ashoka pillar (from Samath) in Red Colour present in the centre of symbol, which shows the symbol of India.",
+        "Para13":"The Golden Stripes: The Golden stripes of paddy indicates the state as ‘Rice bowl of India’.",
+        "Para14":"The Blue Colour: The Blue colour of Energy symbol shows the energy surplus state.",
+        "Para15":"The Tricolour: The tricolour symbol shows rivers in Chhattisgarh indicating the states prosperity.",
+        "Para16":"Background Colour: Background colour is white, symbolises the peace and prosperity of the state.",
+        "Para17":"The Symbol of Chhattisgarh shows the essence of overall Chhattisgarh having tagline of “Gadvo Nawa Chhattisgarh”.",
+        
+
+
+        "Para2": "Hill Myna is the official state bird of Chhattisgarh. The scientific name of Hill Myna is Gracula Religiosa Peninsularis.",
+
+
+        "Para3": "Sal Tree is the official state bird of Chhattisgarh. The scientific name of Sal Tree is Shorea Robusta. They are Deciduous or semideciduous trees, up to 40 tall; bark longitudinally furrowed; branchlets pubescent.",
+
+
+        "Para4": "Wild Forest Buffalo is the official state animal of Chhattisgarh. Forest buffalos are usually found in alluvial plains, grasslands, and marshes.",
+        
+        "Title1": "GEOGRAPHY",
+
+        "Close":"Close"
+
+
+    },
+    "HOWREACHCHHATTISGARH": {
+        "Title": "HOW REACH CHHATTISGARH",
+        "Title1": "Reach Raipur by Road",
+        "Title2": "Reach Raipur by Rail",
+        "Title3": "Reach Raipur by Air",
+        "Para1": "",
+        "Para2": "",
+        "Para3": "",
+        "Para4": "",
+        "Para5": "Total length of roads in Chhattisgarh is about 45,988 km which includes 11 national highways(2,184 km), state highways(3,611 km), district roads ( 8,031 km) and rural roads(27,566 km), (Data as of 2008-2009). Reaching Raipur by road is possibly the most inexpensive way to get to the city. The city is intersected by The National Highway 6 and the National Highway 43 links the city to Vijaya Nagaram.",
+        "Para6": "Chhattisgarh has a good rail network connecting all the major cities. The rail network of the state is centered at Bilaspur, which is the zonal headquarter of South Eastern Central Railway. The main rail junctions are Bilaspur,Raipur and Durg which are well connected with all the major cities of India. Raipur serves as a major junction for the South Eastern Railway on Mumbai, Nagpur, Calcutta route. Traveling to Raipur by rail is also a popular and much favored option especially for those who find the air fare quite pricy.",
+        "Para7": " Air connectivity of Chhattisgarh is low. Raipur is the only commercial operating point in the state, that too provides only domestic flights across the country. Chhattisgarh does not have international connectivity in terms of airlines.Taking the aerial route to Raipur is the most favored and hassle-free way of the traveling to Raipur. There are a number of flights that connect Raipur to the other major cities. You can access Raipur from Delhi, Bhubaneshwar, Bhopal and Jabalpur. There are regular flights that ply between these cities and Raipur."
+    },
+    "DISTRICTS": {
+        "Title": "DISTRICTS OF THE STATE",
+        "MAP": "Chhattisgarh Map",
+        "DIVISON": "Division",
+        "DISTRICTNAME": "District Name",
+        "DISTRICTWEB": "District Website",
+        "DivDist": "Division and District"
+
+    },
+    "EDUCATION": {
+        "Title": "EDUCATION",
+        "Title1": "NATIONAL INSTITUTES",
+        "Title2": "UNIVERSITIES",
+        "Title3": "COLLEGES",
+        "Para1": "According to the census, 2011, the literacy rate in Chhattisgarh's was at 71.04% which has improved considerably from census, 2001 (64.66%). Male and Female literacy rate as per censes, 2011 are 81.45% and 60.59% respectively.",
+        "Para2": "Education in Chhattisgarh is good. There are many universities and colleges that are famous nationally including IIT-Bhilai, IIIT Raipur , NIT Raipur; IIM Raipur; Hidayatullah National Law University, Raipur etc. Chhattisgarh is mainly famous for the number of engineering colleges which is 49 (till 2011) in total in different cities across the state."
+    },
+    "RURALINDUSTRY": {
+        "Title": "RURAL INDUSTRIES",
+        "button": "Filter RURAL INDUSTRY",
+        "Website": "WEBSITE LINK",
+        "SNO": "S.No."
+    },
+    "FEEDBACK": {
+        "Note1": "Note: Fields marked with",
+        "Note2": "are mandatory.",
+        "Title": "Feedback Form",
+        "Fname": "First Name",
+        "Lname": "Last Name",
+        "Email": "Email Id",
+        "Contact": "Contact No.",
+        "FBMsg": "Feedback Message",
+        "SaveButton": "Save"
+    },
+    "SITEMAP":{
+        "Home":"Home",
+        
+        "Aboutus":"About Chhattisgarh",
+        "Cghistory":"History of Chhattisgarh",
+        "Statesymbol":"State Symbols",
+        "Reachability":"How to Reach",
+        "Districts":"Districts",
+        "Prideofcg":"Pride of CG",
+        "Census":"Census",
+
+        "Government":"Government",
+        "Governor":"Governor",
+        "ChifMins":"Chief Minister",
+        "Departments":"Departments",
+        "ElcVot":"Election & Voting",
+        "CGAss":"Chhattisgarh Assembly",
+        "EGazett":"e-Gazette",
+        "HighCourt":"High Court of C.G.",
+
+        "Education":"Education",
+        
+        "Agriculture":"Agriculture",
+        "Rgkny":"Rajiv Gandhi Kisan Nyay Yojana",
+        "Nggb":"Narva, Garuva, Ghurva, Bari",
+
+        "Services":"Services",
+        "CgPolice":"CG Police",
+        "EDistrict":"e-District",
+        "Bhuiyan":"Bhuiyan",
+        "MMYojana":"Mukhyamantri Mitaan Yojana",
+        "Scheme":"Scheme",
+        "Documents":"Documents and Reports",
+        "Ebill":"e-Bill Payment",
+
+        "Helpline":"Helpline",
+        "Tourism":"Tourism ",
+        "SUDA":"SUDA",
+        "LogIn":"Log In"
+        
+
+
+    },
+    "OTHERIMPDEPT": {
+        "Title": "Other Important Departments",
+        "1": "Basic Tasar Silkworm Seed Organisation",
+        "2": "Chhattisgarah State Information Commission",
+        "3": "Chhattisgarh Academy of Administration",
+        "4": "Chhattisgarh Board of Secondary Education, Raipur",
+        "5": "Chhattisgarh Council of Science and Technology",
+        "6": "Chhattisgarh Human Rights Commission",
+        "7": "Chhattisgarh Legislative Assembly",
+        "8": "Chhattisgarh Markfed",
+        "9": "Chhattisgarh Police",
+        "10": "Chhattisgarh Professional Examination Board (VYAPAM)",
+        "11": "Chhattisgarh Public Service Commission",
+        "12": "Chhattisgarh Rural Road Development agency",
+        "13": "Chhattisgarh State Agriculture Marketing (MANDI) Board",
+        "14": "Chhattisgarh State Electricity Regulatory Commission",
+        "15": "Chhattisgarh State Legal Services Authority, Bilaspur",
+        "16": "Chhattisgarh State Medicinal Plants Board",
+        "17": "Chhattisgarh State Power Companies",
+        "18": "Chhattisgarh State Warehousing Corporation",
+        "19": "Chhattisgarh Tribal Development Programme",
+        "20": "Department of Commerce & Industries",
+        "21": "Department of Panchayat & Rural Development",
+        "22": "Directorate of Economics & Statistics , Chhattisgarh",
+        "23": "Directorate of Economics & Statistics Department of Finance &Planning Govt. of C.G.",
+        "24": "Directorate of Horticulture, Chhattisgarh",
+        "25": "Directorate of Institutional Finance",
+        "26": "Directorate of Sainik Welfare Chhattisgarh",
+        "27": "Directorate of social welfare",
+        "28": "Directorate of Employment and Training",
+        "29": "Government of Chhattisgarh Law and legislative affairs department",
+        "30": "Home Guard & Civil Defence",
+        "31": "Hydrology Project Chhattisgarh",
+        "32": "Integrated Watershed Management Programme",
+        "33": "Mahila Samakhya Chhattisgarh",
+        "34": "MGNREGA",
+        "35": "Minority commission",
+        "36": "National Service Scheme",
+        "37": "Office of the Resident Commissioner Govt of Chhattisgarh New Delhi",
+        "38": "Rajya Hindi Granth academy",
+        "39": "Rajya Nirvachan Aayog",
+        "40": "Rashtriya Madhyamik Shiksha Abhiyan",
+        "41": "Rural Engineering Services",
+        "42": "SCERT, Raipur",
+        "43": "State Planning Commission",
+        "44": "Thakur Pyarelal Institute of Panchayat & Rural Development (TPIPRD)"
+    }
+}

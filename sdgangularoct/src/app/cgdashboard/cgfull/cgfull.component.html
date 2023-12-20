@@ -1,0 +1,347 @@
+<div id="main-wrapper">
+    <app-cgheader></app-cgheader>
+    <section class="spacer bg-light">
+        <div class="content-wrapper">
+            <section class="spacer bg-light">
+                <div class="container">
+                    <div class="row py-1">
+                        <div class="col-md-12">
+                            <div class="card p-2 mr-0">
+                                <div class="card-body p-2">
+                                    <ul class="list-unstyled listing">
+                                        <li>
+                                            <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md">HOME</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']" class="btn btn-custom btn-outline-info btn-md">SIF Baseline and
+                                                Progress Report</a>&nbsp;
+                                            <a href="#" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">SDG GIS Based
+                                                Maps</a>&nbsp;
+                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
+                                                Aayog SDG
+                                                India Index 3.0</a>&nbsp;
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md"
+                                                target="_blank">DIF
+                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
+                                                target="_blank">ADMIN LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                                   
+                    <form [formGroup]="cgmaindashboard">
+                        <div class="row py-1">                        
+                            <div class="col-md-7">
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-4">                                   
+                                        <h4 class="text-success font-weight-bold">District Composite Score</h4>
+                                            <div class='my-legend'>
+                                            <!-- <div class='legend-title'>Legend</div> -->
+                                                <div class="row">                                           
+                                                    <div class="col-md-5">
+                                                            <mat-form-field>
+                                                                <mat-label>Select Year<span class="required"></span> </mat-label>
+                                                                <mat-select formControlName="valueyear" (selectionChange)="onYearSelected($event)">                                                                    
+                                                                    <mat-option *ngFor="let f of cgyear" [value]="f.valueyear">
+                                                                        {{f.valueyear}} </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class='my-legend'>
+                                                            <div class='legend-scale'>
+                                                                <ul class='legend-labels'>
+                                                                    <li><span style='background:#dd1e47; print-color-adjust: exact;'></span>
+                                                                        Aspirant(0-49) &nbsp;&nbsp;
+                                                                    </li>
+                                                                    <li>
+                                                                        <span style='background:#00a084; print-color-adjust: exact;'></span>
+                                                                        Front Runner(65-99) &nbsp;&nbsp;
+                                                                    </li>
+                                                                </ul>
+                                                                <ul class='legend-labels'>
+                                                                    <li>
+                                                                        <span style='background:#ffc40c; print-color-adjust: exact;'></span>
+                                                                        Performer(50-64) &nbsp;&nbsp;
+                                                                    </li>
+                                                                    <li>
+                                                                        <span style='background:#00aeef; print-color-adjust: exact;'></span>
+                                                                        Achiever(100)
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">                                               
+                                                        <app-cgall></app-cgall>
+                                                        <!-- <ng-container *ngIf="cgselectedYear == '2015'">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <app-cgsvg></app-cgsvg> 
+                                                                    <app-cgall></app-cgall>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="cgselectedYear == '2021'">
+                                                           <app-cgall></app-cgall>
+                                                            <app-cggpm></app-cggpm>
+                                                        </ng-container> -->
+                                            </div>
+                                        </div>
+                                                    
+                                    </div>                                   
+                                    <div class="row">                                       
+                                        <div class="col-md-12">                                            
+                                            <table style="border: 1; ">
+                                                <tr>
+                                                    <td>
+                                                        <a href="#" class="goalslink" data-toggle="modal" data-target="#target">
+                                                            <img src="assets/images/target.png" class="img img-responsive center-block zoom goalsimage inner-img"
+                                                                alt="No of Stackholder Departments">
+                                                            No of Targets : {{totaltarget[0]?.totaldiftargets}}
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="goalslink" data-toggle="modal" data-target="#indicators">
+                                                            <img src="assets/images/indicator.png" class="img img-responsive center-block zoom goalsimage inner-img"
+                                                                alt="No of Stackholder Departments">
+                                                            No of Indicators : {{totalindicators[0]?.totaldifindicators}}
+                                                        </a>                                                    
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="goalslink" data-toggle="modal" data-target="#departments">
+                                                            <img src="assets/images/department.png" class="img img-responsive center-block zoom goalsimage inner-img"
+                                                                alt="No of Stackholder Departments">
+                                                            No of Stackholder Departments : {{totaldepartment[0]?.totaldepartment}}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>                                        
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-1">
+                                        <h4 class="text-success font-weight-bold">District Composite Score - Percentage Analysis</h4>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class='my-legend'>
+                                                    <div class='legend-scale'>
+                                                        <ul class='legend-labels'>
+                                                            <li><span style='background:#dd1e47; print-color-adjust: exact;'></span>
+                                                                Aspirant(0-49) &nbsp;&nbsp;
+                                                            </li>
+                                                            <li>
+                                                                <span style='background:#00a084; print-color-adjust: exact;'></span>
+                                                                Front Runner(65-99) &nbsp;&nbsp;
+                                                            </li>
+                                                        </ul>
+                                                        <ul class='legend-labels'>
+                                                            <li>
+                                                                <span style='background:#ffc40c; print-color-adjust: exact;'></span>
+                                                                Performer(50-64) &nbsp;&nbsp;
+                                                            </li>
+                                                            <li>
+                                                                <span style='background:#00aeef; print-color-adjust: exact;'></span>
+                                                                Achiever(100)
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>                                           
+                                            </div>
+                                        </div>
+                                        <div class="row" style="align-items: center;">
+                                            <div class="col-md-12"> 
+                                                <div id="chart">
+                                                    <apx-chart  #chart1 [series]="chartOptions1.series" [chart]="chartOptions1.chart" [labels]="chartOptions1.labels"
+                                                        [responsive]="chartOptions1.responsive"></apx-chart>
+                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <td style="background-color: #dd1e47; color: aliceblue;">
+                                                            Total No. of Aspirant District :
+                                                        </td>
+                                                        <td>
+                                                            {{this.districtgoaldata[0]?.Aspirant}}
+                                                        </td>
+                                                        <td style="background-color: #ffc40c; color: aliceblue;">
+                                                            Total No. of Performer District :
+                                                        </td>
+                                                        <td>
+                                                            {{this.districtgoaldata[0]?.Performer}}
+                                                        </td>
+                                                    </tr>
+                                                    <br>
+                                                    <tr>
+                                                        <td style="background-color: #00a084; color: aliceblue;">
+                                                            Total No. of FrontRunner District :
+                                                        </td>
+                                                        <td>
+                                                            {{this.districtgoaldata[0]?.FrontRunner}}
+                                                        </td>
+                                                        <td style="background-color: #00aeef; color: aliceblue;">
+                                                            Total No. of Achiever District :
+                                                        </td>
+                                                        <td>
+                                                            {{this.districtgoaldata[0]?.Achiever}}
+                                                        </td>
+                                                    </tr>                                                  
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">                                
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-1">
+                                        <h4 class="text-success font-weight-bold"></h4>
+                                        <div class='my-legend'>
+                                            <div class='legend-scale'>
+                                                <ul class='legend-labels'>
+                                                    <li><span style='background:#dd1e47; print-color-adjust: exact;'></span>
+                                                        Aspirant(0-49) &nbsp;&nbsp;
+                                                    </li>
+                                                    <li>
+                                                        <span style='background:#00a084; print-color-adjust: exact;'></span>
+                                                        Front Runner(65-99) &nbsp;&nbsp;
+                                                    </li>
+                                                </ul>
+                                                <ul class='legend-labels'>
+                                                    <li>
+                                                        <span style='background:#ffc40c; print-color-adjust: exact;'></span>
+                                                        Performer(50-64) &nbsp;&nbsp;
+                                                    </li>
+                                                    <li>
+                                                        <span style='background:#00aeef; print-color-adjust: exact;'></span>
+                                                        Achiever(100)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <apx-chart #chart2 [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                                [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                                                [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis" [legend]="chartOptions.legend"
+                                                [colors]="chartOptions.colors" [grid]="chartOptions.grid">
+                                        </apx-chart>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+    <app-mainfooter></app-mainfooter>
+</div>
+
+<div class="modal fade" id="target" tabindex="-1" role="dialog" aria-labelledby="target"
+    aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 60%;" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+                <h3 class="modal-title1" id="goalinfomodal1">Total No. of Targets</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <th>#</th>
+                            <th>Target</th>
+                        </tr>
+                        <tr *ngFor="let d of alltarget ;let i=index;">
+                            <td>{{i+1}}</td>
+                            <td> {{d.dif_target_desc}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="indicators" tabindex="-1" role="dialog" aria-labelledby="indicators" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 60%;" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+                <h3 class="modal-title1" id="goalinfomodal1">Total No. of Indicators</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <th>#</th>
+                            <th>Indicators</th>
+                        </tr>
+                        <tr *ngFor="let d of allindicators ;let i=index;">
+                            <td>{{i+1}}</td>
+                            <td> {{d.district_indicator_desc}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="departments" tabindex="-1" role="dialog" aria-labelledby="departments" aria-hidden="true">
+    <div class="modal-dialog"  role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+                <h3 class="modal-title1" id="goalinfomodal1">Total No. of Departments</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table-responsive">
+                    <tbody>
+                        <tr>
+                            <th>#</th>
+                            <th>Department Name</th>
+                        </tr>
+                        <tr *ngFor="let d of alldepartment ;let i=index;">
+                            <td>{{i+1}}</td>
+                            <td> {{d.description}} ({{d.department_name}} )</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

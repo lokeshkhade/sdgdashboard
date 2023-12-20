@@ -1,0 +1,100 @@
+.my-legend .legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.my-legend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.my-legend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+
+.my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+}
+
+.my-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.my-legend a {
+    color: #777;
+}
+
+//////////////////////////////////////
+
+td,
+th {
+    border: 1px solid #560cf4;
+    padding: 8px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dedada;
+    color: #090000;
+}
+
+tr:nth-child(odd) {    
+    color: #090000;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #eaedec;
+    color: rgb(7, 0, 0);
+}
+
+/////////////////////
+
+.goalsimage {
+    height: 2.2rem;
+    width: 2.2rem;
+    overflow: hidden;
+}
+
+.inner-img {
+    transition: 0.3s;
+}
+
+.inner-img:hover {
+    transform: scale(1.1);
+}
+
+.goalslink {
+    float: left;
+}
+
+/////////////////////
+
+
+
+
