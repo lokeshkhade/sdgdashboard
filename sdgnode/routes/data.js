@@ -1057,6 +1057,60 @@ router.get('/getdifreport/:id', async (req, res) => {
 });
 
 
+router.get('/getdifreportalldistrict/:id', async (req, res) => 
+{
+    var id = req.params.id;
+    var query = `SELECT 
+                    round(sum(case when dg.district_code='DT01' then  dv.indicators_value ELSE 0 END),3) 'Balod',
+                    round(sum(case when dg.district_code='DT02' then  dv.indicators_value ELSE 0 END),3) 'BalodaBazar',
+                    round(sum(case when dg.district_code='DT03' then  dv.indicators_value ELSE 0 END),3) 'Balrampur',
+                    round(sum(case when dg.district_code='DT04' then  dv.indicators_value ELSE 0 END),3) 'Bastar',
+                    round(sum(case when dg.district_code='DT05' then  dv.indicators_value ELSE 0 END),3) 'Bemetara',
+                    round(sum(case when dg.district_code='DT06' then  dv.indicators_value ELSE 0 END),3) 'Bijapur',
+                    round(sum(case when dg.district_code='DT07' then  dv.indicators_value ELSE 0 END),3) 'Bilaspur',
+                    round(sum(case when dg.district_code='DT08' then  dv.indicators_value ELSE 0 END),3) 'Dantewada',
+                    round(sum(case when dg.district_code='DT09' then  dv.indicators_value ELSE 0 END),3) 'Dhamtari',
+                    round(sum(case when dg.district_code='DT10' then  dv.indicators_value ELSE 0 END),3) 'Durg',
+                    round(sum(case when dg.district_code='DT11' then  dv.indicators_value ELSE 0 END),3) 'Gariaband',
+                    round(sum(case when dg.district_code='DT12' then  dv.indicators_value ELSE 0 END),3) 'JanjgirChampa',
+                    round(sum(case when dg.district_code='DT13' then  dv.indicators_value ELSE 0 END),3) 'Jashpur',
+                    round(sum(case when dg.district_code='DT14' then  dv.indicators_value ELSE 0 END),3) 'Kanker',
+                    round(sum(case when dg.district_code='DT15' then  dv.indicators_value ELSE 0 END),3) 'Kabirdham',
+                    round(sum(case when dg.district_code='DT16' then  dv.indicators_value ELSE 0 END),3) 'Kondagaon',
+                    round(sum(case when dg.district_code='DT17' then  dv.indicators_value ELSE 0 END),3) 'Korba',
+                    round(sum(case when dg.district_code='DT18' then  dv.indicators_value ELSE 0 END),3) 'Korea',
+                    round(sum(case when dg.district_code='DT19' then  dv.indicators_value ELSE 0 END),3) 'Mahasamund',
+                    round(sum(case when dg.district_code='DT20' then  dv.indicators_value ELSE 0 END),3) 'Mungeli',
+                    round(sum(case when dg.district_code='DT21' then  dv.indicators_value ELSE 0 END),3) 'Narayanpur',
+                    round(sum(case when dg.district_code='DT22' then  dv.indicators_value ELSE 0 END),3) 'Raigarh',
+                    round(sum(case when dg.district_code='DT23' then  dv.indicators_value ELSE 0 END),3) 'Raipur',
+                    round(sum(case when dg.district_code='DT24' then  dv.indicators_value ELSE 0 END),3) 'Rajnandgaon',
+                    round(sum(case when dg.district_code='DT25' then  dv.indicators_value ELSE 0 END),3) 'Sukma',
+                    round(sum(case when dg.district_code='DT26' then  dv.indicators_value ELSE 0 END),3) 'Surajpur',
+                    round(sum(case when dg.district_code='DT27' then  dv.indicators_value ELSE 0 END),3) 'Surguja',
+                    round(sum(case when dg.district_code='DT28' then  dv.indicators_value ELSE 0 END),3) 'Gaurella-Pendra-Marwahi',
+                    round(sum(case when dg.district_code='DT29' then  dv.indicators_value ELSE 0 END),3) 'Khairagarh-Chhuikhadan-Gandai',
+                    round(sum(case when dg.district_code='DT30' then  dv.indicators_value ELSE 0 END),3) 'Manendragarh-Chirmiri-Bharatpur',
+                    round(sum(case when dg.district_code='DT31' then  dv.indicators_value ELSE 0 END),3) 'Mohla-Manpur-AmbagarhChowki',
+                    round(sum(case when dg.district_code='DT32' then  dv.indicators_value ELSE 0 END),3) 'Sarangarh-Bilaigarh',
+                    dm.district_indicator_desc FROM dif_indicator_values dv
+                    INNER JOIN dim_geo dg ON dg.district_code= dv.district
+                    inner JOIN dif_district_indicator_master dm  ON dv.district_indicator_master_id
+                    =dm.indicator_master_id 
+                    WHERE dv.valueyear = ?  GROUP BY dm.district_indicator_desc`;
+    try {
+        let result = await mysql.exec(query, [id]);
+        if (result.length == 0) {
+            return res.status(200).json("");
+        }
+        return res.json(result);
+    } catch (err) {
+
+        return res.status(404).json(err);
+    }
+});
+
+
 
 
 module.exports = router;

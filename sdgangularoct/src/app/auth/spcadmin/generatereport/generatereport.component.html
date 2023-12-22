@@ -27,23 +27,16 @@
                                         {{y.valueyear}} </mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </div>                       
-
+                        </div> 
                         <br>
-
-                        <div class="row">
-                        
+                        <div class="row">                        
                             <div class="col-md-6 col-sm-6 col-lg-6">
                                 <button type="button" class="btn btn-success" (click)="sifreport()">SIF Report</button> &nbsp;
                                 <button type="button" class="btn btn-warning" (click)="difreport()">DIF Report</button> &nbsp;
-                                <button type="button" (click)="reset()" class="btn btn-primary">Reset</button>
+                                <button type="button" (click)="reset()" class="btn btn-primary">Reset</button>                               
                             </div>                        
                         </div>
-
-                        <br>
-
-                      
-                       
+                        <br>                       
                     </div>
                 </div>
             </form>
@@ -52,7 +45,9 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-lg-12">
                 <mat-card *ngIf="showdif">
-                    <div class="row print-container">
+                    <button type="button" (click)="getExcel()" class="btn btn-md btn-success">Generate Excel</button>
+                    <br>
+                            <div class="row print-container">
                                 <div class="table-responsive" id="scrollableDiv">
                                     <table class="table-bordered table-hover align-items-center" #table>
                                         <tr>
@@ -62,11 +57,171 @@
                                             <th>
                                                 Indicators
                                             </th>
-                                            <ng-container *ngFor="let d of district">
-                                                <th> {{d.district_name}}</th>
-                                            </ng-container>
+                                            <th>
+                                               Balod
+                                            </th>
+                                            <th>
+                                                Baloda Bazar
+                                            </th>
+                                            <th>
+                                                Balrampur
+                                            </th>
+                                            <th>
+                                                Bastar
+                                            </th>
+                                            <th>
+                                                Bemetara
+                                            </th>
+                                            <th>
+                                                Bijapur
+                                            </th>
+                                            <th>
+                                                Bilaspur
+                                            </th>
+                                            <th>
+                                                Dantewada
+                                            </th>
+                                            <th>
+                                                Dhamtari
+                                            </th>
+                                            <th>
+                                                Durg
+                                            </th>
+                                            <th> 
+                                                Gariaband
+                                            </th>
+                                            <th>
+                                                Janjgir-Champa
+                                            </th>
+                                            <th>
+                                                Jashpur
+                                            </th>
+                                            <th> 
+                                                Kanker
+                                            </th>
+                                            <th>
+                                                Kabirdham
+                                            </th>
+                                            <th>
+                                                Kondagaon
+                                            </th>
+                                            <th>
+                                                Korba
+                                            </th>
+                                            <th>
+                                                Korea
+                                            </th>
+                                            <th>
+                                                Mahasamund
+                                            </th>
+                                            <th>
+                                                Mungeli
+                                            </th>
+                                            <th>
+                                                Narayanpur
+                                            </th>
+                                            <th>
+                                                Raigarh
+                                            </th>
+                                            <th>
+                                                Raipur
+                                            </th>
+                                            <th>
+                                                Rajnandgaon
+                                            </th>
+                                            <th>
+                                                Sukma
+                                            </th>
+                                            <th>
+                                                Surajpur
+                                            </th>
+                                            <th>
+                                                Surguja
+                                            </th>
                                         </tr>
-                                        <tr *ngFor="let c of difindicator">
+                                        <tr *ngFor="let d of difdata; let i=index;">
+                                            <td> {{d.district_indicator_desc}}</td>
+                                            <td> {{d.Balod}} </td>
+                                            <td>
+                                                {{d.BalodaBazar}}
+                                            </td>
+                                            <td>
+                                                {{d.Balrampur}}
+                                            </td>
+                                            <td>
+                                                {{d.Bastar}}
+                                            </td>
+                                            <td>
+                                                {{d.Bemetara}}
+                                            </td>
+                                            <td>
+                                                {{d.Bijapur}}
+                                            </td>
+                                            <td>
+                                                {{d.Bilaspur}}
+                                            </td>
+                                            <td>
+                                                {{d.Dantewada}}
+                                            </td>
+                                            <td>
+                                                {{d.Dhamtari}}
+                                            </td>
+                                            <td>
+                                                {{d.Durg}}
+                                            </td>
+                                            <td>
+                                                {{d.Gariaband}}
+                                            </td>
+                                            <td>
+                                                {{d.JanjgirChampa}}
+                                            </td>
+                                            <td>
+                                                {{d.Jashpur}}
+                                            </td>
+                                            <td>
+                                                {{d.Kanker}}
+                                            </td>
+                                            <td>
+                                                {{d.Kabirdham}}
+                                            </td>
+                                            <td>
+                                                {{d.Kondagaon}}
+                                            </td>
+                                            <td>
+                                                {{d.Korba}}
+                                            </td>
+                                            <td>
+                                                {{d.Korea}}
+                                            </td>
+                                            <td>
+                                                {{d.Mahasamund}}
+                                            </td>
+                                            <td>
+                                                {{d.Mungeli}}
+                                            </td>
+                                            <td>
+                                                {{d.Narayanpur}}
+                                            </td>
+                                            <td>
+                                                {{d.Raigarh}}
+                                            </td>
+                                            <td>
+                                                {{d.Raipur}}
+                                            </td>
+                                            <td>
+                                                {{d.Rajnandgaon}}
+                                            </td>
+                                            <td>
+                                                {{d.Sukma}}
+                                            </td>
+                                            <td>
+                                                {{d.Surajpur}}
+                                            </td>
+                                            <td>
+                                                {{d.Surguja}}
+                                            </td>
+                                        </tr>
+                                        <!-- <tr *ngFor="let c of difindicator">
                                             <td>
                                                 {{c.district_indicator_desc}}
                                             </td>
@@ -87,34 +242,36 @@
                                                     <td> {{f.indicators_value}}</td>
                                                 </ng-container>
                                             </ng-container>                                            
-                                        </tr> 
+                                        </tr>  -->
                                     </table>
                                 </div>
-                    </div>        
+                            </div>        
                 </mat-card>
         
                 <mat-card *ngIf="showsif">
-                    <div class="row print-container">
-                        <div class="table-responsive" id="scrollableDiv">
-                            <table class="table-bordered table-hover align-items-center" #table>
-                                <tr>
-                                    <th colspan="12">SIF-Report </th>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Indicators
-                                    </th>
-                                    <th> {{this.selectedyear}}</th>
-                                </tr>
-                                <tr *ngFor="let d of sifdata">
-                                    <td>
-                                        {{d.indicator_desc}}
-                                    </td>
-                                    <td>{{d.IndicatorValue}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                    <button type="button" (click)="getExcel()" class="btn btn-md btn-success">Generate Excel</button>
+                    <br>
+                            <div class="row print-container">
+                                <div class="table-responsive" id="scrollableDiv">
+                                    <table class="table-bordered table-hover align-items-center" #table>
+                                        <tr>
+                                            <th colspan="12">SIF-Report - {{this.selectedyear}} </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Indicators
+                                            </th>
+                                            <th> Values </th>
+                                        </tr>
+                                        <tr *ngFor="let d of sifdata">
+                                            <td>
+                                                {{d.indicator_desc}}
+                                            </td>
+                                            <td>{{d.IndicatorValue}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                 </mat-card>
             </div>
         </div>

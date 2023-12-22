@@ -2,9 +2,9 @@ export const MENUITEMS: any = {
 
     1: [
         { state: '/spcadmin/dashboard', type: 'link', name: 'Department Dashboard', icon: 'dashboard' },
-        { state: '/spcadmin/adduser', type: 'link', name: 'Add User', icon: 'person' },
+        { state: '/spcadmin/adduser', type: 'link', name: 'Add/Manage User', icon: 'person' },
         { state: '/spcadmin/manageindicator', type: 'link', name: 'Manage Indicator', icon: 'edit' },
-        { state: '/spcadmin/manageuser', type: 'link', name: 'Manage User', icon: 'group' },
+        // { state: '/spcadmin/manageuser', type: 'link', name: 'Manage User', icon: 'group' },
         { state: '/spcadmin/auditreport', type: 'link', name: 'Audit Report', icon: 'report' },
         { state: '/spcadmin/freezdata', type: 'link', name: 'Freez/UnfreezData', icon: 'description' },
         { state: '/spcadmin/unfreezrequest', type: 'link', name: 'Unfreez Request', icon: 'edit' },

@@ -311,10 +311,15 @@ router.post('/login/:username/:password', async (req, res) => {
     var username = req.params.username;
     var password = req.params.password;   
 
-    var query = `SELECT ud.districtcode,ud.username,ud.password, ur.role_id, ur.user_id, ud.id, ud.departmentid 
-					 FROM users ud 
-					 LEFT JOIN user_roles_mapping ur ON ud.id= ur.user_id
-					 WHERE ud.username=? and  AND ud.password= ?`;
+    // var query = `SELECT ud.districtcode,ud.username,ud.password, ur.role_id, ur.user_id, ud.id, ud.departmentid 
+	// 				 FROM users ud 
+	// 				 LEFT JOIN user_roles_mapping ur ON ud.id= ur.user_id
+	// 				 WHERE ud.username=? and  AND ud.password= ?`;
+
+    var query = `SELECT ud.districtcode,ud.username,ud.password, 
+                    ud.roleid, ur.user_id, ud.id, ud.departmentid 
+                    FROM users ud 
+                    WHERE ud.username=? and  AND ud.password= ?`
     try {
         let result = await mysql.exec(query, [username, password]);
         if (result.length == 0) {
@@ -365,7 +370,8 @@ router.get('/gethodroles', async (req, res) => {
 
 router.get('/getallactiveusers', async (req, res) => {
 
-    var query = `SELECT * FROM users u WHERE u.id IN (SELECT  distinct urm.user_id from user_roles_mapping urm where urm.role_id in (1,2,3,5)) ORDER BY u.id`;
+    //var query = `SELECT * FROM users u WHERE u.id IN (SELECT  distinct urm.user_id from user_roles_mapping urm where urm.role_id in (1,2,3,5)) ORDER BY u.id`;
+    var query = `SELECT * FROM users u WHERE u.roleid IN (1,2,3,5) ORDER BY u.id`;
     try {
         let result = await mysql.exec(query);
         if (result.length == 0) {
@@ -707,13 +713,11 @@ router.get('/gethoddashboard/:year/:deptid', async (req, res) => {
 router.get('/getallactiveusersbydeptid/:deptid', async (req, res) => 
 {
     var id = req.params.deptid;
-    var query = `SELECT u.id,urm.user_id, u.departmentid,u.districtcode,u.email,u.failedattempt,
+    var query = `SELECT u.id,u.roleid, u.departmentid,u.districtcode,u.email,u.failedattempt,
                     u.firstname,u.isaccountactive,u.isaccountexpired,u.isaccountlocked,u.ispasswordexpired,
                     u.lastname,u.mobilenumber,u.oldpassword,u.password,u.passwordupdatedate,u.securityquestion,
-                    u.username,urm.role_id,u.createddate from users u
-                    LEFT JOIN user_roles_mapping urm ON u.id=urm.user_id
-                    WHERE u.id IN (SELECT  distinct urm.user_id from user_roles_mapping urm 
-                    where urm.role_id IN (4)) AND u.departmentid=? ORDER BY u.id`;
+                    u.username,u.createddate from users u
+                    WHERE u.roleid=4 AND u.departmentid=? ORDER BY u.id`;
     try {
             let result = await mysql.exec(query, [id]);
             if (result.length == 0) 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { AuthService } from '../../../services/auth.service';
 import { HttpParams } from '@angular/common/http';
@@ -8,6 +8,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-deptlanding',
@@ -15,6 +16,17 @@ import Swal from 'sweetalert2';
   styleUrls: ['./deptlanding.component.scss']
 })
 export class DeptlandingComponent implements OnInit {
+
+  // @ViewChild('helloModal') helloEl?: ElementRef;
+  // modal?: bootstrap.Modal;
+  // ngAfterViewInit() {
+  //   this.modal = new bootstrap.Modal(this.helloEl?.nativeElement, {});
+  // }
+
+  // trigger() {
+  //   this.modal?.toggle();
+  // }
+
 
   public dashboardall: FormGroup; //add  FormGroup 
   public indicators: any = [];  public indicatorvalue: any = []; 

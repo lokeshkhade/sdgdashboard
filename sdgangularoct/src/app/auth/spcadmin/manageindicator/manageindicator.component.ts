@@ -14,12 +14,12 @@ export class ManageindicatorComponent implements OnInit {
 
   public manageindicator: FormGroup; //add  FormGroup 
   public allindicators: any = [];
+  isChecked = false;
 
-  constructor(private fb: FormBuilder, private ds: DataService) 
-  {  
+  constructor(private fb: FormBuilder, private ds: DataService) {
     this.manageindicator = this.fb.group({ //definition to cons
       // valueyear: [+this.ds.currentyear.value, Validators.required]
-    }); 
+    });
 
   }
 
@@ -33,4 +33,11 @@ export class ManageindicatorComponent implements OnInit {
     });
   }
 
+  selectAll() {
+    this.isChecked = true;
+  }
+  
+  unselectAll() {
+    this.isChecked = false;
+  }
 }

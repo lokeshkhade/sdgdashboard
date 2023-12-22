@@ -1,6 +1,7 @@
 <div class="row">
-    <div class="col-md-12" style="text-align: center; padding-top: 15px;">        
-        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Indicator
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Manage Indicator
         </mat-label>
     </div>
 </div>
@@ -11,35 +12,38 @@
             <form [formGroup]="manageindicator">
                 <div class="card mb-4">
                     <div class="card-header bg-primary text-white">
-                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Indicators List
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage DIF Indicators
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <tbody>
-                                <tr  *ngFor="let i of allindicators">
+                                <tr *ngFor="let i of allindicators">
                                     <td>
-                                        <input type="checkbox" id="i.indicator_master_i" name="i.indicator_master_i" value="i.indicator_master_i">
+                                        <!-- <input type="checkbox" id="i.indicator_master_i" name="i.indicator_master_i" value="i.indicator_master_i"> -->
+                                        <mat-checkbox id="i.indicator_master_i" name="i.indicator_master_i"
+                                            value="i.indicator_master_i" [checked]="isChecked"></mat-checkbox>
                                     </td>
                                     <td>
                                         {{i.district_indicator_desc}}
                                     </td>
-                                </tr>   
+                                </tr>
                             </tbody>
                         </table>
                         <br>
                         <div class="row">
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-success">Update</button>
+                                <button type="button" class="btn btn-primary">Update</button>
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-primary">Check All</button>
+                                <button type="button" class="btn btn-primary" (click)='selectAll()'>Check All</button>
                             </div>
                             <div class="col-md-8">
-                                <button type="button" class="btn btn-warning">UnCheck All</button>
+                                <button type="button" class="btn btn-primary" (click)='unselectAll()'>UnCheck
+                                    All</button>
                             </div>
 
                         </div>
-                        
+
                     </div>
                 </div>
             </form>

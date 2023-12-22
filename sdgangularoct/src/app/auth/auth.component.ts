@@ -4,6 +4,8 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/co
 import { MENUITEMS } from './menu';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
+
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',

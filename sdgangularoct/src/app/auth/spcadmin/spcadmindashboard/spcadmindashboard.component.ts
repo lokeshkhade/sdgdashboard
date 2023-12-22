@@ -65,7 +65,8 @@ export class SpcadmindashboardComponent implements OnInit {
       plotOptions: {
         bar: {          
           horizontal: true,
-          // columnWidth: "85%",
+          columnWidth: '100%',
+          barHeight: '100%',
           // distributed: true,
           dataLabels: {
             position: "top"
@@ -76,7 +77,7 @@ export class SpcadmindashboardComponent implements OnInit {
         enabled: true,
         offsetX: -6,
         style: {
-          fontSize: "12px",
+          fontSize: "15px",
           colors: ["#fff"]
         }
       },
@@ -84,6 +85,9 @@ export class SpcadmindashboardComponent implements OnInit {
         show: true,
         width: 1,
         colors: ["#fff"]
+      },
+      fill: {
+        opacity: 1,
       },
       xaxis: {
         categories: []

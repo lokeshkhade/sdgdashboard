@@ -18,7 +18,11 @@ router.post('/', async (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
 
-    var query = `SELECT ud.districtcode as districtcode,ud.username as username,ud.password, ur.role_id as role, ur.user_id, ud.id, ud.departmentid as departmentid  FROM users ud LEFT JOIN user_roles_mapping ur ON ud.id = ur.user_id WHERE ud.username = ?`;
+    //var query = `SELECT ud.districtcode as districtcode,ud.username as username,ud.password, ur.role_id as role, ur.user_id, ud.id, ud.departmentid as departmentid  FROM users ud LEFT JOIN user_roles_mapping ur ON ud.id = ur.user_id WHERE ud.username = ?`;
+
+    var query = `SELECT ud.districtcode as districtcode,ud.username as username,ud.password, 
+                    ud.roleid as role, ud.id, ud.departmentid as departmentid  FROM users ud 
+                    WHERE ud.username = ?`;
 
     try {
 
@@ -70,6 +74,46 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+// ---------------------------------------------------- //
+
+router.post('/adduser', async (req, res) => 
+{    
+    var values = req.body;
+    var query = "INSERT INTO users SET ? ";
+    try {
+        let data = await mysql.exec(query, values);
+        res.json({
+            student_id: data.insertId
+
+        });
+    } catch (err) {
+        return res.status(404).json(err);
+    }
+});
+
+
+router.put('/updateUserById/:id', async (req, res) => 
+{
+    console.log("helooo");
+    var id = req.params.id;
+    var values = req.body;
+    var query = "UPDATE users SET ? WHERE id = ? ";
+    try {
+            let data = await mysql.exec(query, [values, id]);
+
+            if (data.affectedRows < 1) {
+                return res.status(404).send('error');
+            }
+            res.json({ success: "Data" });
+    }
+    catch (err) 
+    {
+        return res.status(404).json(err);
+    }
+});
+
+// -------------------------------------------------- //
 
 function validateUser(user) {
     const schema = Joi.object({

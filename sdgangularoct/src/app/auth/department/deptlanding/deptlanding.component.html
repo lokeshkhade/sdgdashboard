@@ -844,10 +844,9 @@
                                 <div style="color: #070457; font-size:medium;" class="text-center"> &nbsp;&nbsp; Mapped Indicators </div>
                                 <br>
                                  <ng-container *ngFor="let i of indicators">
-                                    <a href="#"   class="text-success goalslink"  data-toggle="modal" data-target="#goalinfomodal16"> 
+                                    <a href="#" class="text-success goalslink"  data-toggle="modal" data-target="#infomodal1"> 
                                         {{i.district_indicator_desc}} 
                                     </a>
-                                    <br>
                                     <br>
                                  </ng-container> 
                             </div>
@@ -855,29 +854,37 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>       
     </main>
 </div>
 
 
-<div class="modal fade" id="goalinfomodal16" tabindex="-1" role="dialog" aria-labelledby="goalinfomodal16"
-    aria-hidden="true">
+<div class="modal fade" id="infomodal1" tabindex="-1" role="dialog" aria-labelledby="infomodal1"
+    aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#2d69ad">
-                <h5 class="modal-title1" id="goalinfomodal1">GOAL-16 (Peace, Justice and Strong Institutions)</h5>
+            <div class="modal-header"  style="background-color: #dd1e47">
+                <h5 class="modal-title1" id="infomodal1">GOAL-1 (No-Poverty)</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <span style="color: rgb(6, 0, 0); font-weight: bold;">
-                 <ul class="listnew">
-                    <li>The global sustainable development agenda for 2030 promotes transparent and effective local governance and judicial systems, reducing crime and sexual and gender-based violence, tackling homicide and trafficking cases and also end Children's rights violations. </li>
-                    <li>Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels. </li>
-                    <li>Violence and armed conflict are the most significant and destructive challenge to the development, growth, and well-being of societies and It needs to Address the challenges of violence at all levels –individual, relationship, community and societal </li>
-                    <li> A total of 12 targets to ensure peaceful and just societies. </li><li> A total of 21 indicators identified at state level to measure and monitor the progress of these targets. </li>
-                </ul>
+                    <ul class="listnew">
+                        <li>Poverty is a multi-dimensional phenomenon. It not only indicates the lack of income or
+                            access to resources, but it also manifests in the form of diminished opportunities for
+                            education, hunger and malnutrition, social discrimination and the inability to participate
+                            in decision-making processes. </li>
+                        <li>Eradicating poverty in all its forms remains one of the greatest challenges before the
+                            mankind. </li>
+                        <li>Extreme deprivation is not just about wellbeing and opportunity; it is a question of
+                            survival also. </li>
+                        <li>The Goal 1 has 7 targets to measure the progress of state in ending poverty, in all its
+                            forms, from everywhere. </li>
+                        <li>A total of 24 indicators have been identified at state level to measure and monitor the
+                            progress of these targets and data is available for 23 indicators. </li>
+                    </ul>
                 </span>
 
             </div>
@@ -888,3 +895,4 @@
         </div>
     </div>
 </div>
+

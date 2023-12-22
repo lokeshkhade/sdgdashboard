@@ -130,11 +130,16 @@ export class ReportgraphComponent implements OnInit {
         colors: ['#fff'],
       },
       fill: {
-        opacity: 0.8,
+        opacity: 1,
       },
       colors: [],
       dataLabels: {
         enabled: true,
+        style: {
+          fontSize: "14px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: "normal"
+        },
         formatter: function (val, opts) {
           if (opts.seriesIndex == 13) {
             return ("G15" + ":" + (opts.w.config.series[opts.seriesIndex]).toFixed(0));

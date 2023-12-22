@@ -9,6 +9,7 @@ import { MdComponentModule } from 'src/app/md-components/md-components.module';
 import { DeptlandingComponent } from './deptlanding/deptlanding.component';
 
 
+
 @NgModule({
   declarations: [
     DeptdashboardComponent,
