@@ -9,6 +9,26 @@ import { MatSort } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import * as bootstrap from 'bootstrap';
+import { ApexAxisChartSeries, ApexPlotOptions, ApexStroke, ApexTitleSubtitle, ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent } from "ng-apexcharts";
+import {
+  ApexChart, ApexDataLabels, ApexFill, ApexLegend, ApexNonAxisChartSeries,
+  ApexResponsive
+} from "ng-apexcharts";
+import { ActivatedRoute, Router } from '@angular/router';
+
+
+export type ChartOptions = {
+  updateSeries(goal: any, value: any): unknown;
+  updateOptions(arg0: { series: { name: string; data: any; }[]; xaxis: { type: string; categories: any; }; colors: string[] }): unknown;
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  yaxis: ApexYAxis;
+  xaxis: ApexXAxis;
+  colors: string[];
+  legend: ApexLegend;
+};
 
 @Component({
   selector: 'app-deptlanding',
@@ -17,22 +37,16 @@ import * as bootstrap from 'bootstrap';
 })
 export class DeptlandingComponent implements OnInit {
 
-  // @ViewChild('helloModal') helloEl?: ElementRef;
-  // modal?: bootstrap.Modal;
-  // ngAfterViewInit() {
-  //   this.modal = new bootstrap.Modal(this.helloEl?.nativeElement, {});
-  // }
-
-  // trigger() {
-  //   this.modal?.toggle();
-  // }
+  @ViewChild("chart2") chart2!: ChartOptions;
+  public chartOptions: Partial<ChartOptions> | any;
 
 
   public dashboardall: FormGroup; //add  FormGroup 
   public indicators: any = [];  public indicatorvalue: any = []; 
-  public selectedindicator: any;  public selecteddept: any;   public deptname: any; public deptdata: any = []; public deptdistscore: any = [];
+  public selectedindicator: any;  public selecteddept: any;   
+  public deptname: any; public deptdata: any = []; public deptdistscore: any = [];
   public currentUser: any;  public user_id: any;
-  public years: any = [];  public selectedyear: any;
+  public years: any = []; public selectedyear: any; public indicatordata: any = [];
 
   public DPT01: any;  public DPT02: any;   public DPT03: any;  public DPT04: any;
   public DPT05: any;  public DPT06: any;   public DPT07: any;  public DPT08: any;
@@ -47,7 +61,8 @@ export class DeptlandingComponent implements OnInit {
   public DT14T: any;  public DT15: any;  public DT15T: any;  public DT16: any;  public DT16T: any;  public DT17: any;  public DT17T: any;  public DT18: any;
   public DT18T: any;  public DT19: any;  public DT19T: any;  public DT20: any;  public DT20T: any;  public DT21: any;  public DT21T: any;  public DT22: any;
   public DT22T: any;  public DT23: any;  public DT23T: any;  public DT24: any;  public DT24T: any;  public DT25: any;  public DT25T: any;  public DT26: any;
-  public DT26T: any;  public DT27: any;  public DT27T: any;  public DT28: any;  public DT28T: any;  public DT29: any;  public DT29T: any;
+  public DT26T: any; public DT27: any; public DT27T: any; public DT28: any; public DT28T: any; public DT29: any; public DT29T: any; public DT30: any; public DT30T: any;
+  public DT31: any; public DT31T: any; public DT32: any; public DT32T: any; public DT33: any; public DT33T: any;
 
 
   constructor(private fb: FormBuilder, private ds: DataService, private datePipe: DatePipe, private authService: AuthService) 
@@ -55,7 +70,40 @@ export class DeptlandingComponent implements OnInit {
     this.dashboardall = this.fb.group({ //definition to cons
       valueyear: [2015, Validators.required]
     });
+
+    this.chartOptions = {
+      series: [],
+      chart: {
+        height: 750,
+        type: "bar"        
+      },
+      colors: [],     
+      plotOptions: {
+        bar: {
+          columnWidth: "75%",
+          distributed: true,
+          horizontal: true
+        },
+        fill: {
+          opacity: 1,
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: false
+      },
+      grid: {
+        show: true
+      },
+      xaxis: {
+      }
+    };
+
   }
+
+
 
 
   ngOnInit(): void 
@@ -70,11 +118,10 @@ export class DeptlandingComponent implements OnInit {
     this.getcgmapindicator(this.selectedyear, this.currentUser.departmentid);
     this.getallyears();
     this.getindicator(this.currentUser.departmentid);
-    this.DT29 = '#FFFFFF'; this.DT28 = '#FFFFFF';
   }
 
   getallyears() {
-    this.ds.getData('common/getdifyears').subscribe((res: any) => {
+    this.ds.getData('data/getcgdashboardyear').subscribe((res: any) => {
       this.years = res;
     });
   }
@@ -453,7 +500,7 @@ export class DeptlandingComponent implements OnInit {
   {
     this.ds.paramFunction('common/getdeptindicator', deptid).subscribe((res: any) => {
       this.indicators = res;
-      this.selectedindicator = this.indicators[0]?.indicator_master_id;     
+      //this.selectedindicator = this.indicators[0]?.indicator_master_id;     
     });
   } 
 
@@ -603,6 +650,23 @@ export class DeptlandingComponent implements OnInit {
             this.DT07 = '#00aeef';
             this.DT07T = res[index].district_name + " with District Score :" + res[index].score;
           }
+
+          if (res[index].score <= 49) {
+            this.DT28 = '#dd1e47';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT28 = '#ffc40c';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT28 = '#00a084';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT28 = '#00aeef';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].score;
+          }
         }
 
         if (res[index].district_code == "DT08") {
@@ -697,6 +761,23 @@ export class DeptlandingComponent implements OnInit {
           else if (res[index].score >= 100) {
             this.DT12 = '#00aeef';
             this.DT12T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+
+          if (res[index].score <= 49) {
+            this.DT33 = '#dd1e47';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT33 = '#ffc40c';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT33 = '#00a084';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT33 = '#00aeef';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].score;
           }
         }
 
@@ -812,6 +893,24 @@ export class DeptlandingComponent implements OnInit {
             this.DT18 = '#00aeef';
             this.DT18T = res[index].district_name + " with District Score :" + res[index].score;
           }
+
+
+          if (res[index].score <= 49) {
+            this.DT30 = '#dd1e47';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT30 = '#ffc40c';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT30 = '#00a084';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT30 = '#00aeef';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].score;
+          }
         }
 
         if (res[index].district_code == "DT19") {
@@ -888,6 +987,23 @@ export class DeptlandingComponent implements OnInit {
             this.DT22 = '#00aeef';
             this.DT22T = res[index].district_name + " with District Score :" + res[index].score;
           }
+
+          if (res[index].score <= 49) {
+            this.DT32 = '#dd1e47';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT32 = '#ffc40c';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT32 = '#00a084';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT32 = '#00aeef';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].score;
+          }
         }
 
         if (res[index].district_code == "DT23") {
@@ -925,6 +1041,42 @@ export class DeptlandingComponent implements OnInit {
           else if (res[index].score >= 100) {
             this.DT24 = '#00aeef';
             this.DT24T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+
+
+          if (res[index].score <= 49) {
+            this.DT29 = '#dd1e47';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT29 = '#ffc40c';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT29 = '#00a084';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT29 = '#00aeef';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+
+
+          if (res[index].score <= 49) {
+            this.DT31 = '#dd1e47';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 50 && res[index].score <= 64) {
+            this.DT31 = '#ffc40c';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 65 && res[index].score <= 99) {
+            this.DT31 = '#00a084';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].score;
+          }
+          else if (res[index].score >= 100) {
+            this.DT31 = '#00aeef';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].score;
           }
         }
 
@@ -995,6 +1147,48 @@ export class DeptlandingComponent implements OnInit {
     this.getindicator(dept_id);
     this.getdeptname(dept_id);
     this.getcgmapindicator(this.selectedyear, dept_id);
+  }
+
+  indicatordetails(indicatorid :  any)
+  {
+    this.ds.param2Function('common/getindicatorwisenoramlizedscore', this.selectedyear, indicatorid).subscribe((res: any) => {
+      this.indicatordata = res; 
+      console.log(this.indicatordata[0].NORMALIZE_VALUE,"1234");
+      
+      this.chart2.updateOptions({
+        series: [
+          {
+            name: 'Composite-Score',
+            data: this.indicatordata.map((e: any) => +e?.NORMALIZE_VALUE)
+          }
+        ],
+        xaxis: {
+          type: "category",
+          categories: this.indicatordata.map((e: any) => e?.district_name)
+
+        },
+        //colors: this.goaldata.map((e: any) => +e?.compositescore <= 49 ? "#dd1e47" : "#ffc40c"),//#00a084
+        colors: this.indicatordata.map((e: any) => {
+          if (+e?.NORMALIZE_VALUE >= 0 && +e?.NORMALIZE_VALUE <= 49) {
+            return "#dd1e47"
+          }
+          else if (+e?.NORMALIZE_VALUE >= 50 && +e?.NORMALIZE_VALUE <= 64) {
+            return "#ffc40c"
+          }
+          else if (+e?.NORMALIZE_VALUE >= 65 && +e?.NORMALIZE_VALUE <= 99) {
+            return "#00a084"
+          }
+          else if (+e?.NORMALIZE_VALUE >= 100) {
+            return "#00aeef"
+          }
+        })
+      }); 
+    });
+
+    this.ds.param2Function('common/getindicatorwisevalue', this.selectedyear, indicatorid).subscribe((res: any) => {
+      this.indicatorvalue = res;
+    });
+    
   }
 
 }

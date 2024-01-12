@@ -12,7 +12,6 @@ var exec = function (query, params) {
 
       return reject("Query not found");
     }
-    console.log('1');
     var connection = mysql.createConnection({
       host: config.get('db.host'),
       user: config.get('db.user'),
@@ -50,7 +49,6 @@ var execWithTransaction = function (query, params) {
 
       return reject("Query not found");
     }
-    console.log('1');
     var connection = mysql.createConnection({
       host: config.get('db.host'),
       user: config.get('db.user'),

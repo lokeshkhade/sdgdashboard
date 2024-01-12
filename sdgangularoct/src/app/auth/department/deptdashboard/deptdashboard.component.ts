@@ -114,7 +114,8 @@ export class DeptdashboardComponent implements OnInit
     });
   }
 
-  onYearSelected(event: any) {
+  onYearSelected(event: any) 
+  {
     this.selectedyear = event.value;
     this.getGraphData(this.selectedyear);
 
@@ -128,13 +129,15 @@ export class DeptdashboardComponent implements OnInit
 
 
 
-  isValidInput(fieldName: any): boolean {
+  isValidInput(fieldName: any): boolean 
+  {
     return this.dashboardform.controls[fieldName].invalid &&
       (this.dashboardform.controls[fieldName].dirty || this.dashboardform.controls[fieldName].touched);
   }
 
 
-  reset() {
+  reset() 
+  {
     window.location.reload();
   }
 

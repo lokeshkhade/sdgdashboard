@@ -78,10 +78,7 @@ export class DistrictuploadtemplateComponent implements OnInit
         event.target.value = null;
       }    
     }
-  }
-
-
-  
+  } 
 
 
   save()
@@ -92,7 +89,6 @@ export class DistrictuploadtemplateComponent implements OnInit
 
     formData.append('folder_name', folder_location);
 
-    console.log("hi",formData);
 
     this.http.post(environment.rootUrl + 'upload', formData).subscribe((res: any) => {
       this.filename = res;

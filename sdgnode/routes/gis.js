@@ -14,13 +14,25 @@ router.get('/getdistrict', async (req, res) => {
                 ('DT28','DT29','DT30','DT31','DT32','DT33','CG01') order by district_name asc`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -42,13 +54,25 @@ router.get('/getgoalwisedatagis/:idg/:idy', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -66,13 +90,25 @@ router.get('/getgoalwiseindiactorgis/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -81,13 +117,25 @@ router.get('/getyear', async (req, res) => {
     var query = `SELECT * from gis_year gs ORDER BY gs.year desc`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -101,13 +149,25 @@ router.get('/getgoalwiseindicator/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -124,13 +184,25 @@ router.get('/getindicatorname/:id/:id1/:id2', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1,id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -174,13 +246,25 @@ router.get('/getcompositescore/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -207,13 +291,25 @@ router.get('/getgoalwisecompositescore/:id/:id1', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -236,13 +332,25 @@ router.get('/getindicatorwisemetadatagis/:id/:id1', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -254,13 +362,25 @@ router.get('/getcgcompositemap/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 

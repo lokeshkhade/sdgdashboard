@@ -17,7 +17,7 @@
 }
 
 .langSwitch {
-    background-color: #1a237e;
+    background-color: #1a4f7e;
     border: none;
     color: white;
     height: 30px;
@@ -29,7 +29,8 @@
     transition-duration: 0.4s;
     border-radius: 5px;
     padding: 4px;
-    font-weight: bold;
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .langSwitch:hover {

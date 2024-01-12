@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-keyboard-o" aria-hidden="true"></i> SIF Data Entry
+            Form - {{this.deptname}}
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-2">
+            <div class="card mb-2">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-keyboard-o" aria-hidden="true"></i> SIF- Data Entry Form
+                </div>
+                <form [formGroup]="sifentry" (ngSubmit)="onSubmit()">
+                    <div class="card-body">
+                        
+                        <div class="row">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2" style="padding-top: 15px;">Select Year <span
+                                    class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-6 col-sm-6 col-lg-6" appearance="outline">
+                                <mat-label>Select Year<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="Year" (selectionChange)="onYearSelected($event)">
+                                    <mat-option *ngFor="let y of years" [value]="y.valueyear">
+                                        {{y.valueyear}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <button type="button" (click)="showdatapoint()" class="btn btn-success">Show Data
+                                    Points</button> &nbsp;
+                                <button type="button" (click)="reset()" class="btn btn-warning">Reset</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12 text-center"
+                                style="color: rgb(244, 9, 9); font-size: 18px;">
+                                {{this.message}}
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div>
+                        <div class="list-group list-group-flush">
+                            <div class="row">
+                                <div class="col-1">
+                                </div>
+                                <div class="col-5">
+                                    <label style="color:blue; font-size: 14px;">Data Point Name</label>
+                                </div>
+                                <div class="col-3">
+                                    <label style="color:blue; font-size: 14px;">Data Point Value</label>
+                                </div>
+                                <div class="col-3">
+                                    <label style="color:blue ; font-size: 14px;">UOM</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngFor="let sifentry of t.controls; let i = index" class="list-group list-group-flush">
+                            <div class="list-group-item">
+                                <div [formGroup]="sifentry" class="form-row">
+                                    <div class="form-group col-6">
+                                        <label>{{indicators[i].indicator_desc}}</label>
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label>Value</label>
+                                        <input formControlName="IndicatorValue" type="number" class="form-control" />
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label>{{indicators[i].uom}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <button mat-raised-button color="primary" type="submit" *ngIf="isSaveMode">Save</button>
+                        <button mat-raised-button color="primary" type="button" *ngIf="isEditMode"
+                            (click)="onUpdate()">Update</button>&nbsp;
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>

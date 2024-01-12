@@ -28,6 +28,8 @@
     "apexcharts": "^3.35.5",
     "axios": "^0.21.4",
     "bootstrap": "^5.3.1",
+    "crypto-js": "^4.2.0",
+    "moment": "^2.29.4",
     "ng-apexcharts": "^1.7.1",
     "ngx-spinner": "^13.1.1",
     "rxjs": "~7.4.0",

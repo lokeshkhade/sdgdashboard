@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12" style="text-align: center; padding-top: 15px;">
-        <mat-label style="font-size: 20px;color: brown;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        Generate SIF DIF Reports
+        <mat-label style="font-size: 20px;color: rgb(3, 8, 69);"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        Generate SIF / DIF Reports
         </mat-label>
     </div>
 </div>
@@ -12,7 +12,7 @@
             <form [formGroup]="sifdifreport">
                 <div class="card mb-4">
                     <div class="card-header bg-primary text-white">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> SIF DIF Reports
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> SIF / DIF Reports
                     </div>
                     <div class="card-body">                        
                         <div class="row">
@@ -250,6 +250,7 @@
         
                 <mat-card *ngIf="showsif">
                     <button type="button" (click)="getExcel()" class="btn btn-md btn-success">Generate Excel</button>
+                    <br>
                     <br>
                             <div class="row print-container">
                                 <div class="table-responsive" id="scrollableDiv">

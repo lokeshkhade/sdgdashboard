@@ -72,6 +72,109 @@ export class ReportgraphComponent implements OnInit {
 
   public test: any = [];
 
+
+
+  public DT01: any;
+  public DT01T: any;
+
+  public DT02: any;
+  public DT02T: any;
+
+  public DT03: any;
+  public DT03T: any;
+
+  public DT04: any;
+  public DT04T: any;
+
+  public DT05: any;
+  public DT05T: any;
+
+  public DT06: any;
+  public DT06T: any;
+
+  public DT07: any;
+  public DT07T: any;
+
+  public DT08: any;
+  public DT08T: any;
+
+  public DT09: any;
+  public DT09T: any;
+
+  public DT10: any;
+  public DT10T: any;
+
+  public DT11: any;
+  public DT11T: any;
+
+  public DT12: any;
+  public DT12T: any;
+
+  public DT13: any;
+  public DT13T: any;
+
+  public DT14: any;
+  public DT14T: any;
+
+  public DT15: any;
+  public DT15T: any;
+
+  public DT16: any;
+  public DT16T: any;
+
+  public DT17: any;
+  public DT17T: any;
+
+  public DT18: any;
+  public DT18T: any;
+
+  public DT19: any;
+  public DT19T: any;
+
+  public DT20: any;
+  public DT20T: any;
+
+  public DT21: any;
+  public DT21T: any;
+
+  public DT22: any;
+  public DT22T: any;
+
+  public DT23: any;
+  public DT23T: any;
+
+  public DT24: any;
+  public DT24T: any;
+
+  public DT25: any;
+  public DT25T: any;
+
+  public DT26: any;
+  public DT26T: any;
+
+  public DT27: any;
+  public DT27T: any;
+
+  public DT28: any;
+  public DT28T: any;
+
+  public DT29: any;
+  public DT29T: any;
+
+  public DT30: any;
+  public DT30T: any;
+
+  public DT31: any;
+  public DT31T: any;
+
+  public DT32: any;
+  public DT32T: any;
+
+  public DT33: any;
+  public DT33T: any;
+
+  public cgyear:any;
+
   ///////////////////////////
 
   public goalanalysis: FormGroup; //add  FormGroup 

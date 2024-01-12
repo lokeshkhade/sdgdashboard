@@ -99,6 +99,18 @@ export class CgallComponent implements OnInit {
   public DT29: any;
   public DT29T: any;
 
+  public DT30: any;
+  public DT30T: any;
+
+  public DT31: any;
+  public DT31T: any;
+
+  public DT32: any;
+  public DT32T: any;
+
+  public DT33: any;
+  public DT33T: any;
+
   public cgyear: any;
   public cgyear1: any;
 
@@ -115,10 +127,7 @@ export class CgallComponent implements OnInit {
     this.ds.cgelectedYear$.subscribe((data: any) => {
       this.cgyear = data
       this.getcgcompositecoreyearwise(this.cgyear)
-    });
-
-    this.DT28 ='#8b0864';
-    this.DT29 = '#8b0864';
+    });   
   }
 
   getcgcompositecoreyearwise(cgyear1: any) {
@@ -239,7 +248,8 @@ export class CgallComponent implements OnInit {
           }
         }
 
-        if (res[index].district_code == "DT07") {
+        if (res[index].district_code == "DT07") 
+        {
           if (res[index].compositescore <= 49) {
             this.DT07 = '#dd1e47';
             this.DT07T = res[index].district_name + " with District Score :" + res[index].compositescore;
@@ -256,6 +266,26 @@ export class CgallComponent implements OnInit {
             this.DT07 = '#00aeef';
             this.DT07T = res[index].district_name + " with District Score :" + res[index].compositescore;
           }
+
+          // -----------Gaurella-Pendra-Marwahi------------ //
+
+          if (res[index].compositescore <= 49) {
+            this.DT28 = '#dd1e47';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT28 = '#ffc40c';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT28 = '#00a084';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT28 = '#00aeef';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+
         }
 
         if (res[index].district_code == "DT08") {
@@ -351,6 +381,24 @@ export class CgallComponent implements OnInit {
             this.DT12 = '#00aeef';
             this.DT12T = res[index].district_name + " with District Score :" + res[index].compositescore;
           }
+
+          if (res[index].compositescore <= 49) {
+            this.DT33 = '#dd1e47';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT33 = '#ffc40c';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT33 = '#00a084';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT33 = '#00aeef';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+
         }
 
         if (res[index].district_code == "DT13") {
@@ -465,9 +513,27 @@ export class CgallComponent implements OnInit {
             this.DT18 = '#00aeef';
             this.DT18T = res[index].district_name + " with District Score :" + res[index].compositescore;
           }
+
+          if (res[index].compositescore <= 49) {
+            this.DT30 = '#dd1e47';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT30 = '#ffc40c';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT30 = '#00a084';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT30 = '#00aeef';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
         }
 
-        if (res[index].district_code == "DT19") {
+        if (res[index].district_code == "DT19") 
+        {
           if (res[index].compositescore <= 49) {
             this.DT19 = '#dd1e47';
             this.DT19T = res[index].district_name + " with District Score :" + res[index].compositescore;
@@ -484,6 +550,42 @@ export class CgallComponent implements OnInit {
             this.DT19 = '#00aeef';
             this.DT19T = res[index].district_name + " with District Score :" + res[index].compositescore;
           }
+
+
+          if (res[index].compositescore <= 49) {
+            this.DT29 = '#dd1e47';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT29 = '#ffc40c';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT29 = '#00a084';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT29 = '#00aeef';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+
+          if (res[index].compositescore <= 49) {
+            this.DT31 = '#dd1e47';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT31 = '#ffc40c';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT31 = '#00a084';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT31 = '#00aeef';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+
         }
 
         if (res[index].district_code == "DT20") {
@@ -524,7 +626,8 @@ export class CgallComponent implements OnInit {
           }
         }
 
-        if (res[index].district_code == "DT22") {
+        if (res[index].district_code == "DT22") 
+        {
           if (res[index].compositescore <= 49) {
             this.DT22 = '#dd1e47';
             this.DT22T = res[index].district_name + " with District Score :" + res[index].compositescore;
@@ -541,8 +644,26 @@ export class CgallComponent implements OnInit {
             this.DT22 = '#00aeef';
             this.DT22T = res[index].district_name + " with District Score :" + res[index].compositescore;
           }
-        }
 
+          if (res[index].compositescore <= 49) {
+            this.DT32 = '#dd1e47';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 50 && res[index].compositescore <= 64) {
+            this.DT32 = '#ffc40c';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 65 && res[index].compositescore <= 99) {
+            this.DT32 = '#00a084';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+          else if (res[index].compositescore >= 100) {
+            this.DT32 = '#00aeef';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].compositescore;
+          }
+         
+        }
+        
         if (res[index].district_code == "DT23") {
           if (res[index].compositescore <= 49) {
             this.DT23 = '#dd1e47';

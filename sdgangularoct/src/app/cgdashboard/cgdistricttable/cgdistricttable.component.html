@@ -12,17 +12,18 @@
                                     <ul class="list-unstyled listing">
                                         <li>
                                             <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md"
-                                                target="_blank" style="color: #020f9f;">HOME</a>&nbsp;
-                                            <a href="spcbaseline" class="btn btn-custom btn-outline-info btn-md"
-                                                target="_blank" style="color: #020f9f;">SIF Baseline and
+                                                 style="color: #020f9f;">HOME</a>&nbsp;
+                                            <a [routerLink]="['/cghome']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">Chhattisgarh SDG
+                                                    District Index</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">SIF Baseline and
                                                 Progress Report</a>&nbsp;
                                             <a href="#" class="btn btn-custom btn-outline-info btn-md"
                                                 target="_blank" style="color: #020f9f;">SDG GIS Based
                                                 Maps</a>&nbsp;
-                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                            <!-- <a href="https://sdgindiaindex.niti.gov.in/#/"
                                                 class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">NITI
                                                 Aayog SDG
-                                                India Index 3.0</a>&nbsp;
+                                                India Index 3.0</a>&nbsp; -->
                                             <a href="" class="btn btn-custom btn-outline-info btn-md"
                                                 target="_blank" style="color: #020f9f;">DIF
                                                 Reports</a>&nbsp;
@@ -40,7 +41,7 @@
                             <div class="card p-1 mr-1">
                                 <div class="card-body p-3">
                                     <div class="card mb-3">
-                                        <h3 class="text-success font-weight-bold"> District Wise Goal Score</h3>
+                                        <h3 class="text-success"> District Wise Goal Score</h3>
                                         <div class="row py-1">
                                             <div class="col-md-4">
                                                 <mat-form-field>
@@ -53,7 +54,9 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <a [routerLink]="'/cghome/districtanalysis/' + this.cgselectedYear"
-                                                    style="color: #f8f8f9;" class="btn btn-custom btn-info btn-md"> Compare District</a>
+                                                    style="color: #f8f8f9;" class="btn btn-custom btn-info btn-md"> Compare District</a>&nbsp;
+                                                <a [routerLink]="'/cghome/districtgraphcompare/' + 'DT01' + '/' + this.cgselectedYear"
+                                                    style="color: #f8f8f9;" class="btn btn-custom btn-info btn-md">Districtwise Analysis</a>                                               
                                             </div>
                                         </div>
                                         <div class="row py-1">
@@ -353,7 +356,8 @@
                             <th>#</th>
                             <th>District</th>
                             <ng-container *ngFor="let l of indicatorlist">
-                                <th>{{l.district_indicator_desc}} {{l.indicator_master_id}}</th>
+                                <!-- <th>{{l.district_indicator_desc}} {{l.indicator_master_id}}</th> -->
+                                <th>{{l.district_indicator_desc}}</th>
                             </ng-container>                           
                         </tr>
                         <tr *ngFor="let c of compositescore;let i=index;"> 
@@ -361,7 +365,7 @@
                             <td>{{c.district_name}}</td>
                             <ng-container *ngFor="let t of indicatordata">
                                 <ng-container *ngIf="c.district_code == t.district_code">
-                                    <ng-container *ngFor="let d of indicatorlist ">
+                                    <ng-container *ngFor="let d of indicatorlist">
                                         <ng-container *ngIf="d.indicator_master_id == t.district_indicator_master_id">
                                             <!-- <td>{{t.NORMALIZE_VALUE}} {{d.indicator_master_id}} {{t.district_indicator_master_id}}</td> -->
                                             <td> <a  style="color: #020f9f;" [routerLink]="'/cghome/districtgoalcompare/'+ t.district_code + '/' + t.goal_id + '/' + selectedyear"> {{t.NORMALIZE_VALUE}} </a></td>

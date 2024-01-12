@@ -59,12 +59,9 @@ export class CgfullComponent implements OnInit {
 
   public params = new HttpParams();
 
-  public goaldata: any = [];
+  public goaldata: any = [];  public districtgoaldata: any = []; 
 
-  public districtgoaldata: any = []; 
-
-  public district: any = [];
-  public goals: any = [];
+  public district: any = [];  public goals: any = [];
 
   public totaltarget: any = []; public totaldepartment: any = []; public totalindicators: any = [];
 
@@ -87,6 +84,9 @@ export class CgfullComponent implements OnInit {
         type: "bar"
       },
       colors: [  ],
+      fill: {
+        opacity: 1,
+      },
       plotOptions: {
         bar: {
           columnWidth: "75%",
@@ -116,6 +116,9 @@ export class CgfullComponent implements OnInit {
       colors: [
         
       ],
+      fill: {
+        opacity: 1.0,
+      },
       labels: ["Aspirant","Performer","FrontRunner","Achiever"],
       responsive: [
         {
@@ -137,7 +140,7 @@ export class CgfullComponent implements OnInit {
 
   ngOnInit(): void { 
     //asynchronous-nature
-    this.getmaxyear();
+    //this.getmaxyear();
     this.getyear();  
     this.getgraphcompositescoreyearwise(+this.ds.currentyear.value);    
   }
@@ -150,19 +153,19 @@ export class CgfullComponent implements OnInit {
     });
   }
 
-  getmaxyear() {
-    this.ds.getData('common/getmaxyear').subscribe((res: any) => {      
-      this.maxYear = res;
-      this.params = this.params.set("maxyear", this.maxYear[0].maxyear);  
+  // getmaxyear() {
+  //   this.ds.getData('common/getmaxyear').subscribe((res: any) => {      
+  //     this.maxYear = res;
+  //     this.params = this.params.set("maxyear", this.maxYear[0].maxyear);  
       
-      this.getgraphcompositescoreyearwise(this.params.get("maxyear"));
-      this.cgselectedYear = this.params.get("maxyear");
-      this.getdepartment(); this.getindicators(); this.gettargets();
-      this.getalltargets(); this.getallindicators(); this.getalldepartments();      
-    });
+  //     this.getgraphcompositescoreyearwise(this.params.get("maxyear"));
+  //     this.cgselectedYear = this.params.get("maxyear");
+  //     this.getdepartment(); this.getindicators(); this.gettargets();
+  //     this.getalltargets(); this.getallindicators(); this.getalldepartments();      
+  //   });
 
    
-  }
+  // }
 
   /////////////////////////////////////////////////////////
 

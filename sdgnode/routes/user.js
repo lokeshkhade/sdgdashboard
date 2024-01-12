@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
         var role = result[0].role;
         var departmentid = result[0].departmentid;
         var districtcode = result[0].districtcode;
+        var id = result[0].id;
         let passwordKey = '08t16e502526fesanfjh8nasd2';
         let passwordDncyt = CryptoJS.AES.decrypt(password, passwordKey).toString(CryptoJS.enc.Utf8);
 
@@ -48,6 +49,7 @@ router.post('/', async (req, res) => {
                 username: username,
                 departmentid: departmentid,
                 districtcode: districtcode,
+                id: id,
                 role: role
             }
             const token = jwt.sign(response, config.get('jwtPrivateKey'),
@@ -69,7 +71,6 @@ router.post('/', async (req, res) => {
         }
     }
     catch (err) {
-        console.log('errr');
         return res.status(404).json(err);
     }
 });
@@ -85,7 +86,6 @@ router.post('/adduser', async (req, res) =>
         let data = await mysql.exec(query, values);
         res.json({
             student_id: data.insertId
-
         });
     } catch (err) {
         return res.status(404).json(err);
@@ -95,7 +95,6 @@ router.post('/adduser', async (req, res) =>
 
 router.put('/updateUserById/:id', async (req, res) => 
 {
-    console.log("helooo");
     var id = req.params.id;
     var values = req.body;
     var query = "UPDATE users SET ? WHERE id = ? ";
@@ -112,6 +111,30 @@ router.put('/updateUserById/:id', async (req, res) =>
         return res.status(404).json(err);
     }
 });
+
+
+router.put('/updateuserflag/:id', async (req, res) => 
+{
+    var id = req.params.id;
+    var query = "UPDATE users SET isaccountactive='f' , isaccountlocked = 't', ispasswordexpired = 't' WHERE id = ?";
+    var data = await mysql.exec(query, [id]);
+    try {
+        if (data.affectedRows < 1) 
+        {
+            return res.status(200).send("Data Not Found");
+        }
+        res.json({ success: "Data" });
+    }
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
+    }
+});
+
+
 
 // -------------------------------------------------- //
 

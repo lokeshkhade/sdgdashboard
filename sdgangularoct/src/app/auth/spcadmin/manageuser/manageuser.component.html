@@ -186,7 +186,7 @@
 
                                             <ng-container matColumnDef="createddate">
                                                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
-                                                <td mat-cell *matCellDef="let row"> {{row.createddate}} </td>
+                                                <td mat-cell *matCellDef="let row"> {{row.createddate | date :'mediumDate'}} </td>
                                             </ng-container>
                             
                             

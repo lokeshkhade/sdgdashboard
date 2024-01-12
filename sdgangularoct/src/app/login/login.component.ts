@@ -4,10 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from './../../environments/environment';
 import { AuthService } from './../services/auth.service';
 import { Router, RouterEvent } from '@angular/router';
-
 import { DataService } from '../services/data.service';
-
 import Swal from 'sweetalert2';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   public errorText: string = "";
   public showCaptchaError: boolean = false;
-  public showInvalid: boolean = false;
+  public showInvalid: boolean = false; public pass :any;
 
   @ViewChild('close') closeModal: ElementRef | undefined;
   @ViewChild('dataContainer', { static: false }) dataContainer: ElementRef | undefined;
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
       captcha: ['', Validators.required],
       captchaText: [''],
-      otp: [''],
+      id: [''],
 
     });
   }
@@ -61,6 +60,17 @@ export class LoginComponent implements OnInit {
   isValidInput(fieldName: any): boolean {
     return this.loginForm.controls[fieldName].invalid &&
       (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
+  }
+
+  onPassChangeEvent(event: any) 
+  {
+    var str = event.target.value.concat('SDG%&456'.toString());
+    this.pass = CryptoJS.SHA512(str);
+    this.loginForm.patchValue
+      ({
+        password: this.pass.toString()
+      });
+    this.loginForm.value.password = this.pass;
   }
 
 

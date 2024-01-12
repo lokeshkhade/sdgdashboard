@@ -6,8 +6,8 @@ export const MENUITEMS: any = {
         { state: '/spcadmin/manageindicator', type: 'link', name: 'Manage Indicator', icon: 'edit' },
         // { state: '/spcadmin/manageuser', type: 'link', name: 'Manage User', icon: 'group' },
         { state: '/spcadmin/auditreport', type: 'link', name: 'Audit Report', icon: 'report' },
-        { state: '/spcadmin/freezdata', type: 'link', name: 'Freez/UnfreezData', icon: 'description' },
-        { state: '/spcadmin/unfreezrequest', type: 'link', name: 'Unfreez Request', icon: 'edit' },
+        { state: '/spcadmin/freezdata', type: 'link', name: 'Unfreeze Data', icon: 'description' },
+        { state: '/spcadmin/unfreezrequest', type: 'link', name: 'Unfreeze Request', icon: 'edit' },
         { state: '/spcadmin/generatereport', type: 'link', name: 'Generate Report', icon: 'report' },
         { state: '/spcadmin/populatedata', type: 'link', name: 'Populate Data', icon: 'description' },
     ],
@@ -15,6 +15,11 @@ export const MENUITEMS: any = {
         { state: '/department/deptlanding', type: 'link', name: 'Dashboard All', icon: 'dashboard' },
         { state: '/department/deptdashboard', type: 'link', name: 'Dashboard HOD', icon: 'dashboard' },
         { state: '/department/deptadduser', type: 'link', name: 'Add/Manage User', icon: 'person' },
+        { state: '/department/deptauditreport', type: 'link', name: 'Audit Report', icon: 'report' },
+        { state: '/department/deptsifentry', type: 'link', name: 'SIF Entry', icon: 'description' },
+        { state: '/department/deptdifentry', type: 'link', name: 'DIF Entry', icon: 'edit' },
+        { state: '/department/deptcgdifentry', type: 'link', name: 'CG DIF Entry', icon: 'edit' },
+        { state: '/department/deptgeneratereport', type: 'link', name: 'Generate Report', icon: 'report' }
        
     ],
     3: [

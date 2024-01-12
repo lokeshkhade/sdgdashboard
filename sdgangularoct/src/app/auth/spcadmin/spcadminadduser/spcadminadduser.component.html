@@ -23,9 +23,37 @@
                             <mat-form-field class="col-md-6 col-sm-6 col-lg-6" appearance="outline">
                                 <mat-label>Select Role<span class="required"></span>
                                 </mat-label>
-                                <mat-select formControlName="roleid">
+                                <mat-select formControlName="roleid" (selectionChange)="onRoleChangeEvent($event)">
                                     <mat-option *ngFor="let r of roles" [value]="r.roleid">
                                         {{r.name}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row"  *ngIf="isDistrict">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2 text-center" style="padding-top: 15px;">Select
+                                District <span class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-6 col-sm-6 col-lg-6" appearance="outline">
+                                <mat-label>Select District<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="districtcode">
+                                    <mat-option *ngFor="let d of districts" [value]="d.district_code">
+                                        {{d.district_name}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row"  *ngIf="isDepartment">
+                            <mat-label class="col-md-2 col-sm-2 col-lg-2 text-center" style="padding-top: 15px;">Select
+                                Department <span class="required-field"></span> :
+                            </mat-label>
+                            <mat-form-field class="col-md-6 col-sm-6 col-lg-6" appearance="outline">
+                                <mat-label>Select Department<span class="required"></span>
+                                </mat-label>
+                                <mat-select formControlName="departmentid">
+                                    <mat-option *ngFor="let d of departments" [value]="d.dept_id">
+                                        {{d.department_name}} </mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -68,7 +96,7 @@
                             </mat-label>
                             <mat-form-field class="col-md-10 col-sm-10 col-lg-10" appearance="outline">
                                 <mat-label>User Name</mat-label>
-                                <input autocomplete="off" maxlength="100" matInput formControlName="username" #username>
+                                <input autocomplete="off" maxlength="100" matInput formControlName="username" #username (change)="onUserNameChangeEvent($event)">
                                 <mat-hint align="end">{{username.value.length}} / 100</mat-hint>
                                 <mat-error *ngIf="isValidInput('username')">
                                     <mat-error *ngIf="manageuser.controls['username'].errors.required">
@@ -121,14 +149,12 @@
                         <div class="row">
 
                             <div class="col-md-6 col-sm-6 col-lg-6">
-                                <button type="submit" class="btn btn-success" *ngIf="isAdd">Add User</button> &nbsp;
+                                <button type="submit" class="btn btn-success" *ngIf="isAdd" [disabled]="!manageuser.valid">Add User</button> &nbsp;
                                 <button mat-raised-button color="primary" type="button" *ngIf="isEditMode"
                                     (click)="onUpdate()">Update</button>&nbsp;
-                                <button type="button" class="btn btn-warning" (click)="onClear()">Reset</button>
+                                <button type="button" class="btn btn-warning" (click)="reset()">Reset</button>
                             </div>
-
                         </div>
-
                         <br>
                         <div class="row">
                             <mat-card class="col-md-12 col-sm-12 col-lg-12">
@@ -170,25 +196,25 @@
                                                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile No. </th>
                                                 <td mat-cell *matCellDef="let row"> {{row.mobilenumber}} </td>
                                             </ng-container>
+                                            
 
                                             <ng-container matColumnDef="createddate">
                                                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date
                                                 </th>
                                                 <td mat-cell *matCellDef="let row"> {{row.createddate}} </td>
-                                            </ng-container>
-
+                                            </ng-container>                                          
 
                                             <ng-container matColumnDef="EditData">
                                                 <th mat-header-cell *matHeaderCellDef>Edit</th>
                                                 <td mat-cell *matCellDef="let row">
                                                     <!-- <a [routerLink]="['EditDept',element.dept_code]">Edit</a> -->
                                                     <button type="button" class="btn btn-success"
-                                                        (click)="onEdit(row.id); scrollToTop(container)">Edit</button>
+                                                        (click)="onEdit(row.id);">Edit</button>
                                                 </td>
                                             </ng-container>
 
                                             <ng-container matColumnDef="action">
-                                                <th mat-header-cell *matHeaderCellDef>Disable</th>
+                                                <th mat-header-cell *matHeaderCellDef>Delete</th>
                                                 <td mat-cell *matCellDef="let row">
                                                     <mat-slide-toggle (change)="slideChange(row.id)" checked="true">
                                                     </mat-slide-toggle>
@@ -205,12 +231,9 @@
                                             </tr>
                                         </table>
 
-                                        <mat-paginator [pageSizeOptions]="[20, 40, 80, 100]"></mat-paginator>
+                                        <mat-paginator [pageSizeOptions]="[100, 200, 300, 400]"></mat-paginator>
                                     </div>
-
                                 </mat-card-content>
-
-
                             </mat-card>
                         </div>
                     </div>

@@ -10,23 +10,21 @@
                                 <div class="card-body p-2">
                                     <ul class="list-unstyled listing">
                                         <li>
-                                            <a [routerLink]="['/home']"
-                                                class="btn btn-custom btn-outline-info btn-md">HOME</a>&nbsp;
-                                            <a [routerLink]="['/sifbaseline']"
-                                                class="btn btn-custom btn-outline-info btn-md">SIF
-                                                Baseline and
+                                            <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">HOME</a>&nbsp;
+                                            <a [routerLink]="['/cghome']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">Chhattisgarh SDG
+                                                District Index</a>&nbsp;
+                                            <a [routerLink]="['/sifbaseline']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">SIF Baseline
+                                                and
                                                 Progress Report</a>&nbsp;
-                                            <a href="#" class="btn btn-custom btn-outline-info btn-md"
-                                                target="_blank">SDG GIS Based
+                                            <a href="#" class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">SDG GIS Based
                                                 Maps</a>&nbsp;
-                                            <a href="https://sdgindiaindex.niti.gov.in/#/"
-                                                class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
-                                                Aayog SDG
-                                                India Index 3.0</a>&nbsp;
-                                            <a href="" class="btn btn-custom btn-outline-info btn-md">DIF
+                                            <!-- <a href="https://sdgindiaindex.niti.gov.in/#/"
+                                                                                                                                        class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">NITI
+                                                                                                                                        Aayog SDG
+                                                                                                                                        India Index 3.0</a>&nbsp; -->
+                                            <a href="" class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">DIF
                                                 Reports</a>&nbsp;
-                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md">ADMIN
-                                                LOGIN</a>
+                                            <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md" target="_blank">ADMIN LOGIN</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -38,7 +36,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3 class="text-success font-weight-bold"> District Comparison</h3>
+                                        <h3 class="text-success"> District Comparison</h3>
                                     </div>
                                 </div>     
                                 <div class="row">
@@ -52,7 +50,7 @@
                                         </mat-form-field>
                                     </div>
                                     <div class="col-md-8">
-                                        <mat-form-field>
+                                        <mat-form-field class="col-md-8">
                                             <mat-label>Select Indicator<span class="required"></span> </mat-label>
                                             <mat-select formControlName="indicators" (selectionChange)="onIndicatorSelected($event)">
                                                 <mat-option *ngFor="let i of indicators" [value]="i.indicator_master_id">

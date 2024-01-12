@@ -96,8 +96,11 @@ export class MainfullComponent implements OnInit {
         bar: {
           columnWidth: "75%",
           distributed: true,
-          horizontal: true
+          horizontal: true,
         }
+      },
+      fill: {
+        opacity: 1.0,
       },
       dataLabels: {
         enabled: true,

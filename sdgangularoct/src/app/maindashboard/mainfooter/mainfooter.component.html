@@ -1,12 +1,14 @@
 <footer class="text-center p-4">
-    <span style="color: rgb(4, 44, 248);">
-        Disclaimer : This dashboard is based on secondary data sources and information received from departments. State
-        Planning
-        Commission is not responsible for data accuracy or any consequences of using this data, as this dashboard is based
-        purely on data received from the departments.
-    </span> <br>
-    <span style="color: rgb(40, 58, 148);">Copyright © 2024, All Rights Reserved to State Planning Commission, Government of Chhattisgarh Total Visitors :</span>
-    <span style="color: rgb(225, 8, 8);">14960.</span>
+    <form [formGroup]="mainfooter">
+        <span style="color: rgb(8, 39, 192);">
+            Disclaimer : This dashboard is based on secondary data sources and information received from departments. State
+            Planning
+            Commission is not responsible for data accuracy or any consequences of using this data, as this dashboard is based
+            purely on data received from the departments.
+        </span> <br>
+        <span style="color: rgb(40, 58, 148);">Copyright © 2024, All Rights Reserved to State Planning Commission, Government of Chhattisgarh Total Visitors :</span>
+        <span style="color: rgb(225, 8, 8);">{{ this.visitor_count}}</span>
+    </form>
 </footer>
 
 <div class="modal fade" id="goalinfomodal1" tabindex="-1" role="dialog" aria-labelledby="goalinfomodal1"
@@ -20,7 +22,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Poverty is a multi-dimensional phenomenon. It not only indicates the lack of income or
                             access to resources, but it also manifests in the form of diminished opportunities for
@@ -57,7 +59,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>End all forms of hunger and malnutrition by 2030, making sure that all  people, especially those in vulnerable situations, have sufficient nutritious food all year. </li>
                         <li>Aims to double agricultural productivity in next 15 years and generate decent incomes, while supporting people-centered rural development and protecting the environment. </li>
@@ -86,7 +88,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li> Addressing major health priorities, including reproductive, maternal and child health communicable, non-communicable and environmental diseases universal health coverage and access to safe, effective, quality and affordable medicines and vaccines. </li>
                         <li>The Goal has 13 targets to measure the healthy lives and promoting well-being for all. </li>
@@ -114,7 +116,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Aims to ensure the completion of primary and secondary education by all boys and girls, and guarantee opportunities for equal access to quality technical and vocational education for everyone. </li>
                         <li>Equal access to affordable vocational training, to eliminate gender and wealth disparities, and achieve universal access to a quality higher education. </li>
@@ -142,7 +144,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>End all forms of discrimination against women and girls everywhere. Vital to give women equal rights on land and property, sexual and reproductive health, and to technology and the internet. </li>
                         <li>End all forms of discrimination against women and girls is not only a basic human right but also it is crucial for sustainable future of societies. Providing women and girls with equal access to education, health care, decent work, and representation in political and economic decision- making processes will achieve sustainable economies and benefit societies and humanity at large. </li>
@@ -170,7 +172,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Water scarcity, poor water quality and inadequate sanitation negatively impacts food security, livelihood choices and educational opportunities for poor families across the world. </li>
                         <li>Ensure availability and sustainable management of water and sanitation for all and reflects the increased attention on water and sanitation in the global political arena. </li>
@@ -199,7 +201,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Sustainable energy is an opportunity that can transform lives, economies, and the planet. </li>
                         <li>Role of energy critical in fueling the engine of growth and its role can't be undermined in the development process of the societies. It is in the center of nearly every major challenge and opportunity of the world which are either related to starting a business or increasing the food production or incomes etc. </li>
@@ -228,7 +230,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Promote policies that encourage entrepreneurship and job creation are key to this Goal, as are effective measures to eradicate forced labour, slavery and human trafficking. </li>
                         <li>Aims to encourage sustained economic growth by achieving higher levels of productivity and through technological innovation. </li>
@@ -258,7 +260,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li>Develop quality, reliable, sustainable and resilient infrastructure, support economic development and human well-being, facilitate sustainable and resilient infrastructure development with a focus on affordable and equitable access for all and to promote inclusive and sustainable industrialization among many targets. </li>
                         <li>Investment in various infrastructure sectors like transport, irrigation, energy etc. is vital to ensuring sustainable development of many countries. </li>
@@ -287,7 +289,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li> Reduction in inequality which persists in income as well as that based on age, sex, disability, religion or economic or other status within a country as well as among countries. Inequality is not only a barrier to progress but also deprives people from opportunities and ultimately leads to the conditions of extreme poverty. </li>
                         <li>The Goal has 10 targets to reduce the inequality mainly by regulating and monitoring the financial markets and institutions, encouraging development assistance and foreign direct investment to regions where required. </li>
@@ -315,7 +317,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                     <ul class="listnew">
                         <li> Cities plays a vital role in development of the nations as these offer opportunities for people to prosper economically and socially. Urbanization has resulted into creation of new jobs & opportunities and reduction in poverty. </li>
                         <li>Urban spaces can overcome challenges of rapid growth by improving resource use and focusing on reducing pollution and poverty including provisions to provide access to basic services, energy, housing and simultaneously reducing emissions of greenhouse gases. </li>
@@ -344,7 +346,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                   <ul class="listnew">
                     <li>Ensure sustainable consumption and production patterns. </li>
                     <li>Sustainable consumption and production defined as “the use of services and related products which respond to basic needs and bring a better quality of life, while minimizing the use of natural resources and toxic materials as well as the emission of waste and pollutants over the life cycle of the service or product so as not to jeopardize the needs of future generations” (Oslo Symposium 1994). </li>
@@ -374,7 +376,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                  <ul class="listnew">
                     <li>Aims to take urgent action to combat climate change and its impacts. </li>
                     <li>The world is experiencing rising sea levels, extreme weather conditions and increasing concentrations of greenhouse gases which is threatening lives of all, specially populations placed in the coastal areas. With rising greenhouse gas emissions, ambitious plans and accelerated action are needed on mitigation and adaptation of climate change impacts including access to finance and strengthened capacities. </li>
@@ -404,7 +406,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                   <ul class="listnew">
                     <li>Conserve and sustainably use the oceans, seas and marine resources for sustainable development</li></ul>
                 </span>
@@ -429,7 +431,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                  <ul class="listnew">
                     <li>Protect, restore, and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss. </li>
                     <li>Terrestrial ecosystems including forests and wetlands provide goods such as timber, raw materials for construction and energy and food for all. </li>
@@ -458,7 +460,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                  <ul class="listnew">
                     <li>The global sustainable development agenda for 2030 promotes transparent and effective local governance and judicial systems, reducing crime and sexual and gender-based violence, tackling homicide and trafficking cases and also end Children's rights violations. </li>
                     <li>Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels. </li>
@@ -487,7 +489,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span style="color: rgb(6, 0, 0); font-weight: bold;">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
                  <ul class="listnew">
                     <li>Strengthen the means of implementation and revitalizing the Global Partnership for Sustainable Development. </li>
                     <li>Partnership among the di?erent stakeholders like Government, societies etc. is essential for achieving the sustainable development. </li>

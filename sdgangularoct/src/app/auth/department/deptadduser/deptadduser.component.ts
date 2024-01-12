@@ -15,14 +15,13 @@ import Swal from 'sweetalert2';
 })
 export class DeptadduserComponent implements OnInit {
 
-
   public manageuser: FormGroup; //add  FormGroup 
   public roles: any = [];
   public users: any = [];
   public data: any; public currentUser: any; user_id: any; public deptname:any;
-  userdatabyid: any;
+  userdatabyid: any; public districts: any = [];
   
-  displayedColumns: string[] = ['sn', 'firstname', 'lastname', 'username', 'emailid', 'mobilenumber', 'createddate', 'EditData', 'action'];
+  displayedColumns: string[] = ['sn', 'firstname', 'lastname', 'username', 'email', 'mobilenumber', 'createddate', 'EditData', 'action'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -39,8 +38,9 @@ export class DeptadduserComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       username: ['', Validators.required],
-      emailid: ['', Validators.required],
-      mobilenumber: ['', [Validators.pattern("[6789][0-9]{9}"), Validators.required, Validators.maxLength(10)]]
+      email: ['', Validators.required],
+      districtcode: ['', Validators.required],
+      mobilenumber: ['', [Validators.pattern("[6789][0-9]{9}"), Validators.required, Validators.maxLength(10)]]     
     });
 
   }
@@ -52,11 +52,18 @@ export class DeptadduserComponent implements OnInit {
     this.getdeptname(this.currentUser.departmentid);
     this.getallroles();
     this.getallactiveusers();
+    this.getdistrict();
   }
 
   getdeptname(deptid: any) {
     this.ds.paramFunction('common/getdeptnamebyid', deptid).subscribe((res: any) => {
       this.deptname = res[0].description;
+    });
+  }
+
+  getdistrict() {
+    this.ds.getData('common/getdistrict').subscribe((res: any) => {
+      this.districts = res;
     });
   }
 
@@ -81,23 +88,28 @@ export class DeptadduserComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    console.log(this.manageuser.value);
-
+  onSubmit() 
+  {
     this.ds.postData('user/adduser', this.manageuser.value).subscribe(res => {
       this.data = res;
-      if (this.data)
-       {
+      if (this.data) {
         Swal.fire({
           icon: "success",
           text: 'Data Saved Succesfully',
           timer: 2000
         });
-       }
-      
+      }
+      else {
+        Swal.fire({
+          icon: "error",
+          text: 'Error.....',
+          timer: 2000
+        });
+      }
+      this.onClear();
     });
-
   }
+
 
   onEdit(id: any) 
   {
@@ -108,12 +120,13 @@ export class DeptadduserComponent implements OnInit {
 
     this.manageuser.patchValue
       ({        
-        roleid: this.userdatabyid.role_id,
+        roleid: this.userdatabyid.roleid,
         firstname: this.userdatabyid.firstname,
         lastname: this.userdatabyid.lastname,
         username: this.userdatabyid.username,
-        emailid: this.userdatabyid.emailid,
-        mobilenumber: this.userdatabyid.mobilenumber
+        email: this.userdatabyid.email,
+        mobilenumber: this.userdatabyid.mobilenumber,
+        districtcode: this.userdatabyid.districtcode
       });
   }
 
@@ -124,14 +137,19 @@ export class DeptadduserComponent implements OnInit {
     this.manageuser.reset();
   }
 
-  onUpdate() 
-  {
+  onUpdate() {
     this.ds.updateData('user/updateUserById/' + this.edituser_id, this.manageuser.value).subscribe(res => {
       this.data = res;
-      if (this.data)
-        alert('Data Updated Succesfully');
+      if (this.data) {
+        Swal.fire({
+          icon: "success",
+          text: 'Data Updated Successfully',
+          timer: 2000
+        });
+        this.getallactiveusers();
+      }
     });
-    this.getallactiveusers();
+    this.manageuser.reset();
   }
 
 
@@ -147,6 +165,29 @@ export class DeptadduserComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  slideChange(id: any) 
+  {
+    this.ds.updateData('user/updateuserflag/' + id, this.manageuser.value).subscribe(res => {
+      this.data = res;
+      if (this.data) {
+        Swal.fire({
+          icon: "success",
+          text: 'User is Disable now',
+          timer: 2000
+        });
+        this.getallactiveusers();
+      }
+      else {
+        Swal.fire({
+          icon: "error",
+          text: 'Error, Please check....',
+          timer: 2000
+        });
+      }
+    });
+
   }
 
 }

@@ -37,7 +37,7 @@
                             <div class="col-md-7">
                                 <div class="card p-1 mr-1">
                                     <div class="card-body p-4">                                   
-                                        <h4 class="text-success font-weight-bold">District Composite Score</h4>
+                                        <h4 class="text-success">District Composite Score</h4>
                                             <div class='my-legend'>
                                             <!-- <div class='legend-title'>Legend</div> -->
                                                 <div class="row">                                           
@@ -78,23 +78,28 @@
                                                 </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">                                               
-                                                        <app-cgall></app-cgall>
-                                                        <!-- <ng-container *ngIf="cgselectedYear == '2015'">
+                                            <div class="col-md-12">   
+                                                <a href="#" data-toggle="modal" data-target="#infomodal1" style="color: #dd1e47;">
+                                                    <div class="blink_me"><i class="fa fa-hand-o-right" style="font-size:22px"></i> *NOTE</div>
+                                                </a>
+                                                <a [routerLink]="'districtcompare/' + 'DT01' + '/' + this.cgselectedYear" data-toggle="modal" data-target="#infomodal1" style="color: #dd1e47;">
+                                                    <div class="blink_me"><i class="fa fa-hand-o-right" style="font-size:22px"></i> *Tablewise Analysis</div>
+                                                </a>
+                                                <app-cggpm></app-cggpm>
+                                                         <!-- <ng-container *ngIf="cgselectedYear == '2015'">
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <app-cgsvg></app-cgsvg> 
-                                                                    <app-cgall></app-cgall>
+                                                                     <app-cgsvg></app-cgsvg> 
+                                                                     <app-cgall></app-cgall> 
                                                                 </div>
                                                             </div>
                                                         </ng-container>
                                                         <ng-container *ngIf="cgselectedYear == '2021'">
-                                                           <app-cgall></app-cgall>
+                                                           <app-cgall></app-cgall> 
                                                             <app-cggpm></app-cggpm>
-                                                        </ng-container> -->
+                                                    </ng-container>                                                  -->
                                             </div>
-                                        </div>
-                                                    
+                                        </div>                                                    
                                     </div>                                   
                                     <div class="row">                                       
                                         <div class="col-md-12">                                            
@@ -130,8 +135,8 @@
                             <div class="col-md-5">
                                 <div class="card p-1 mr-1">
                                     <div class="card-body p-1">
-                                        <h4 class="text-success font-weight-bold">District Composite Score - Percentage Analysis</h4>
-                                        <div class="row">
+                                        <h4 class="text-success">District Composite Score - Percentagewise Analysis</h4>
+                                        <!-- <div class="row">
                                             <div class="col-md-12">
                                                 <div class='my-legend'>
                                                     <div class='legend-scale'>
@@ -156,8 +161,8 @@
                                                         </ul>
                                                     </div>
                                                 </div>                                           
-                                            </div>
-                                        </div>
+                                            </div>                                            
+                                        </div> -->
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12"> 
                                                 <div id="chart">
@@ -167,13 +172,13 @@
                                                 <table>
                                                     <tr>
                                                         <td style="background-color: #dd1e47; color: aliceblue;">
-                                                            Total No. of Aspirant District :
+                                                            Aspirant District :
                                                         </td>
                                                         <td>
                                                             {{this.districtgoaldata[0]?.Aspirant}}
                                                         </td>
                                                         <td style="background-color: #ffc40c; color: aliceblue;">
-                                                            Total No. of Performer District :
+                                                             Performer District :
                                                         </td>
                                                         <td>
                                                             {{this.districtgoaldata[0]?.Performer}}
@@ -182,13 +187,13 @@
                                                     <br>
                                                     <tr>
                                                         <td style="background-color: #00a084; color: aliceblue;">
-                                                            Total No. of FrontRunner District :
+                                                            FrontRunner District :
                                                         </td>
                                                         <td>
                                                             {{this.districtgoaldata[0]?.FrontRunner}}
                                                         </td>
                                                         <td style="background-color: #00aeef; color: aliceblue;">
-                                                            Total No. of Achiever District :
+                                                             Achiever District :
                                                         </td>
                                                         <td>
                                                             {{this.districtgoaldata[0]?.Achiever}}
@@ -199,13 +204,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+                                
+                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">                                
                                 <div class="card p-1 mr-1">
                                     <div class="card-body p-1">
-                                        <h4 class="text-success font-weight-bold"></h4>
+                                        <h4 class="text-success">District Composite Score</h4>
                                         <div class='my-legend'>
                                             <div class='legend-scale'>
                                                 <ul class='legend-labels'>
@@ -250,7 +258,7 @@
     aria-hidden="true">
     <div class="modal-dialog" style="max-width: 60%;" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+            <div class="modal-header" style="background-color:#88AB8E ; color: aliceblue;">
                 <h3 class="modal-title1" id="goalinfomodal1">Total No. of Targets</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -281,7 +289,7 @@
 <div class="modal fade" id="indicators" tabindex="-1" role="dialog" aria-labelledby="indicators" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 60%;" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+            <div class="modal-header" style="background-color:#88AB8E ; color: aliceblue;">
                 <h3 class="modal-title1" id="goalinfomodal1">Total No. of Indicators</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -313,7 +321,7 @@
 <div class="modal fade" id="departments" tabindex="-1" role="dialog" aria-labelledby="departments" aria-hidden="true">
     <div class="modal-dialog"  role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#3f51b5 ; color: aliceblue;">
+            <div class="modal-header" style="background-color:#88AB8E ; color: aliceblue;">
                 <h3 class="modal-title1" id="goalinfomodal1">Total No. of Departments</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -340,6 +348,44 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="infomodal1" tabindex="-1" role="dialog" aria-labelledby="infomodal1"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #88AB8E">
+                <h2 class="modal-title1 text-white" id="infomodal1">Note : </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span style="color: rgb(6, 0, 0); font-weight: normal;">
+                    <ul class="listnew">
+                        <li>Till the year 2022, Khairagarh-Chhuikhadan-Gandai and Mohla-Manpur-Ambagarhchowki were part of Rajnandgaon district. </li>
+                        <li>Till the year 2022, Sarangarh-Bilaigarh was part of Raigarh district.
+                        </li>
+                        <li>Till the year 2022, Sakti was part of Janjgir-Champa district.
+                        </li>
+                        <li>Till the year 2022, Manendragarh-Chirmiri-Bharatpur was part of Koriya district.
+                        </li>
+                        <li>Till the year 2019, Gaurella-Pendra-Marwahi was part of Bilaspur district.
+                        </li>
+                    </ul>
+                </span>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 

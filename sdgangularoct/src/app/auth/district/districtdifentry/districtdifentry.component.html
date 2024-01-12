@@ -40,42 +40,51 @@
                                 <button type="button" (click)="reset()" class="btn btn-warning">Reset</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="list-group list-group-flush">
+                        <br>
                         <div class="row">
-                            <div class="col-1">                               
+                            <div class="col-md-12 col-sm-12 col-lg-12 text-center" style="color: rgb(244, 9, 9); font-size: 18px;">
+                                {{this.message}}
                             </div>
-                            <div class="col-5">
-                                <label style="color:blue; font-size: 14px;">Data Point Name</label>
-                            </div>
-                            <div class="col-3">
-                                <label style="color:blue; font-size: 14px;">Data Point Value</label>
-                            </div>
-                            <div class="col-3">
-                                <label style="color:blue ; font-size: 14px;">UOM</label>
-                            </div>
-                        </div>
-                    </div>                    
-                    <div *ngFor="let diffentry of t.controls; let i = index" class="list-group list-group-flush">
-                        <div class="list-group-item">
-                            <div [formGroup]="diffentry" class="form-row">                                
-                                <div class="form-group col-6">
-                                    <label>{{indicators[i].district_indicator_desc}}</label>  
+                        </div>     
+                        <br>                   
+                    </div>
+                    <div>
+                        <div class="list-group list-group-flush">
+                            <div class="row">
+                                <div class="col-1">                               
                                 </div>
-                                <div class="form-group col-3">
-                                    <label>Value</label>
-                                    <input  formControlName="indicators_value" class="form-control"
-                                    />                                    
+                                <div class="col-5">
+                                    <label style="color:blue; font-size: 14px;">Data Point Name</label>
                                 </div>
-                                <div class="form-group col-3">
-                                    <label>{{indicators[i].uom}}</label>   
+                                <div class="col-3">
+                                    <label style="color:blue; font-size: 14px;">Data Point Value</label>
+                                </div>
+                                <div class="col-3">
+                                    <label style="color:blue ; font-size: 14px;">UOM</label>
                                 </div>
                             </div>
-                        </div>
-                    </div>                    
+                        </div>                    
+                        <div *ngFor="let diffentry of t.controls; let i = index" class="list-group list-group-flush">
+                            <div class="list-group-item">
+                                <div [formGroup]="diffentry" class="form-row">                                
+                                    <div class="form-group col-6">
+                                        <label>{{indicators[i].district_indicator_desc}}</label>  
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label>Value</label>
+                                        <input  formControlName="indicators_value" class="form-control"
+                                        />                                    
+                                    </div>
+                                    <div class="form-group col-3">
+                                        <label>{{indicators[i].uom}}</label>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
 
                     <div class="card-footer text-center">
-                        <button mat-raised-button color="primary" type="button" *ngIf="isSaveMode">Save</button>
+                        <button mat-raised-button color="primary" type="submit" *ngIf="isSaveMode">Save</button>
                         <button mat-raised-button color="primary" type="button" *ngIf="isEditMode" (click)="onUpdate()">Update</button>&nbsp;
                     </div>
                 </form>

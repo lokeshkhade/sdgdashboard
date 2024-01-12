@@ -16,11 +16,13 @@ const sif = require('./routes/sif');
 const gis = require('./routes/gis');
 const crud = require('./routes/crud');
 const upload = require('./routes/upload');
+const login = require('./routes/login');
+const populate = require('./routes/populate');
+
 //console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 //console.log(`NODE_ENV: ${process.env.DEBUG}`);
 //In production we set NODE_ENV=production
 //console.log(`app: ${app.get('env')}`);
-
 
 if (!config.get('jwtPrivateKey')) {
     console.error('FATAL error jwtPrivate not defined');
@@ -31,7 +33,7 @@ const logger = require('./middleware/logger');
 //To enable parsing of JSON object in the body of request
 
 //http://expressjs.com/en/api.html#express.json
-app.use(express.json());
+app.use(express.json({ limit: '10MB' }));
 //http://expressjs.com/en/api.html#express.urlencoded
 app.use(express.urlencoded({ extended: true }));
 
@@ -59,7 +61,7 @@ app.use(express.urlencoded({ extended: true }));
 //}
 //Db logic
 dbDebugger('Connected to database');
-console.log('Connected to database');
+//console.log('Connected to database');
 
 /*A middleware function is basically a function that takes a request object and return the response to client or either terminates the request/response cycle or passes control to another middleware function.Ex. Route Handler Function beacuse it take req as object and return the response to client.So it terminate the request response cycle.*/
 //Another ex: express.json() when we call express.json() method this method return a middleware function the job of this middleware function is to read the request and if there is json object in the body of request it will parse the body of request into a json object then it will set it req.body property.
@@ -73,7 +75,7 @@ app.use(express.static('public'));  //public is name of folder
 app.use(logger);
 
 app.use(function (req, res, next) {
-    console.log("Authenticating");
+    //console.log("Authenticating");
     next();
 });
 
@@ -85,6 +87,8 @@ app.use('/api/sif', sif);
 app.use('/api/gis', gis);
 app.use('/api/crud', crud);
 app.use('/api/upload', upload);
+app.use('/api/login', login);
+app.use('/api/populate', populate);
 
 // CAPTCHA  //
 
@@ -99,7 +103,7 @@ app.get('/api/captcha', function (req, res) {
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-
+app.listen(port, () => 
+{
+    //console.log(`listening on port ${port}`);
 });

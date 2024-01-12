@@ -11,13 +11,25 @@ router.get('/getnitiaayogyear', async (req, res) => {
                  from niti_aayog_all_year ORDER BY  index_report_year desc`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -32,13 +44,25 @@ router.get('/getnitiaayogdatayearwise/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -54,13 +78,25 @@ router.get('/getindianitiaayogdatayearwise/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -132,13 +168,25 @@ router.get('/getcggoalscoreyearwise/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -226,13 +274,25 @@ router.get('/getcompositescoreyearwisesortname/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -318,13 +378,25 @@ router.get('/getcompositescoreyearwise/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -334,13 +406,25 @@ router.get('/getcgdashboardyear', async (req, res) => {
     var query = `SELECT DISTINCT ds.valueyear FROM dif_normalize_score ds order by valueyear desc`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -366,13 +450,25 @@ router.get('/getnormalizescoreindicatorgolawise/:idyear/:idgoal', async (req, re
 
     try {
         let result = await mysql.exec(query, [id, id1,id2,id3]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -393,13 +489,25 @@ router.get('/getindicatormetadata/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -418,13 +526,25 @@ router.get('/getindicatormetadatabyid/:id/:id1', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -447,13 +567,25 @@ router.get('/getindicatorvalues/:id/:id2', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -475,13 +607,25 @@ router.get('/getindicatorvaluebyid/:id/:id2/:id3', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1,id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -504,13 +648,25 @@ router.get('/getindicatorvaluesbyindicatorid/:id/:id2/:id3', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id, id1,id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -530,13 +686,25 @@ router.get('/getdistrictwisenormalizescore/:iddist/:idyear', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -569,13 +737,25 @@ router.get('/getdistrictcompositescoreyearwise/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -614,13 +794,25 @@ router.get('/getpercentcompositescoreyearwise/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -649,13 +841,25 @@ router.get('/getcggoalcompositescore/:idyear/:idgoal', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -688,13 +892,25 @@ router.get('/getdistrictgoalcompositescore/:idyear/:idgoal', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -749,13 +965,25 @@ router.get('/getcgdistrictgoalcompositescore/:idyear/:idgoal', async (req, res) 
 
     try {
         let result = await mysql.exec(query, [id, id1, id2, id3]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -787,13 +1015,25 @@ router.get('/getcgdistrictcompositescorebyindicator/:idyear/:idgoal/:idindicator
 
     try {
         let result = await mysql.exec(query, [id, id1, id2, id3,id4,id5]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -806,13 +1046,25 @@ router.get('/getpolarchart/:id', async (req, res) => {
     var query = `SELECT * FROM polarchart p WHERE p.district_code=?`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -844,13 +1096,25 @@ router.get('/getindicatorwisenormalizedscore/:idyear/:idgoal/:idindicator', asyn
                 dc.district_indicator_master_id = ? order BY normalizevalue desc`;
     try {
         let result = await mysql.exec(query, [id, id1, id2, id3, id4, id5]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -869,13 +1133,25 @@ router.get('/getcgnsbyindicatorid/:idgoal/:idindicator', async (req, res) => {
                 dc.district_indicator_master_id = ? 	GROUP BY (dc.cg_year)`;
     try {
         let result = await mysql.exec(query, [id,id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -900,13 +1176,25 @@ router.get('/getdisnsbyindicatorid/:idgoal/:idindicator/:iddistrict', async (req
                 GROUP BY (iw.valueyear)`;
     try {
         let result = await mysql.exec(query, [id, id1,id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -928,13 +1216,25 @@ router.get('/getmaxdisnsbyindicatorid/:idgoal/:idindicator', async (req, res) =>
                     GROUP BY (iw.valueyear)`;
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -956,13 +1256,25 @@ router.get('/getmindisnsbyindicatorid/:idgoal/:idindicator', async (req, res) =>
                     GROUP BY (iw.valueyear)`;
     try {
         let result = await mysql.exec(query, [id, id1]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -977,13 +1289,25 @@ router.get('/getnormalizedata/:idgoal/:idyear/:iddistrict', async (req, res) => 
 				 dn.district_code=? ORDER BY dn.district_indicator_desc`;
     try {
         let result = await mysql.exec(query, [id, id1, id2]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -1000,13 +1324,25 @@ router.get('/getdifreportbalod/:id', async (req, res) => {
                 ORDER BY dm.district_indicator_desc,dv.district  asc`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -1023,13 +1359,25 @@ router.get('/getdifreportbaldabazar/:id', async (req, res) => {
                 ORDER BY dm.district_indicator_desc,dv.district  asc`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -1046,13 +1394,25 @@ router.get('/getdifreport/:id', async (req, res) => {
                 ORDER BY dm.district_indicator_desc,dv.district  asc`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
-            return res.status(404).send("Data Not Found");
+        if (result.length == 0) 
+        {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
         }
-        return res.json(result);
-    } catch (err) {
+        else
+        {
+            return res.json(result);
+        }      
 
-        return res.status(404).json(err);
+    } 
+    catch (err) 
+    {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
     }
 });
 
@@ -1100,6 +1460,64 @@ router.get('/getdifreportalldistrict/:id', async (req, res) =>
                     WHERE dv.valueyear = ?  GROUP BY dm.district_indicator_desc`;
     try {
         let result = await mysql.exec(query, [id]);
+        if (result.length == 0) 
+        {
+            return res.json({
+                "status": 200, "data": []
+            });
+        }
+        return res.json(result);
+    } catch (err) {
+        return res.json({
+            "status": 400, "data": [], "message": err.message
+        });
+    }
+});
+
+
+router.get('/getdeptdifreportalldistrict/:id/:iddept', async (req, res) => {
+    var id = req.params.id;
+    var iddept = req.params.iddept;
+    var query = `SELECT 
+                    round(sum(case when dg.district_code='DT01' then  dv.indicators_value ELSE 0 END),3) 'Balod',
+                    round(sum(case when dg.district_code='DT02' then  dv.indicators_value ELSE 0 END),3) 'BalodaBazar',
+                    round(sum(case when dg.district_code='DT03' then  dv.indicators_value ELSE 0 END),3) 'Balrampur',
+                    round(sum(case when dg.district_code='DT04' then  dv.indicators_value ELSE 0 END),3) 'Bastar',
+                    round(sum(case when dg.district_code='DT05' then  dv.indicators_value ELSE 0 END),3) 'Bemetara',
+                    round(sum(case when dg.district_code='DT06' then  dv.indicators_value ELSE 0 END),3) 'Bijapur',
+                    round(sum(case when dg.district_code='DT07' then  dv.indicators_value ELSE 0 END),3) 'Bilaspur',
+                    round(sum(case when dg.district_code='DT08' then  dv.indicators_value ELSE 0 END),3) 'Dantewada',
+                    round(sum(case when dg.district_code='DT09' then  dv.indicators_value ELSE 0 END),3) 'Dhamtari',
+                    round(sum(case when dg.district_code='DT10' then  dv.indicators_value ELSE 0 END),3) 'Durg',
+                    round(sum(case when dg.district_code='DT11' then  dv.indicators_value ELSE 0 END),3) 'Gariaband',
+                    round(sum(case when dg.district_code='DT12' then  dv.indicators_value ELSE 0 END),3) 'JanjgirChampa',
+                    round(sum(case when dg.district_code='DT13' then  dv.indicators_value ELSE 0 END),3) 'Jashpur',
+                    round(sum(case when dg.district_code='DT14' then  dv.indicators_value ELSE 0 END),3) 'Kanker',
+                    round(sum(case when dg.district_code='DT15' then  dv.indicators_value ELSE 0 END),3) 'Kabirdham',
+                    round(sum(case when dg.district_code='DT16' then  dv.indicators_value ELSE 0 END),3) 'Kondagaon',
+                    round(sum(case when dg.district_code='DT17' then  dv.indicators_value ELSE 0 END),3) 'Korba',
+                    round(sum(case when dg.district_code='DT18' then  dv.indicators_value ELSE 0 END),3) 'Korea',
+                    round(sum(case when dg.district_code='DT19' then  dv.indicators_value ELSE 0 END),3) 'Mahasamund',
+                    round(sum(case when dg.district_code='DT20' then  dv.indicators_value ELSE 0 END),3) 'Mungeli',
+                    round(sum(case when dg.district_code='DT21' then  dv.indicators_value ELSE 0 END),3) 'Narayanpur',
+                    round(sum(case when dg.district_code='DT22' then  dv.indicators_value ELSE 0 END),3) 'Raigarh',
+                    round(sum(case when dg.district_code='DT23' then  dv.indicators_value ELSE 0 END),3) 'Raipur',
+                    round(sum(case when dg.district_code='DT24' then  dv.indicators_value ELSE 0 END),3) 'Rajnandgaon',
+                    round(sum(case when dg.district_code='DT25' then  dv.indicators_value ELSE 0 END),3) 'Sukma',
+                    round(sum(case when dg.district_code='DT26' then  dv.indicators_value ELSE 0 END),3) 'Surajpur',
+                    round(sum(case when dg.district_code='DT27' then  dv.indicators_value ELSE 0 END),3) 'Surguja',
+                    round(sum(case when dg.district_code='DT28' then  dv.indicators_value ELSE 0 END),3) 'Gaurella-Pendra-Marwahi',
+                    round(sum(case when dg.district_code='DT29' then  dv.indicators_value ELSE 0 END),3) 'Khairagarh-Chhuikhadan-Gandai',
+                    round(sum(case when dg.district_code='DT30' then  dv.indicators_value ELSE 0 END),3) 'Manendragarh-Chirmiri-Bharatpur',
+                    round(sum(case when dg.district_code='DT31' then  dv.indicators_value ELSE 0 END),3) 'Mohla-Manpur-AmbagarhChowki',
+                    round(sum(case when dg.district_code='DT32' then  dv.indicators_value ELSE 0 END),3) 'Sarangarh-Bilaigarh',
+                    dm.district_indicator_desc FROM dif_indicator_values dv
+                    INNER JOIN dim_geo dg ON dg.district_code= dv.district
+                    inner JOIN dif_district_indicator_master dm  ON dv.district_indicator_master_id
+                    =dm.indicator_master_id 
+                    WHERE dv.valueyear = ? AND dm.dept_id= ?  GROUP BY dm.district_indicator_desc`;
+    try {
+        let result = await mysql.exec(query, [id, iddept]);
         if (result.length == 0) {
             return res.status(200).json("");
         }

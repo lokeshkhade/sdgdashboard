@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
+
 @Component({
   selector: 'app-manageuser',
   templateUrl: './manageuser.component.html',
@@ -73,6 +74,8 @@ export class ManageuserComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  
 
 
 }

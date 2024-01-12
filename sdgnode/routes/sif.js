@@ -21,7 +21,8 @@ router.get('/getsifgoalwisedata/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(200).send("Data Not Found");
         }
         return res.json(result);
@@ -42,7 +43,8 @@ router.get('/getsiftargetdata/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -64,7 +66,8 @@ router.get('/getsifindicatordata', async (req, res) =>
                 ORDER BY sm.sif_target_id`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -88,7 +91,8 @@ router.get('/getallyearsifdata', async (req, res) =>
                     on sim.indicator_id = siv.indicator_id order by 1)	AS t ON sm.sif_target_id = t.sif_target_id order by t.indicator_desc `
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -109,7 +113,8 @@ router.get('/getcentralschemegoalwise/:id', async (req, res) =>
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -128,7 +133,8 @@ router.get('/getstateschemegoalwise/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -147,7 +153,8 @@ router.get('/getsifmetadata/:id', async (req, res) => {
                     WHERE sm.indicator_id = ?`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -166,7 +173,8 @@ router.get('/getprogressyeardata/:id', async (req, res) => {
             WHERE siv.Year = (select max(T.yrs) from (select distinct siv.Year as yrs from sif_indicator_values siv order by 1 asc LIMIT 4) as T) AND sim.indicator_id = ?`;
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -187,7 +195,8 @@ router.get('/getsiftargetdesc/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -209,7 +218,8 @@ router.get('/getsifindicatordatabytargetid/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -241,7 +251,8 @@ router.get('/getallyearsifdatabytargetid/:id', async (req, res) => {
 
     try {
         let result = await mysql.exec(query, [id]);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);
@@ -263,14 +274,37 @@ router.get('/getsifreport/:id', async (req, res) =>
             let result = await mysql.exec(query, [id]);
             if (result.length == 0) 
             {
-                return res.status(200).send("Data Not Found");
+                return res.json({
+                    "status": 200, "data": []
+                });
             }
             return res.json(result);
         } catch (err) {
-
-            return res.status(404).json(err);
+            return res.json({
+                "status": 400, "data": [], "message": err.message
+            });
         }
-    });
+});
+
+
+router.get('/getdeptsifreport/:id/:iddept', async (req, res) => {
+    var id = req.params.id;
+    var iddept = req.params.iddept;
+    var query = `select sim.indicator_id ,sim.indicator_desc , siv.IndicatorValue , siv.Year 
+                    from sif_indicator_values siv join sif_indicator_master sim 
+		            on sim.indicator_id = siv.indicator_id where siv.Year = ? AND sim.dept_id = ?   order BY  sim.indicator_id`;
+    try {
+        let result = await mysql.exec(query, [id, iddept]);
+        if (result.length == 0) 
+        {
+            return res.status(200).send("Data Not Found");
+        }
+        return res.json(result);
+    } catch (err) {
+
+        return res.status(404).json(err);
+    }
+});
 
 
 router.get('/getsifyear', async (req, res) => {
@@ -278,7 +312,8 @@ router.get('/getsifyear', async (req, res) => {
                     from sif_indicator_values siv ORDER BY siv.Year`;
     try {
         let result = await mysql.exec(query);
-        if (result.length == 0) {
+        if (result.length == 0) 
+        {
             return res.status(404).send("Data Not Found");
         }
         return res.json(result);

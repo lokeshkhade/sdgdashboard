@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import Swal from 'sweetalert2';
 import * as XLSX from "xlsx";
+
 @Component({
   selector: 'app-generatereport',
   templateUrl: './generatereport.component.html',
@@ -28,14 +29,15 @@ export class GeneratereportComponent implements OnInit {
   public showsif = false;
   
 
-  constructor(private fb: FormBuilder, private ds: DataService) {
+  constructor(private fb: FormBuilder, private ds: DataService) 
+  {
     this.sifdifreport = this.fb.group({ //definition to cons
       valueyear: ['', Validators.required]
     });
-
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     this.getallyears();   
     this.selectedyear="";
   }
@@ -53,17 +55,18 @@ export class GeneratereportComponent implements OnInit {
 
   sifreport()
   {
-    if (this.selectedyear == "") {
+    if (this.selectedyear == "") 
+    {
       Swal.fire({
         icon: "error",
-        text: 'Please Select Year',
+        text: 'Please select a year',
         timer: 2000
       });
     }
     else {
         this.showdif=false;
         this.showsif = true;
-      this.getsifdata(this.selectedyear);
+        this.getsifdata(this.selectedyear);
     }
   }
 
@@ -82,7 +85,8 @@ export class GeneratereportComponent implements OnInit {
   }
 
 
-  onYearSelected(event: any) {
+  onYearSelected(event: any) 
+  {
     this.selectedyear = event.value;
   }
 
@@ -92,13 +96,14 @@ export class GeneratereportComponent implements OnInit {
     this.sifdata = "";
     this.ds.paramFunction('sif/getsifreport', year).subscribe((res: any) => {
       this.sifdata = res;
-      if (this.sifdata == "") 
+      if (this.sifdata.data == '') 
       {
         Swal.fire({
           icon: "error",
-          text: 'Data is not available for Year',
+          text: 'SIF-Data is not available for this year',
           timer: 2000
         });
+        this.sifdata = "";
         this.showsif = false;
         this.showdif = false;
       }
@@ -107,34 +112,27 @@ export class GeneratereportComponent implements OnInit {
 
 
   getdifdata(year: any) 
-  {
-    // this.ds.getData('common/getdistrict').subscribe((res: any) => {
-    //   this.district = res;
-    // });
-
-    // this.ds.getData('common/getalldifindicators').subscribe((res: any) => {
-    //   this.difindicator = res;
-    // }); 
+  {   
     this.ds.paramFunction('data/getdifreportalldistrict', year).subscribe((res: any) => 
     {
-
-        if(res.length!=0)
-        {
-          this.difdata = res;
-        }    
-        else 
-        {
+      this.difdata = res;
+      if (this.difdata.data == '') 
+      {
         Swal.fire({
           icon: "error",
-          text: 'Data is not available for Year',
+          text: 'DIF-Data is not available for this year',
           timer: 2000
         });
-      }
+        this.sifdata = "";
+        this.showsif = false;
+        this.showdif = false;
+      }        
     });
   }
 
   
-  getExcel(): void {
+  getExcel(): void 
+  {
     const htmlContent = this.table.nativeElement;
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(htmlContent);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();

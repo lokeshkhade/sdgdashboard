@@ -64,14 +64,6 @@ a {
     color: white;
 }
 
-.td1,
-.th1 {
-    border: 0.5px solid #00000f;
-    padding: 23px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
 .modal-backdrop {
     z-index: 1040 !important;
@@ -86,3 +78,48 @@ a {
     /* bug fix - no overlay */
     display: none;
 }
+///////////////////////////////////////////////
+/// 
+
+td,
+th {
+    border: 1px solid #a4bff3;
+    padding: 8px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+tr:nth-child(odd) {
+    color: black;
+}
+
+tr:hover {
+    background-color: #dce1a5;
+    outline: 3px solid rgb(51, 4, 224);
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #eaedec;
+    color: rgb(7, 0, 0);
+}
+
+
+ path {
+     //fill: #1da1f2;
+ }
+
+ path:hover {
+     fill: rgb(236, 253, 231);
+     stroke: red;
+     stroke-width: 5px;
+     transition: fill 1.4s;
+ }

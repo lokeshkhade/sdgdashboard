@@ -162,6 +162,18 @@ export class GoalanalysisComponent implements OnInit {
   public DT29: any;
   public DT29T: any;
 
+  public DT30: any;
+  public DT30T: any;
+
+  public DT31: any;
+  public DT31T: any;
+
+  public DT32: any;
+  public DT32T: any;
+
+  public DT33: any;
+  public DT33T: any;
+
    /////////////////////////////////////////////
   public year: any;
   /////////////////////////////////////////////// 
@@ -1145,6 +1157,24 @@ export class GoalanalysisComponent implements OnInit {
             this.DT07 = '#00aeef';
             this.DT07T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+
+          if (res[index].goalscore <= 49) {
+            this.DT28 = '#dd1e47';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT28 = '#ffc40c';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT28 = '#00a084';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT28 = '#00aeef';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT08") {
@@ -1239,6 +1269,23 @@ export class GoalanalysisComponent implements OnInit {
           else if (res[index].goalscore >= 100) {
             this.DT12 = '#00aeef';
             this.DT12T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
+          if (res[index].goalscore <= 49) {
+            this.DT33 = '#dd1e47';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT33 = '#ffc40c';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT33 = '#00a084';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT33 = '#00aeef';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
         }
 
@@ -1354,6 +1401,23 @@ export class GoalanalysisComponent implements OnInit {
             this.DT18 = '#00aeef';
             this.DT18T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+          if (res[index].goalscore <= 49) {
+            this.DT30 = '#dd1e47';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT30 = '#ffc40c';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT30 = '#00a084';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT30 = '#00aeef';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT19") {
@@ -1430,6 +1494,24 @@ export class GoalanalysisComponent implements OnInit {
             this.DT22 = '#00aeef';
             this.DT22T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+
+          if (res[index].goalscore <= 49) {
+            this.DT32 = '#dd1e47';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT32 = '#ffc40c';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT32 = '#00a084';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT32 = '#00aeef';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT23") {
@@ -1467,6 +1549,40 @@ export class GoalanalysisComponent implements OnInit {
           else if (res[index].goalscore >= 100) {
             this.DT24 = '#00aeef';
             this.DT24T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
+          if (res[index].goalscore <= 49) {
+            this.DT29 = '#dd1e47';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT29 = '#ffc40c';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT29 = '#00a084';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT29 = '#00aeef';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
+          if (res[index].goalscore <= 49) {
+            this.DT31 = '#dd1e47';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT31 = '#ffc40c';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT31 = '#00a084';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT31 = '#00aeef';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
         }
 
@@ -1667,6 +1783,23 @@ export class GoalanalysisComponent implements OnInit {
             this.DT07 = '#00aeef';
             this.DT07T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+          if (res[index].goalscore <= 49) {
+            this.DT28 = '#dd1e47';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT28 = '#ffc40c';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT28 = '#00a084';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT28 = '#00aeef';
+            this.DT28T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT08") {
@@ -1761,6 +1894,24 @@ export class GoalanalysisComponent implements OnInit {
           else if (res[index].goalscore >= 100) {
             this.DT12 = '#00aeef';
             this.DT12T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
+
+          if (res[index].goalscore <= 49) {
+            this.DT33 = '#dd1e47';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT33 = '#ffc40c';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT33 = '#00a084';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT33 = '#00aeef';
+            this.DT33T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
         }
 
@@ -1876,6 +2027,23 @@ export class GoalanalysisComponent implements OnInit {
             this.DT18 = '#00aeef';
             this.DT18T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+          if (res[index].goalscore <= 49) {
+            this.DT30 = '#dd1e47';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT30 = '#ffc40c';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT30 = '#00a084';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT30 = '#00aeef';
+            this.DT30T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT19") {
@@ -1952,6 +2120,23 @@ export class GoalanalysisComponent implements OnInit {
             this.DT22 = '#00aeef';
             this.DT22T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+          if (res[index].goalscore <= 49) {
+            this.DT32 = '#dd1e47';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT32 = '#ffc40c';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT32 = '#00a084';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT32 = '#00aeef';
+            this.DT32T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
         }
 
         if (res[index].district_code == "DT23") {
@@ -1990,6 +2175,41 @@ export class GoalanalysisComponent implements OnInit {
             this.DT24 = '#00aeef';
             this.DT24T = res[index].district_name + " with District Score :" + res[index].goalscore;
           }
+
+          if (res[index].goalscore <= 49) {
+            this.DT29 = '#dd1e47';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT29 = '#ffc40c';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT29 = '#00a084';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT29 = '#00aeef';
+            this.DT29T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
+          if (res[index].goalscore <= 49) {
+            this.DT31 = '#dd1e47';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 50 && res[index].goalscore <= 64) {
+            this.DT31 = '#ffc40c';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 65 && res[index].goalscore <= 99) {
+            this.DT31 = '#00a084';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+          else if (res[index].goalscore >= 100) {
+            this.DT31 = '#00aeef';
+            this.DT31T = res[index].district_name + " with District Score :" + res[index].goalscore;
+          }
+
         }
 
         if (res[index].district_code == "DT25") {

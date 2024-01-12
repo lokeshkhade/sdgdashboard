@@ -7,7 +7,7 @@ var exec = function (query, params) {
 
             return reject("Query not found");
         }
-        console.log('1');
+        //console.log('1');
         var connection = "postgres://postgres:1234@localhost:5432/";
 
         const client = new Client({

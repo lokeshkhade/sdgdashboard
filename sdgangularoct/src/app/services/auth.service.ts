@@ -29,7 +29,7 @@ export class AuthService {
 
   login(credentials: any): Observable<any> 
   {
-    return this.http.post(this.rootUrl + 'user', credentials, httpOptions).pipe(map(res => {
+    return this.http.post(this.rootUrl + 'login', credentials, httpOptions).pipe(map(res => {
       this.userData = res;
       if (this.userData.success) 
       {

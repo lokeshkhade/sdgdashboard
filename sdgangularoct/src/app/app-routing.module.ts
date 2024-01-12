@@ -12,6 +12,7 @@ import { DistrictcompareComponent } from './cgdashboard/districtcompare/district
 import { DistrictanalysisComponent } from './cgdashboard/districtanalysis/districtanalysis.component';
 import { ReportgraphComponent } from './cgdashboard/reportgraph/reportgraph.component';
 import { DistrictgoalcompareComponent } from './cgdashboard/districtgoalcompare/districtgoalcompare.component';
+import { ProfileComponent } from './shared/profile/profile.component';
 
 const routes: Routes = [
 
@@ -73,7 +74,8 @@ const routes: Routes = [
       { path: 'spcadmin', loadChildren: () => import('./auth/spcadmin/spcadmin.module').then(m => m.SpcadminModule) },
       { path: 'district', loadChildren: () => import('./auth/district/district.module').then(m => m.DistrictModule) },
       { path: 'department', loadChildren: () => import('./auth/department/department.module').then(m => m.DepartmentModule) },
-      { path: 'monitoring', loadChildren: () => import('./auth/monitoring/monitoring.module').then(m => m.MonitoringModule) }
+      { path: 'monitoring', loadChildren: () => import('./auth/monitoring/monitoring.module').then(m => m.MonitoringModule) },
+      { path: 'profile', component: ProfileComponent }
     ]
   },
 ];

@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-md-12" style="text-align: center; padding-top: 15px;">
+        <mat-label style="font-size: 22px;color: brown;">
+            <i class="fa fa-check-square" aria-hidden="true"></i> Change Password
+        </mat-label>
+    </div>
+</div>
+<br>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-card class="mat-card mat-focus-indicator oh text-center little-profile"><img mat-card-image="" src=""
+                            alt="" class="mat-card-image">
+                        <mat-card-content class="mat-card-content">
+                            <div class="pro-img">
+                                <img src="assets/images/users/admin.png" width="80" alt="user" class="img-circle">
+                                <!-- <div class="profileImage img-circle">Y</div> -->
+                            </div>
+                            <h2 class="m-t-0">User Name: {{currentUser.user_name | uppercase}} </h2>
+                            <h2 class="m-t-0">User Role: {{this.userrole}} </h2>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6">
+                    <mat-card>
+                        <mat-card-content class="mat-card-content ng-star-inserted">
+                            <mat-card-title class="mat-card-title">Change Password</mat-card-title>
+                            <br>
+                            <form [formGroup]="changePassworform" (ngSubmit)="change()">
+                                <div class="form-group">
+                                    <label for="username">User Name: </label>
+                                    <input type="text" readonly class="form-control" id="username" placeholder="User Name"
+                                        formControlName="username">
+                                    <div *ngIf="isValidInput('username')">
+                                        <p class="text-danger" *ngIf="changePassworform.controls['username'].errors.required">
+                                            username is <strong>required</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="login-pwd">Current Password:</label>
+                                    <input type="password" class="form-control" placeholder="Current Password"
+                                        formControlName="current_password" (change)="onCurrentPassChangeEvent($event)">
+                                    <div *ngIf="isValidInput('current_password')">
+                                        <p class="text-danger"
+                                            *ngIf="changePassworform.controls['current_password'].errors.required">
+                                            Current Password <strong>is necessary</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-pwd">New Password:</label>
+                                    <input type="password" class="form-control" placeholder="New Password"
+                                        formControlName="new_password" (change)="onNewPassChangeEvent($event)">
+                                    <div *ngIf="isValidInput('new_password')">
+                                        <p class="text-danger" *ngIf="changePassworform.controls['new_password'].errors.required">
+                                            New Password <strong>is necessary</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-pwd">Please Confirm New Password</label>
+                                    <input type="password" class="form-control"                                         placeholder="Please Confirm New Password" formControlName="re_password"
+                                        (change)="onRePassChangeEvent($event)">
+                                    <div *ngIf="isValidInput('re_password')">
+                                        <p class="text-danger" *ngIf="changePassworform.controls['re_password'].errors.required">
+                                            Rewrite New Password</p>
+                                        <p class="text-danger"
+                                            *ngIf="changePassworform.controls['re_password'].errors.confirmedValidator">
+                                            New Password must correct and same
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center py-4">
+                                    <button type="submit" [disabled]="!changePassworform.valid"
+                                        class="btn btn-primary b-btn">Change</button>
+                                </div>
+
+                            </form>
+                        </mat-card-content>
+                    </mat-card>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+</div>

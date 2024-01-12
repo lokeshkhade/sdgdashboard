@@ -30,7 +30,8 @@ export class DataService {
   cgselectedYear = new Subject();
   cgelectedYear$ = this.cgselectedYear.asObservable();  
 
-  cgsetYear(cgyear: any) {
+  cgsetYear(cgyear: any) 
+  {
     this.cgselectedYear.next(cgyear);
   }
   // Goal Set for SIF data //
@@ -93,6 +94,8 @@ export class DataService {
   updateData(functionName: any, data: any) {
     return this.http.put(this.configUrl + functionName, data)
   }
+
+  
 
 
 

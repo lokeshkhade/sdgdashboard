@@ -102,13 +102,13 @@ export class DistrictgoalcompareComponent implements OnInit {
           top: 18,
           left: 7,
           blur: 10,
-          opacity: 0.2
+          opacity: 1.0
         },
         toolbar: {
           show: false
         }
       },
-      colors: ["#071185", "#078527"],
+      colors: ["#071185", "#078527"],     
       dataLabels: {
         enabled: true
       },
