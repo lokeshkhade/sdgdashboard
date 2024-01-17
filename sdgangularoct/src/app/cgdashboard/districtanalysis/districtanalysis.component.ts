@@ -97,7 +97,9 @@ export class DistrictanalysisComponent implements OnInit {
   public indicatormax: any = [];
   public indicatormin: any = [];
   public indicatordistrict: any = [];
-  public indicatorcg: any = [];
+  public indicatorcg: any = []; public compositescore: any = [];
+  public compositescorecg1: any; public compositescorecg2: any; 
+  public compositescoredistrict1: any; public compositescoredistrict2: any;
   ///////////////////////////
   @ViewChild("chart1") chart1!: ChartOptions;
   public chartOptions: Partial<ChartOptions> | any;
@@ -143,7 +145,7 @@ export class DistrictanalysisComponent implements OnInit {
           show: false
         }
       },
-      colors: ["#071185", "#078527"],
+      colors: ["#545454", "#00aeef"],
       dataLabels: {
         enabled: true
       },
@@ -207,7 +209,7 @@ export class DistrictanalysisComponent implements OnInit {
           show: false
         }
       },
-      colors: ["#77B6EA", "#545454"],
+      colors: ["#545454", "#00aeef"],
       dataLabels: {
         enabled: true
       },
@@ -362,6 +364,9 @@ export class DistrictanalysisComponent implements OnInit {
 
     this.getcomparisondata1(this.selectedgoal, this.selectedindicator, this.selecteddistrictcode);
     this.getcomparisondata2(this.selectedgoal, this.selectedindicator, this.selecteddistrictcode1);
+    this.getcompositescore1(this.selectedyear); 
+    this.getcompositescore2(this.selectedyear1);
+
   }
 
   getyear() {
@@ -381,6 +386,23 @@ export class DistrictanalysisComponent implements OnInit {
   {
     this.ds.paramFunction('common/getgoalwiseindicator', goalid).subscribe((res: any) => {
       this.indicators = res;
+    });
+  }
+
+  getcompositescore1(year:any)
+  {
+    this.ds.paramFunction('gis/getcompositescore', year).subscribe((res: any) => {
+      this.compositescore = res;
+      this.compositescorecg1 = this.compositescore.find(x => x.district_code == "CG01").compositescore; 
+      this.compositescoredistrict1 = this.compositescore.find(x => x.district_code == this.selecteddistrictcode).compositescore;       
+    });
+  }
+
+  getcompositescore2(year: any) {
+    this.ds.paramFunction('gis/getcompositescore', year).subscribe((res: any) => {
+      this.compositescore = res;
+      this.compositescorecg2 = this.compositescore.find(x => x.district_code == "CG01").compositescore;     
+      this.compositescoredistrict2 = this.compositescore.find(x => x.district_code == this.selecteddistrictcode1).compositescore;
     });
   }
 
@@ -542,24 +564,28 @@ export class DistrictanalysisComponent implements OnInit {
     });
   };
 
-  onDistrictSelected(event: any) {
+  onDistrictSelected(event: any) 
+  {
     this.selecteddistrictcode = event.value;
     this.getdistrictname1(this.selecteddistrictcode);
     this.getindicatorvaluesChart(this.selectedgoal, this.selecteddistrictcode, this.selecteddistrictcode1,
       this.selectedindicator);
     this.getcomparisondata1(this.selectedgoal, this.selectedindicator, this.selecteddistrictcode);
-  
+    this.getcompositescore1(this.selectedyear);
   }
 
-  onDistrictSelected1(event: any) {
+  onDistrictSelected1(event: any) 
+  {
     this.selecteddistrictcode1 = event.value;
     this.getdistrictname2(this.selecteddistrictcode1);
     this.getindicatorvaluesChart(this.selectedgoal, this.selecteddistrictcode, this.selecteddistrictcode1,
       this.selectedindicator);
     this.getcomparisondata2(this.selectedgoal, this.selectedindicator, this.selecteddistrictcode);
+    this.getcompositescore2(this.selectedyear1);
   }
 
-  onGoalSelected(event: any) {
+  onGoalSelected(event: any) 
+  {
     this.selectedgoal = event.value;
     this.ds.paramFunction('common/getgoalwiseindicator', this.selectedgoal).subscribe((res: any) => {
       this.indicators = res;
@@ -578,12 +604,13 @@ export class DistrictanalysisComponent implements OnInit {
   onYearSelected(event: any) {
     this.selectedyear = event.value;
     this.params = this.params.set("year", event.value);
-    
+    this.getcompositescore1(this.selectedyear);
   }
 
   onYearSelected1(event: any) {
     this.selectedyear1 = event.value;
     this.params = this.params.set("year1", event.value);
+    this.getcompositescore2(this.selectedyear1);
   }
 
 }

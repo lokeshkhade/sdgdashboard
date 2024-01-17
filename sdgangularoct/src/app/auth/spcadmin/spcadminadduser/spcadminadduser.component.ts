@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
   templateUrl: './spcadminadduser.component.html',
   styleUrls: ['./spcadminadduser.component.scss']
 })
-export class SpcadminadduserComponent implements OnInit {
-
+export class SpcadminadduserComponent implements OnInit 
+{
   public manageuser: FormGroup; //add  FormGroup 
   public roles: any = []; public username: any = [];
   public users: any = []; public departments: any = []; 
@@ -97,8 +97,7 @@ export class SpcadminadduserComponent implements OnInit {
 
 
   onSubmit() 
-  {
-    
+  {    
       this.ds.postData('user/adduser', this.manageuser.value).subscribe(res => {
         this.data = res;
         if (this.data) {
@@ -115,9 +114,10 @@ export class SpcadminadduserComponent implements OnInit {
             timer: 2000
           });
         }
+        this.getallactiveusers();
         this.onClear();
       });
-  
+      
   }
 
   onEdit(id: any) 
@@ -126,8 +126,6 @@ export class SpcadminadduserComponent implements OnInit {
     this.isEditMode = true;
     this.isAdd = false;
     this.edituser_id = id;
-
-    console.log(this.userdatabyid.roleid, this.userdatabyid.districtcode, this.userdatabyid.departmentid);
 
     if (this.userdatabyid.roleid == 2 || this.userdatabyid.roleid == 3 || this.userdatabyid.roleid == 1) {
       this.isDepartment = true;
@@ -153,6 +151,8 @@ export class SpcadminadduserComponent implements OnInit {
         districtcode: this.userdatabyid.districtcode,
         departmentid: this.userdatabyid.departmentid
       });
+
+     
   }
 
 
@@ -179,6 +179,7 @@ export class SpcadminadduserComponent implements OnInit {
       }
     });   
     this.onClear();
+    
   }
 
 

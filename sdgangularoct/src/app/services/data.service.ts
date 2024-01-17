@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
 
-  public currentyear: BehaviorSubject<number> = new BehaviorSubject<number>(2021); //Please set current year from here;
+  public currentyear: BehaviorSubject<number> = new BehaviorSubject<number>(2022); //Please set current year from here;
   public baseyear: BehaviorSubject<number> = new BehaviorSubject<number>(2015); //Please set base year from here;
 
   public currentyearindia: BehaviorSubject<number> = new BehaviorSubject<number>(2020);

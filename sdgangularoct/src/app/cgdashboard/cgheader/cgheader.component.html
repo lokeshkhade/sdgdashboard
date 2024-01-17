@@ -1,19 +1,18 @@
 <header class="py-1 bg-white">
     <div class="container">
-        <div class="row justify-content-md-center pt-2">
+        <div class="row justify-content-md-center pt-0">
             <img src="assets/images/cglogo_2.png" style="height:70px;width:auto;margin-left: 1rem;" alt="Logo"
                 class="img-responsive">
             <div class="col-md-9 text-center">
-                <h2 class="text-dark">
-                    <span class="">Chhattisgarh State Planning Commission</span>
-                </h2>
-                <h3 class="text-dark">
-                    <span class="">SDG Monitoring Dashboard</span>
-                </h3>
+                <h1 class="text-dark">
+                    <!-- <span>{{'HOME.Title' | translate}}</span><br>
+                                    <h2>{{'HOME.SubTitle' | translate}}</h2> -->
+                    <span>Chhattisgarh State Planning Commission</span><br>
+                    <h2>SDG Monitoring Dashboard</h2>
+                </h1>              
             </div>
             <img src="assets/images/sdg_logo_new.PNG" style="height:60px;width:auto;margin-left: 1rem;" alt="Logo"
                 class="img-responsive">
-
         </div>
         <form [formGroup]="cgmainheader">
             <div class="header">
@@ -127,7 +126,8 @@
                                     <img src="assets/images/sdg/g16.png"
                                         class="img img-responsive center-block zoom goalsimage inner-img"
                                         alt="Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels"
-                                        [style.background-color]="G16"> </a>
+                                        [style.background-color]="G16"> 
+                                </a>
                             </li>
                         </ul>
                     </div>

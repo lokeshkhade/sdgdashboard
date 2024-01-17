@@ -4,10 +4,10 @@
         <div class="content-wrapper">
             <section class="spacer bg-light">
                 <div class="container">
-                    <div class="row py-1">
+                    <div class="row py-0">
                         <div class="col-md-12">
-                            <div class="card p-2 mr-0">
-                                <div class="card-body p-2">
+                            <div class="card p-1 mr-0">
+                                <div class="card-body p-1">
                                     <ul class="list-unstyled listing">
                                         <li>
                                             <a [routerLink]="['/cghome']" class="btn btn-custom btn-outline-info btn-md">Chhattisgarh SDG
@@ -21,7 +21,7 @@
                                                 class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
                                                 Aayog SDG
                                                 India Index 3.0</a>&nbsp;
-                                            <a href="" class="btn btn-custom btn-outline-info btn-md">DIF
+                                            <a [routerLink]="['/reports']" class="btn btn-custom btn-outline-info btn-md">
                                                 Reports</a>&nbsp;
                                             <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md">ADMIN LOGIN</a>
                                         </li>
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <p class="mt-1 line-h11 font-12 text-justify font-weight-normal" style="color: #0627ab;">
-                                                Chhattisgarh is committed to achieve Sustainable Development Goals
+                                                "<i>Chhattisgarh is committed to achieve Sustainable Development Goals
                                                 (SDGs) in a
                                                 time-bound manner. The philosophy of
                                                 'Antyodaya' coincides with the objectives of SDG. The government is
@@ -61,35 +61,16 @@
                                                 success can only be achieved through evidence-based planning, monitoring
                                                 and
                                                 implementation with continuous improvement
-                                                and judicious use of resources.
+                                                and judicious use of resources</i>".
                                             </p>
                                         </div>
                                     </div>
-                                    <!-- <div class="row py-1">
-                                                                <div class="col-md-12">
-                                                                    <p class="text-dark mt-1 line-h11 font-12 text-justify font-weight-normal">
-                                                                        Chhattisgarh is committed to achieve Sustainable Development Goals
-                                                                        (SDGs) in a
-                                                                        time-bound manner. The philosophy of
-                                                                        'Antyodaya' coincides with the objectives of SDG. The government is
-                                                                        implementing schemes
-                                                                        in such a way that the intended
-                                                                        benefit of development reaches to the person sitting at the last mile.
-                                                                        Achievement of
-                                                                        SDG is a strenuous marathon, where
-                                                                        success can only be achieved through evidence-based planning, monitoring
-                                                                        and
-                                                                        implementation with continuous improvement
-                                                                        and judicious use of resources.
-                                                                    </p>
-                                                                </div>
-                                                            </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="card p-2 mr-1">
-                                <div class="card-body p-4">
+                                <div class="card-body p-2">
                                     <div class="text-center">
                                         <h3 class="text-primary">About Sustainable Development Goals
                                             (SDGs)</h3>
@@ -112,9 +93,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>                           
                     </div>
-                    <div class="row py-1">                       
+                    <div style="left: true;;">
+                        <button (click)="scroll(target)" id="myBtn"> <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                    </div>                    
+                    <div class="row py-1" #target>                       
                         <div class="col-md-7">
                             <div class="card p-1 mr-1">
                                 <div class="card-body p-4">
@@ -208,11 +192,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>              
             </section>
         </div>
     </section>
-
     <app-mainfooter></app-mainfooter>
-
 </div>
+

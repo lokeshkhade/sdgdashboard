@@ -6,8 +6,8 @@
                 <div class="container">
                     <div class="row py-1">
                         <div class="col-md-12">
-                            <div class="card p-2 mr-0">
-                                <div class="card-body p-2">
+                            <div class="card p-1 mr-0">
+                                <div class="card-body p-1">
                                     <ul class="list-unstyled listing">
                                         <li>
                                             <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">HOME</a>&nbsp;
@@ -22,8 +22,7 @@
                                                                                                                                         class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">NITI
                                                                                                                                         Aayog SDG
                                                                                                                                         India Index 3.0</a>&nbsp; -->
-                                            <a href="" class="btn btn-custom btn-outline-info btn-md" target="_blank" style="color: #020f9f;">DIF
-                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/reports']" class="btn btn-custom btn-outline-info btn-md" style="color: #020f9f;">Reports</a>&nbsp;
                                             <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md" target="_blank">ADMIN LOGIN</a>
                                         </li>
                                     </ul>
@@ -36,7 +35,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3 class="text-success"> District Comparison</h3>
+                                        <h3 class="text-primary"> District Comparison</h3>
                                     </div>
                                 </div>     
                                 <div class="row">
@@ -67,7 +66,7 @@
                                 <div class="card">
                                     <div class="card-body">                                
                                         <div class="row">
-                                            <!-- <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <mat-form-field>
                                                     <mat-label>Select Year<span class="required"></span> </mat-label>
                                                     <mat-select formControlName="valueyear" (selectionChange)="onYearSelected($event)">
@@ -75,17 +74,25 @@
                                                             {{y.valueyear}} </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
-                                            </div> -->
-                                            <div class="col-md-12">
-                                                <mat-form-field>
-                                                    <mat-label >Select District<span class="required"></span> </mat-label>
-                                                    <mat-select formControlName="district_name" (selectionChange)="onDistrictSelected($event)">
-                                                        <mat-option *ngFor="let d of district" [value]="d.district_code">
-                                                            {{d.district_name}} </mat-option>
-                                                    </mat-select>
-                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <h4 style="color: #020f9f;">Chhattisgarh Composite Score : {{this.compositescorecg1}} </h4>
                                             </div>
                                         </div>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <mat-form-field>
+                                                        <mat-label>Select District<span class="required"></span> </mat-label>
+                                                        <mat-select formControlName="district_name" (selectionChange)="onDistrictSelected($event)">
+                                                            <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                                {{d.district_name}} </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <h4 style="color: #020f9f;">{{this.selecteddistrictname1}} Composite Score : {{this.compositescoredistrict1}} </h4>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +100,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
-                                            <!-- <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <mat-form-field>
                                                     <mat-label>Select Year<span class="required"></span> </mat-label>
                                                     <mat-select formControlName="valueyear1" (selectionChange)="onYearSelected1($event)">
@@ -101,15 +108,24 @@
                                                             {{y.valueyear}} </mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
-                                            </div> -->
-                                            <div class="col-md-12">
-                                                <mat-form-field>
-                                                    <mat-label>Select District<span class="required"></span> </mat-label>
-                                                    <mat-select formControlName="district_name1" (selectionChange)="onDistrictSelected1($event)">
-                                                        <mat-option *ngFor="let d of district" [value]="d.district_code">
-                                                            {{d.district_name}} </mat-option>
-                                                    </mat-select>
-                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <h4 style="color: #020f9f;">Chhattisgarh Composite Score : {{this.compositescorecg2}} </h4>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                    <mat-form-field>
+                                                        <mat-label>Select District<span class="required"></span> </mat-label>
+                                                        <mat-select formControlName="district_name1" (selectionChange)="onDistrictSelected1($event)">
+                                                            <mat-option *ngFor="let d of district" [value]="d.district_code">
+                                                                {{d.district_name}} </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <h4 style="color: #020f9f;">{{this.selecteddistrictname2}} Composite Score : {{this.compositescoredistrict2}} </h4>
                                             </div>
                                         </div>
                                     </div>

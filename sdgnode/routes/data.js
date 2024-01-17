@@ -353,24 +353,18 @@ router.get('/getcompositescoreyearwise/:id', async (req, res) => {
                 (
                 select iwns.district_code , iwns.goal_name , iwns.goal_id , iwns.indicount , sgm.goal_index ,
                 dg.district_name , (CASE WHEN (iwns.district_indicator_master_id=1032 AND iwns.valueyear = 2022) 
-                OR (iwns.district_indicator_master_id=1037 AND iwns.valueyear = 2022) 
-                OR (iwns.district_indicator_master_id=1023 AND iwns.valueyear = 2022) 
-                OR (iwns.district_indicator_master_id=1006 AND iwns.valueyear = 2022)
+                OR (iwns.district_indicator_master_id=1037 AND iwns.valueyear = 2022)                 
                 THEN 0 ELSE iwns.normalize_value END) AS val
                 from dif_normalize_score iwns,sdg_goal_master sgm,dim_geo dg
                 where iwns.goal_id = sgm.goal_id and dg.district_code=iwns.district_code and iwns.valueyear = ?) TVALUE
                 group by TVALUE.district_code , TVALUE.district_name , TVALUE.indicount , TVALUE.goal_index , TVALUE.goal_id
                 union select cast(substring(dc.goal_id,5) as INTEGER) goal_index , dc.goal_id , 'CG01' , 'Chhattisgarh' ,
                 round(sum(CASE WHEN (dc.district_indicator_master_id=1032 AND dc.cg_year = 2022) 
-                OR (dc.district_indicator_master_id=1037 AND dc.cg_year = 2022) 
-                OR (dc.district_indicator_master_id=1023 AND dc.cg_year = 2022) 
-                OR (dc.district_indicator_master_id=1006 AND dc.cg_year = 2022)
+                OR (dc.district_indicator_master_id=1037 AND dc.cg_year = 2022)
                 THEN 0 ELSE dc.normalize_score END)
                 /SUM(CASE WHEN 
                 (dc.district_indicator_master_id=1032 AND dc.cg_year = 2022)OR 
-                (dc.district_indicator_master_id=1037 AND dc.cg_year = 2022) OR
-                (dc.district_indicator_master_id=1023 AND dc.cg_year = 2022) OR 
-                (dc.district_indicator_master_id=1006 AND dc.cg_year = 2022) THEN 0 ELSE 1 END)) 
+                (dc.district_indicator_master_id=1037 AND dc.cg_year = 2022)  THEN 0 ELSE 1 END)) 
                 as NORMALISE21
                 from dif_cg_averagedata dc , sdg_goal_master sgm2
                 where sgm2.goal_id = dc.goal_id and dc.cg_year = ? group by dc.goal_id
@@ -1528,7 +1522,206 @@ router.get('/getdeptdifreportalldistrict/:id/:iddept', async (req, res) => {
     }
 });
 
+// ------------------- TOP THREE PERFORMING DISTRICT -------------------- 
 
+
+router.get('/gettop3districtcomposite/:year', async (req, res) => {
+    var id1 = req.params.year; var id11 = req.params.year;
+    var id2 = req.params.year; var id12 = req.params.year;
+    var id3 = req.params.year; var id13 = req.params.year;
+    var id4 = req.params.year; var id14 = req.params.year;
+    var id5 = req.params.year; var id15 = req.params.year;
+    var id6 = req.params.year; 
+    var id7 = req.params.year;
+    var id8 = req.params.year;
+    var id9 = req.params.year;
+    var id10 = req.params.year;
+   
+    var query = `(SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 1'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3 )
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 2'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 3'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 4'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 5'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 6'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 7'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 8'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 9'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 10'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 11'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 12'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 13'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 15'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    UNION ALL
+                    (SELECT 
+                    (CASE WHEN (round(sum(iwz.normalize_value)/iwz.indicount) > 100) THEN 100
+                                    else
+                                    round(sum(iwz.normalize_value)/iwz.indicount) 
+                                    END) as goalscore , iwz.goal_id , dg.district_name     
+                    FROM dif_normalize_score iwz
+                    left join dim_geo dg on dg.district_code = iwz.district_code  
+                    WHERE iwz.valueyear=? AND iwz.goal_id='Goal 16'
+                    group by iwz.goal_id,dg.district_name 
+                    ORDER BY goalscore DESC  LIMIT 3)
+                    `;
+    try {
+        let result = await mysql.exec(query, [id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12,id13,id14,id15]);
+        if (result.length == 0) {
+            return res.json
+                ({
+                    "status": 200, "data": [], "error": true, "message": "Data Not Found"
+                });
+        }
+        else {
+            return res.json(result);
+        }
+
+    }
+    catch (err) {
+        return res.json
+            ({
+                "status": 400, "data": [], "error": false, "message": err.message
+            });
+    }
+});
 
 
 module.exports = router;

@@ -61,7 +61,7 @@ export class CgfullComponent implements OnInit {
 
   public goaldata: any = [];  public districtgoaldata: any = []; 
 
-  public district: any = [];  public goals: any = [];
+  public district: any = []; public goals: any = []; public top3districtcomposite: any = [];
 
   public totaltarget: any = []; public totaldepartment: any = []; public totalindicators: any = [];
 
@@ -143,6 +143,9 @@ export class CgfullComponent implements OnInit {
     //this.getmaxyear();
     this.getyear();  
     this.getgraphcompositescoreyearwise(+this.ds.currentyear.value);    
+    this.getdepartment(); this.getindicators(); this.gettargets();
+    this.getalltargets(); this.getallindicators(); this.getalldepartments();  
+    this.gettop3district(+this.ds.currentyear.value);   
   }
 
 ///////////////////////////////////////////////////////////////////////
@@ -169,17 +172,27 @@ export class CgfullComponent implements OnInit {
 
   /////////////////////////////////////////////////////////
 
-  onYearSelected(event: any) {
+  onYearSelected(event: any) 
+  {
     this.cgselectedYear = event.value;
     //this.params = this.params.set("year", event.value);
     this.ds.currentyear.next(event.value);
     this.ds.cgsetYear(this.cgselectedYear);
-    this.getgraphcompositescoreyearwise(event.value);    
+    this.getgraphcompositescoreyearwise(event.value); 
+    this.gettop3district(event.value);
+  }
+
+  gettop3district(cgselectedyear: any)
+  {
+    this.ds.paramFunction('data/gettop3districtcomposite', cgselectedyear).subscribe((res: any) => {
+      this.top3districtcomposite = res;
+    });
   }
 
   ////////////////////////////////////////////////////////////////////////
  
-  getgraphcompositescoreyearwise(cgselectedyear : any) {
+  getgraphcompositescoreyearwise(cgselectedyear : any) 
+  {
     this.ds.paramFunction('data/getcompositescoreyearwise', cgselectedyear).subscribe((res: any) => 
     {
       this.goaldata = res;

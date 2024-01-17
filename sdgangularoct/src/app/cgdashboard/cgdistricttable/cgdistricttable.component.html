@@ -7,8 +7,8 @@
                 <div class="container">
                     <div class="row py-1">
                         <div class="col-md-12">
-                            <div class="card p-2 mr-0">
-                                <div class="card-body p-2">
+                            <div class="card p-0 mr-0">
+                                <div class="card-body p-0">
                                     <ul class="list-unstyled listing">
                                         <li>
                                             <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md"
@@ -25,8 +25,7 @@
                                                 Aayog SDG
                                                 India Index 3.0</a>&nbsp; -->
                                             <a href="" class="btn btn-custom btn-outline-info btn-md"
-                                                target="_blank" style="color: #020f9f;">DIF
-                                                Reports</a>&nbsp;
+                                                target="_blank" style="color: #020f9f;">Reports</a>&nbsp;
                                             <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
                                                 target="_blank">ADMIN LOGIN</a>
                                         </li>
@@ -41,7 +40,7 @@
                             <div class="card p-1 mr-1">
                                 <div class="card-body p-3">
                                     <div class="card mb-3">
-                                        <h3 class="text-success"> District Wise Goal Score</h3>
+                                        <h3 class="text-primary"> District Wise Goal Score</h3>
                                         <div class="row py-1">
                                             <div class="col-md-4">
                                                 <mat-form-field>
@@ -62,7 +61,6 @@
                                         <div class="row py-1">
                                             <div class="col-md-6">
                                                 <div class='my-legend'>
-                                                    <div class='legend-title'>Legend</div>
                                                     <div class='legend-scale'>
                                                         <ul class='legend-labels'>
                                                             <li><span style='background:#dd1e47; print-color-adjust: exact;'></span>
@@ -102,12 +100,12 @@
                                                 <tbody>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>District</th>
+                                                        <th class="sticky-col first-col">District</th>
                                                         <th>Composite-Score <br>
                                                             <img src="assets/images/sdg/si.svg"
                                                                 class="img img-responsive center-block zoom goalsimage inner-img">
                                                         </th>
-                                                        <th>G-1
+                                                        <th >G-1
                                                             <br>
                                                             <img src="assets/images/sdg/1.svg"
                                                                 class="img img-responsive center-block zoom goalsimage inner-img">
@@ -191,16 +189,16 @@
                                                             <td [ngStyle]="{'background-color': '#dce1a5', 'outline':'2px solid rgb(51, 4, 224)'}">{{i+1}}</td>
                                                         </ng-container>
                                                         <ng-container *ngIf="c.district_name == 'Chhattisgarh'">
-                                                            <td [ngStyle]="{'color':'#008000'}">{{c.district_name}}
+                                                            <td class="sticky-col first-col" [ngStyle]="{'color':'#008000'}">{{c.district_name}}
                                                             </td>
                                                         </ng-container>
                                                         <ng-container *ngIf="c.district_name != 'Chhattisgarh'">
                                                             <ng-container *ngIf="c.district_code == selecteddistrictcode">
-                                                                <td [ngStyle]="{'background-color':'#dce1a5' ,'outline':'2px solid rgb(51, 4, 224)'}"><a [routerLink]="'/cghome/districtgraphcompare/' + c.district_code + '/' + this.cgselectedYear" style="color: #020f9f;">{{c.district_name}}</a>
+                                                                <td class="sticky-col first-col" [ngStyle]="{'background-color':'#dce1a5' ,'outline':'2px solid rgb(51, 4, 224)'}"><a [routerLink]="'/cghome/districtgraphcompare/' + c.district_code + '/' + this.cgselectedYear" style="color: #020f9f;">{{c.district_name}}</a>
                                                                 </td>
                                                             </ng-container>
                                                             <ng-container *ngIf="c.district_code != selecteddistrictcode">
-                                                                <td><a [routerLink]="'/cghome/districtgraphcompare/' + c.district_code + '/' + this.cgselectedYear" style="color: #020f9f;">{{c.district_name}}</a></td>
+                                                                <td class="sticky-col first-col"><a [routerLink]="'/cghome/districtgraphcompare/' + c.district_code + '/' + this.cgselectedYear" style="color: #020f9f;">{{c.district_name}}</a></td>
                                                             </ng-container>
                                                         </ng-container>
                                                         <ng-container *ngIf="c.district_code != selecteddistrictcode">

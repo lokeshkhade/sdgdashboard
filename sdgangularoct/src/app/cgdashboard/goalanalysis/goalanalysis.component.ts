@@ -186,7 +186,7 @@ export class GoalanalysisComponent implements OnInit {
   ////////////////////////////
   public selectedgoal: any; 
   public selectedyear: any;
-  public selectedindicator: any;
+  public selectedindicator: any; public selectedindicatordesc: any;
   public params = new HttpParams();
   public totaltarget: any = []; public totaldepartment: any = []; public totalindicators: any = [];
   public totaltargetdesc: any = []; public totaldepartmentdesc: any = []; public totalindicatorsdesc: any = [];
@@ -313,7 +313,7 @@ export class GoalanalysisComponent implements OnInit {
     this.getindicatorscountdesc(this.selectedgoal);
     this.gettargetsdesc(this.selectedgoal);  
 
-    
+    this.selectedindicatordesc="";
   }
 
   getyear() {
@@ -341,7 +341,7 @@ export class GoalanalysisComponent implements OnInit {
     this.selectedindicator = event.value;
     this.ds.param3Function('data/getcgdistrictcompositescorebyindicator', this.selectedyear, this.selectedgoal, this.selectedindicator).subscribe((res: any) => {
       this.indicatordata = res;
-
+      this.selectedindicatordesc = this.indicatordata[0]?.district_indicator_desc;
       this.chart1.updateOptions({
         series: [
           {
@@ -965,7 +965,9 @@ export class GoalanalysisComponent implements OnInit {
     this.getcgmapgoal(year, goalid);
   }
 
-  setdata(year: any, goalid: any) {
+  setdata(year: any, goalid: any) 
+  {
+    this.selectedindicatordesc = "";
     this.selectedgoal = goalid;
     this.selectedyear = year;
     this.getindiactor(this.selectedgoal);

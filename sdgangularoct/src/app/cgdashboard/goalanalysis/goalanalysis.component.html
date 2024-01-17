@@ -2,16 +2,16 @@
     <form [formGroup]="goalanalysis">
         <header class="py-1 bg-white">
             <div class="container">
-                <div class="row justify-content-md-center pt-2">
+                <div class="row justify-content-md-center pt-0">
                     <img src="assets/images/cglogo_2.png" style="height:70px;width:auto;margin-left: 1rem;" alt="Logo"
                         class="img-responsive">
                     <div class="col-md-9 text-center">
-                        <h2 class="text-dark">
-                            <span class="font-weight-bold">Chhattisgarh State Planning Commission</span>
-                        </h2>
-                        <h3 class="text-dark">
-                            <span class="font-weight-bold">SDG Monitoring Dashboard</span>
-                        </h3>
+                    <h1 class="text-dark">
+                        <!-- <span>{{'HOME.Title' | translate}}</span><br>
+                                                        <h2>{{'HOME.SubTitle' | translate}}</h2> -->
+                        <span>Chhattisgarh State Planning Commission</span><br>
+                        <h2>SDG Monitoring Dashboard</h2>
+                    </h1>
                     </div>
                     <img src="assets/images/sdg_logo_new.PNG" style="height:60px;width:auto;margin-left: 1rem;" alt="Logo"
                         class="img-responsive">
@@ -141,22 +141,22 @@
                     <div class="container">
                         <div class="row py-1">
                             <div class="col-md-12">
-                                <div class="card p-2 mr-0">
-                                    <div class="card-body p-2">
+                                <div class="card p-1 mr-0">
+                                    <div class="card-body p-1">
                                         <ul class="list-unstyled listing">
                                             <li>
                                                 <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md"
-                                                    target="_blank">HOME</a>&nbsp;
+                                                   >HOME</a>&nbsp;
                                                 <a [routerLink]="['/cghome']" class="btn btn-custom btn-outline-info btn-md">Chhattisgarh SDG
                                                     District Index</a>&nbsp;
                                                 <a [routerLink]="['/sifbaseline']"
-                                                    class="btn btn-custom btn-outline-info btn-md" target="_blank">SIF
+                                                    class="btn btn-custom btn-outline-info btn-md" >SIF
                                                     Baseline and
                                                     Progress Report</a>&nbsp;
                                                 <a href="#" class="btn btn-custom btn-outline-info btn-md" target="_blank">SDG
                                                     GIS Based
                                                     Maps</a>&nbsp;                                               
-                                                <a href="" class="btn btn-custom btn-outline-info btn-md" target="_blank">DIF
+                                                <a href="" class="btn btn-custom btn-outline-info btn-md">DIF
                                                     Reports</a>&nbsp;
                                                 <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
                                                     target="_blank">ADMIN LOGIN</a>
@@ -167,11 +167,11 @@
                             </div>
                         </div>
                     
-                            <div class="row py-1">
+                        <div class="row py-1">
                                 <div class="col-md-12">
                                     <div class="card p-1 mr-1">
-                                        <div class="card-body p-4">
-                                            <h3 class="text-primary text-center"><span style="color: #056213;"> 
+                                        <div class="card-body p-2">
+                                            <h4 class="text-primary text-center"><span style="color: #056213;"> 
                                                 <ng-container *ngIf="this.selectedgoal == 'Goal 1'">
                                                     <img src="assets/images/sdg/1.svg" class="img img-responsive center-block zoom goalsimage inner-img">
                                                 </ng-container>
@@ -217,8 +217,7 @@
                                                 <ng-container *ngIf="this.selectedgoal == 'Goal 16'">
                                                     <img src="assets/images/sdg/16.svg" class="img img-responsive center-block zoom goalsimage inner-img">
                                                 </ng-container>
-                                                {{this.selectedgoal}} </span> -- 
-                                                Analysis  </h3>
+                                                {{this.selectedgoal}}--Analysis </span>  {{this.selectedindicatordesc}} </h4> 
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -1465,12 +1464,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
-                    </section>
-                </div>
-            </section>
-        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </form>
     <app-mainfooter></app-mainfooter>
 </div>
 

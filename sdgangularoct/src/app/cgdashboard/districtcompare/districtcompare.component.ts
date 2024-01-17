@@ -51,7 +51,7 @@ export class DistrictcompareComponent implements OnInit {
   public selectedyear: any;
   public previousyear: any;
   public params = new HttpParams();
-  public colors: any = [];
+  public colors: any = []; public top3districtcomposite: any = [];
   public datacurrentyear: any = [];
   public datapreviousyear: any = [];
   ///////////////////////////
@@ -114,7 +114,7 @@ export class DistrictcompareComponent implements OnInit {
         }
       },
       fill: {
-       
+        opacity: 1.0
         }
     };
 
@@ -131,6 +131,7 @@ export class DistrictcompareComponent implements OnInit {
      this.getdistrictname();
      this.getdistrictwisenormalizescore(this.selecteddistrictcode, this.selectedyear);
      this.getdistrictwisepreviousnormalizescore(this.selecteddistrictcode, this.selectedyear); 
+     this.gettop3district(this.selectedyear);
   }
 
 
@@ -140,12 +141,19 @@ export class DistrictcompareComponent implements OnInit {
     });
   }
 
+  gettop3district(cgselectedyear: any) {
+    this.ds.paramFunction('data/gettop3districtcomposite', cgselectedyear).subscribe((res: any) => {
+      this.top3districtcomposite = res;
+    });
+  }
+
   /////////////////////////////////////////////////////////
 
   onYearSelected(event: any) {
     this.selectedyear = event.value;
     this.getdistrictwisenormalizescore(this.selecteddistrictcode, this.selectedyear);
     this.getdistrictwisepreviousnormalizescore(this.selecteddistrictcode, this.selectedyear);
+    this.gettop3district(this.selectedyear);
   }
 
   onDistrictSelected(event: any)

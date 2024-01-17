@@ -16,6 +16,18 @@ import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
+export type ChartOptions1 = {
+  updateSeries(goal: any, value: any): unknown;
+  updateOptions(arg0: { series: any[]; colors: string[]; }): unknown;
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+  stroke: ApexStroke;
+  fill: ApexFill;
+  dataLabels: ApexDataLabels;
+};
+
 
 export type ChartOptions2 = {
   updateSeries(goal: any, value: any): unknown;
@@ -36,7 +48,8 @@ export type ChartOptions2 = {
 })
 export class ReportgraphComponent implements OnInit {
 
- 
+  @ViewChild("chart1") chart1!: ChartOptions1;
+  public chartOptions1: Partial<ChartOptions1> | any;
 
   @ViewChild("chart2") chart2!: ChartOptions2;
   public chartOptions2: Partial<ChartOptions2> | any;
@@ -63,6 +76,7 @@ export class ReportgraphComponent implements OnInit {
   /////////////////////////////////////////////// 
   public indicators: any = [];
   public graphindicator: any = [];
+  public graphindicatorcm: any = [];
   ////////////////////////////
   public selecteddistrict: any;
   public selectedyear: any;
@@ -187,6 +201,98 @@ export class ReportgraphComponent implements OnInit {
 
 
     ////////////////////////////////////////////////////
+
+
+    this.chartOptions1 =
+    {
+      series: [],
+      chart: {
+        toolbar: {
+          show: true,
+          offsetX: 0,
+          offsetY: 0,
+          tools: {
+            download: true,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            // reset: true || '<img src="/static/icons/reset.png" width="20">',
+            customIcons: []
+          },
+          export: {
+            csv: {
+              filename: undefined,
+              columnDelimiter: ',',
+              headerCategory: 'category',
+              headerValue: 'value',
+              dateFormatter(timestamp: any) {
+                return new Date(timestamp).toDateString()
+              }
+            },
+            svg: {
+              filename: undefined,
+            },
+            png: {
+              filename: undefined,
+            }
+          },
+          autoSelected: 'zoom'
+        },
+        height: 550,
+        type: "polarArea"
+      },
+      // labels: ['Balod', 'Baloda Bazar', 'Balrampur', 
+      // 'Bastar', 'Bemetara', 'Bijapur', 'Bilaspur', 'Chhattisgarh',
+      //   'Dantewada', 'Dhamtari', 'Durg', 'Gariaband', 'Janjgir-Champa', 'Jashpur',
+      //   'Kabirdham', 'Kanker', 'Kondagaon', 'Korba', 'Korea', 'Mahasamund', 'Mungeli', 'Narayanpur','Raigarh',
+      //   'Raipur', 'Rajnandgaon', 'Sukma', 'Surajpur','Surguja'],
+      labels: ['बालोद', 'बलौदा बाजार', 'बलरामपुर',
+        'बस्तर', 'बेमेतरा', 'बीजापुर', 'बिलासपुर', 'छत्तीसगढ',
+        'दंतेवाड़ा', 'धमतरी', 'दुर्ग', 'गरियाबंद', 'जांजगीर-चंपा', 'जशपुर',
+        'कबीरधाम', 'कांकेर', 'कोंडागांव', 'कोरबा', 'कोरिया', 'महासमुंद', 'मुंगेली', 'नारायणपुर','रायगढ़',
+        'रायपुर', 'राजनंदगांव', 'सुकमा', 'सूरजपुर','सरगुजा'],
+      stroke: {
+        colors: ['#fff'],
+      },
+      fill: {
+        opacity: 1,
+      },
+      colors: [],
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: "8px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: "normal",
+          colors: ['#F44336']
+        }, 
+        offsetY: -105,
+        offsetX: -105,
+        textAnchor: "middle",
+        background: {
+          padding: 5,
+          opacity: 1.8,
+        },       
+        formatter: function (val, opts) {
+          return ((opts.w.config.labels[opts.seriesIndex])+":"+(opts.w.config.series[opts.seriesIndex]).toFixed(0));
+        },
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
 
     this.chartOptions2 =
     {
@@ -350,6 +456,45 @@ export class ReportgraphComponent implements OnInit {
 
       });
     });
+
+
+    this.ds.paramFunction('data/getcompositescoreyearwise', 2022).subscribe((res: any) => {
+
+      this.graphindicatorcm = res;
+      console.log("34", this.graphindicatorcm);
+      this.chart1.updateOptions({
+        series: [
+          +this.graphindicatorcm[0].compositescore, +this.graphindicatorcm[1].compositescore, +this.graphindicatorcm[2].compositescore, +this.graphindicatorcm[3].compositescore,
+          +this.graphindicatorcm[4].compositescore, +this.graphindicatorcm[5].compositescore, +this.graphindicatorcm[6].compositescore, +this.graphindicatorcm[7].compositescore,
+          +this.graphindicatorcm[8].compositescore, +this.graphindicatorcm[9].compositescore, +this.graphindicatorcm[10].compositescore, +this.graphindicatorcm[11].compositescore,
+          +this.graphindicatorcm[12].compositescore, +this.graphindicatorcm[13].compositescore, +this.graphindicatorcm[14].compositescore, +this.graphindicatorcm[15].compositescore,
+          +this.graphindicatorcm[16].compositescore, +this.graphindicatorcm[17].compositescore, +this.graphindicatorcm[18].compositescore,
+          +this.graphindicatorcm[19].compositescore, +this.graphindicatorcm[20].compositescore, +this.graphindicatorcm[21].compositescore,
+          +this.graphindicatorcm[22].compositescore, +this.graphindicatorcm[23].compositescore, +this.graphindicatorcm[24].compositescore,
+          +this.graphindicatorcm[25].compositescore, +this.graphindicatorcm[26].compositescore, ++this.graphindicatorcm[27].compositescore
+        ],
+        //colors: this.graphindicator.map((e: any) => +e?.goalscore <= 49 ? "#dd1e47" : "#ffc40c"),//#00a084
+        colors: this.graphindicatorcm.map((e: any) => {
+          if (+e?.compositescore >= 0 && +e?.compositescore <= 49) {
+            return "#dd1e47"
+          }
+          else if (+e?.compositescore >= 50 && +e?.compositescore <= 64) {
+            return "#ffc40c"
+          }
+          else if (+e?.compositescore >= 65 && +e?.compositescore <= 99) {
+            return "#00a084"
+          }
+          else if (+e?.compositescore >= 100) {
+            return "#00aeef"
+          }
+        }),
+
+
+      });
+    });
+
+
+
 
   }
 

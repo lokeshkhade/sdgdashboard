@@ -49,3 +49,18 @@
 //     // //z-index: 1;
 //      box-shadow: 18px 18px 18px 12px rgb(237, 237, 251);
 // }
+
+#myBtn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 99;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: rgb(5, 50, 132);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+}

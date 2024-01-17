@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { HttpParams } from '@angular/common/http';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,6 +7,7 @@ import {
   ApexChart, ApexDataLabels, ApexFill, ApexLegend, ApexNonAxisChartSeries,
   ApexResponsive
 } from "ng-apexcharts";
+import { DOCUMENT } from '@angular/common';
 
 /////////////////////////////////////////////////////////////////////
 
@@ -44,7 +45,7 @@ export class MainfullComponent implements OnInit {
 
   public params = new HttpParams();   
   
-  constructor(private fb: FormBuilder, private ds: DataService) {
+  constructor(private fb: FormBuilder, private ds: DataService, @Inject(DOCUMENT) private document: Document) {
     
     this.maindashboard = this.fb.group({ //definition to cons
       index_report_year: [this.ds.currentyearindia.value.toString(), Validators.required]
@@ -191,6 +192,10 @@ export class MainfullComponent implements OnInit {
         })
       });
     });
+  }
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth' });
   }
   
 }//last-one

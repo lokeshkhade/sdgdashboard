@@ -13,6 +13,7 @@ import { DistrictanalysisComponent } from './cgdashboard/districtanalysis/distri
 import { ReportgraphComponent } from './cgdashboard/reportgraph/reportgraph.component';
 import { DistrictgoalcompareComponent } from './cgdashboard/districtgoalcompare/districtgoalcompare.component';
 import { ProfileComponent } from './shared/profile/profile.component';
+import { ReportsComponent } from './cgdashboard/reports/reports.component';
 
 const routes: Routes = [
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'cghome/districtanalysis/:year',
     component: DistrictanalysisComponent
+  },
+  {
+    path: 'reports',
+    component: ReportsComponent
   },
   {
     path: 'cghome/reportgraph/:year',

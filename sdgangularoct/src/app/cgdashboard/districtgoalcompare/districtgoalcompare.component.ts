@@ -108,7 +108,7 @@ export class DistrictgoalcompareComponent implements OnInit {
           show: false
         }
       },
-      colors: ["#071185", "#078527"],     
+      colors: ["#545454", "#00aeef"],   
       dataLabels: {
         enabled: true
       },

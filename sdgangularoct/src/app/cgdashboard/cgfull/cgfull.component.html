@@ -6,8 +6,8 @@
                 <div class="container">
                     <div class="row py-1">
                         <div class="col-md-12">
-                            <div class="card p-2 mr-0">
-                                <div class="card-body p-2">
+                            <div class="card p-1 mr-0">
+                                <div class="card-body p-1">
                                     <ul class="list-unstyled listing">
                                         <li>
                                             <a [routerLink]="['/home']" class="btn btn-custom btn-outline-info btn-md">HOME</a>&nbsp;
@@ -20,8 +20,7 @@
                                                 class="btn btn-custom btn-outline-info btn-md" target="_blank">NITI
                                                 Aayog SDG
                                                 India Index 3.0</a>&nbsp;
-                                            <a href="" class="btn btn-custom btn-outline-info btn-md"
-                                                target="_blank">DIF
+                                            <a [routerLink]="['/reports']" class="btn btn-custom btn-outline-info btn-md">
                                                 Reports</a>&nbsp;
                                             <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md"
                                                 target="_blank">ADMIN LOGIN</a>
@@ -36,8 +35,8 @@
                         <div class="row py-1">                        
                             <div class="col-md-7">
                                 <div class="card p-1 mr-1">
-                                    <div class="card-body p-4">                                   
-                                        <h4 class="text-success">District Composite Score</h4>
+                                    <div class="card-body p-2">                                   
+                                        <h4 class="text-primary">District Composite Score</h4>
                                             <div class='my-legend'>
                                             <!-- <div class='legend-title'>Legend</div> -->
                                                 <div class="row">                                           
@@ -82,9 +81,9 @@
                                                 <a href="#" data-toggle="modal" data-target="#infomodal1" style="color: #dd1e47;">
                                                     <div class="blink_me"><i class="fa fa-hand-o-right" style="font-size:22px"></i> *NOTE</div>
                                                 </a>
-                                                <a [routerLink]="'districtcompare/' + 'DT01' + '/' + this.cgselectedYear" data-toggle="modal" data-target="#infomodal1" style="color: #dd1e47;">
+                                                <!-- <a [routerLink]="'districtcompare/' + 'DT01' + '/' + this.cgselectedYear" data-toggle="modal" data-target="#infomodal1" style="color: #dd1e47;">
                                                     <div class="blink_me"><i class="fa fa-hand-o-right" style="font-size:22px"></i> *Tablewise Analysis</div>
-                                                </a>
+                                                </a> -->
                                                 <app-cggpm></app-cggpm>
                                                          <!-- <ng-container *ngIf="cgselectedYear == '2015'">
                                                             <div class="row">
@@ -103,7 +102,7 @@
                                     </div>                                   
                                     <div class="row">                                       
                                         <div class="col-md-12">                                            
-                                            <table style="border: 1; ">
+                                            <table id="table1">
                                                 <tr>
                                                     <td>
                                                         <a href="#" class="goalslink" data-toggle="modal" data-target="#target">
@@ -135,7 +134,7 @@
                             <div class="col-md-5">
                                 <div class="card p-1 mr-1">
                                     <div class="card-body p-1">
-                                        <h4 class="text-success">District Composite Score - Percentagewise Analysis</h4>
+                                        <h4 class="text-primary">District Composite Score - Percentagewise Analysis</h4>
                                         <!-- <div class="row">
                                             <div class="col-md-12">
                                                 <div class='my-legend'>
@@ -169,33 +168,33 @@
                                                     <apx-chart  #chart1 [series]="chartOptions1.series" [chart]="chartOptions1.chart" [labels]="chartOptions1.labels"
                                                         [responsive]="chartOptions1.responsive"></apx-chart>
                                                 </div>
-                                                <table>
+                                                <table id="table1">
                                                     <tr>
                                                         <td style="background-color: #dd1e47; color: aliceblue;">
-                                                            Aspirant District :
+                                                            Aspirant  :
                                                         </td>
-                                                        <td>
+                                                        <td style="background-color: aliceblue;">
                                                             {{this.districtgoaldata[0]?.Aspirant}}
                                                         </td>
                                                         <td style="background-color: #ffc40c; color: aliceblue;">
-                                                             Performer District :
+                                                             Performer  :
                                                         </td>
-                                                        <td>
+                                                        <td style="background-color: aliceblue;">
                                                             {{this.districtgoaldata[0]?.Performer}}
                                                         </td>
                                                     </tr>
                                                     <br>
                                                     <tr>
                                                         <td style="background-color: #00a084; color: aliceblue;">
-                                                            FrontRunner District :
+                                                            FrontRunner  :
                                                         </td>
-                                                        <td>
+                                                        <td style="background-color: aliceblue;">
                                                             {{this.districtgoaldata[0]?.FrontRunner}}
                                                         </td>
                                                         <td style="background-color: #00aeef; color: aliceblue;">
-                                                             Achiever District :
+                                                             Achiever  :
                                                         </td>
-                                                        <td>
+                                                        <td style="background-color: aliceblue;">
                                                             {{this.districtgoaldata[0]?.Achiever}}
                                                         </td>
                                                     </tr>                                                  
@@ -204,16 +203,420 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                
-                                
+                                <br> 
+                                <div class="card p-1 mr-1">
+                                    <div class="card-body p-1">
+                                        <h4 class="text-primary">Top Three District Goalwise</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                               
+                                                <table id="table1">
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/1.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 1</span>
+                                                            </div>  
+                                                        </td>                                                       
+                                                        <td style="font-size: 11px;"> 
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[0]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[0]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[1]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[1]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[2]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[2]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/2.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 2</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[3]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[3]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[4]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[4]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[5]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[5]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/3.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 3</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[6]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[6]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[7]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[7]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[8]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[8]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/4.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 4</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[9]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[9]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[10]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[10]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                        <div class="hoverable">
+                                                            <span class="hoverable__main">{{this.top3districtcomposite[11]?.district_name}}</span>
+                                                            <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[11]?.goalscore}}</span>
+                                                        </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/5.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 5</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[12]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[12]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[13]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[13]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[14]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[14]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/6.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 6</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[15]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[15]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[16]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[16]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[17]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[17]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/7.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 7</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[18]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[18]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[19]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[19]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[20]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[20]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/8.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 8</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[21]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[21]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[22]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[22]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[23]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[23]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table id="table1">                                                   
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/9.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 9</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[24]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[24]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[25]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[25]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[26]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[26]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/10.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 10</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[27]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[27]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[28]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[28]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[29]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[29]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/11.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 11</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[30]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[30]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[31]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[31]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[32]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[32]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/12.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 12</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[33]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[33]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[34]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[34]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[35]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[35]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/13.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 13</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[36]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[36]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[37]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[37]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[38]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[38]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/15.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 15</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[39]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[39]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[40]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[40]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[41]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[41]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>    
+                                                    <tr>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main"><img src="assets/images/sdg/16.svg" style="height: 25px;width: 25px;"></span>
+                                                                <span class="hoverable__tooltip">Goal 16</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[42]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[42]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                        <div class="hoverable">
+                                                            <span class="hoverable__main">{{this.top3districtcomposite[43]?.district_name}}</span>
+                                                            <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[43]?.goalscore}}</span>
+                                                        </div>
+                                                        </td>
+                                                        <td style="font-size: 11px;">
+                                                            <div class="hoverable">
+                                                                <span class="hoverable__main">{{this.top3districtcomposite[44]?.district_name}}</span>
+                                                                <span class="hoverable__tooltip">Score:{{this.top3districtcomposite[44]?.goalscore}}</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>                                      
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">                                
                                 <div class="card p-1 mr-1">
                                     <div class="card-body p-1">
-                                        <h4 class="text-success">District Composite Score</h4>
+                                        <h4 class="text-primary">District Composite Score</h4>
                                         <div class='my-legend'>
                                             <div class='legend-scale'>
                                                 <ul class='legend-labels'>

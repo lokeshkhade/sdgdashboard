@@ -658,7 +658,7 @@ router.get('/getallactiveusers', async (req, res) => {
 
     //var query = `SELECT * FROM users u WHERE u.id IN (SELECT  distinct urm.user_id from user_roles_mapping urm where urm.role_id in (1,2,3,5)) ORDER BY u.id`;
     var query = `SELECT * FROM users u WHERE u.roleid IN (1,2,3,5,4) and u.isaccountactive='t' and
-                    u.isaccountlocked='f' AND u.ispasswordexpired='f' ORDER BY u.id`;
+                    u.isaccountlocked='f' AND u.ispasswordexpired='f' ORDER BY u.createddate desc`;
     try {
         let result = await mysql.exec(query);
         if (result.length == 0) 
@@ -893,9 +893,9 @@ router.get('/getdeptindicatorcount', async (req, res) => {
 router.get('/getadmindashboard/:year', async (req, res) => {
     var id = req.params.year;
 
-    var query = `select ddim.dept_id ,dm.department_name ,count(ddim.indicator_master_id)/27 as indicount ,floor(count(div2.indicators_value)/27) as entries from dif_indicator_values div2 
+    var query = `select ddim.dept_id ,dm.description,dm.department_name ,count(ddim.indicator_master_id)/27 as indicount ,floor(count(div2.indicators_value)/27) as entries from dif_indicator_values div2 
                     join dif_district_indicator_master ddim on ddim.indicator_master_id = div2.district_indicator_master_id 
-                    join department_master dm on dm.dept_id = ddim.dept_id where div2.valueyear = ? 
+                    join department_master dm on dm.dept_id = ddim.dept_id where div2.valueyear = ?
                     group by ddim.dept_id ,dm.department_name order by ddim.dept_id`;
 
     try {

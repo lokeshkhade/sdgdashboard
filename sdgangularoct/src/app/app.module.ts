@@ -40,6 +40,7 @@ import { GoalanalysisComponent } from './cgdashboard/goalanalysis/goalanalysis.c
 import { ReportgraphComponent } from './cgdashboard/reportgraph/reportgraph.component';
 import { DistrictgoalcompareComponent } from './cgdashboard/districtgoalcompare/districtgoalcompare.component';
 import { ProfileComponent } from './shared/profile/profile.component';
+import { ReportsComponent } from './cgdashboard/reports/reports.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -70,6 +71,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReportgraphComponent,
     DistrictgoalcompareComponent,
     ProfileComponent,
+    ReportsComponent,
 
   ],
   imports: [

@@ -60,12 +60,12 @@ export class SpcadmindashboardComponent implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 1000
+        height: 500
       },
       plotOptions: {
         bar: {          
-          horizontal: true,
-          columnWidth: '100%',
+          vertical: true,
+          columnWidth: '80%',
           barHeight: '100%',
           // distributed: true,
           dataLabels: {
@@ -77,8 +77,8 @@ export class SpcadmindashboardComponent implements OnInit {
         enabled: true,
         offsetX: -6,
         style: {
-          fontSize: "15px",
-          colors: ["#fff"]
+          fontSize: "9px",
+          colors: ["#000"]
         }
       },
       stroke: {
@@ -102,25 +102,22 @@ export class SpcadmindashboardComponent implements OnInit {
     this.getGraphData(this.selectedyear);
   }
 
-
   getallyears() {
     this.ds.getData('common/getdifyears').subscribe((res: any) => {
       this.years = res;
     });
   }
 
-  onYearSelected(event: any) {
+  onYearSelected(event: any) 
+  {
     this.selectedyear = event.value;
     this.getGraphData(this.selectedyear);
-
   }
-
 
   isValidInput(fieldName: any): boolean {
     return this.dashboardform.controls[fieldName].invalid &&
       (this.dashboardform.controls[fieldName].dirty || this.dashboardform.controls[fieldName].touched);
   }
-
 
   reset() {
     window.location.reload();
@@ -130,10 +127,8 @@ export class SpcadmindashboardComponent implements OnInit {
   {
     this.ds.getData('common/getdeptindicatorcount').subscribe((res: any) => {
       this.totalindicator = res;
-
       this.ds.paramFunction('common/getadmindashboard', year).subscribe((res: any) => {
         this.enterindicator = res;
-   
             this.chart.updateOptions({
               series: [
                 {
@@ -145,24 +140,19 @@ export class SpcadmindashboardComponent implements OnInit {
                   data: this.enterindicator.map((e: any) => +e?.entries)
                 }
               ],
-
               xaxis: {
                 type: "category",
                 categories: this.totalindicator.map((e: any) => e?.department_name)
 
               },
               //colors: this.totalindicator.map((e: any) => (+e?.value >= 0 && +e?.value <= 49) ? "#dd1e47" : (e: any) => (+e?.value >= 50 && +e?.value <= 64) ? "#ffc40c" : "#00a084" ),
-
             }); 
-
       });
-
     });
-
   }
   
 
   
 
   
-}
+}//last-one

@@ -22,8 +22,7 @@
                                                 target="_blank">NITI
                                                 Aayog SDG
                                                 India Index 3.0</a>&nbsp;
-                                            <a href="" class="btn btn-custom btn-outline-info btn-md" target="_blank">DIF
-                                                Reports</a>&nbsp;
+                                            <a [routerLink]="['/reports']" class="btn btn-custom btn-outline-info btn-md">Reports</a>&nbsp;
                                             <a [routerLink]="['/login']" class="btn btn-custom btn-info btn-md" target="_blank">ADMIN
                                                 LOGIN</a>
                                         </li>
@@ -35,7 +34,7 @@
                     <div class="row py-1">
                         <div class="col-md-4">
                             <div class="card p-2 mr-1">
-                                <div class="card-body p-4">
+                                <div class="card-body p-2">
                                     <div class="row py-1">
                                         <div class="col-md-4">
                                             <div class="text-center">
@@ -93,10 +92,10 @@
                                         <div class="row py-1">
                                             <div class="col-md-12">
                                                 <div class="card p-1 mr-1">
-                                                    <div class="card-body p-4">
+                                                    <div class="card-body p-2">
                                                         <div class="row py-1">
                                                             <div class="col-md-12">
-                                                                <h3 class="text-dark font-weight-bold text-center">SDGs: State Baseline and Progress
+                                                                <h3 class="text-dark text-center">SDGs: State Baseline and Progress
                                                                     Report -2022, Chhattisgarh</h3>
                                                             </div>
                                                         </div>
@@ -187,10 +186,10 @@
                             <div class="row py-1">
                                 <div class="col-md-12">
                                     <div class="card p-1 mr-1">
-                                        <div class="card-body p-4">
+                                        <div class="card-body p-2">
                                             <div class="row py-1">
                                                 <div class="col-md-12">
-                                                    <h3 class="text-dark font-weight-bold text-center">List of Major Schemes Mapped to {{goaldata[0]?.goal_id}} -
+                                                    <h3 class="text-dark text-center">List of Major Schemes Mapped to {{goaldata[0]?.goal_id}} -
                                                     {{goaldata[0]?.goal_name}}</h3>
                                                 </div>
                                             </div>
@@ -245,7 +244,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #bbb6eb">
+            <div class="modal-header" style="background-color: #29207d">
                 <h5 class="modal-title1" id="metadata">Meta Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -330,7 +329,7 @@
                 </span>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
         </div>

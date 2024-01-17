@@ -20,8 +20,7 @@ export class SifbaselineheaderComponent implements OnInit {
     });  
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   goal1() {
     this.sifselectedGoal = 'Goal 1';
